@@ -1,6 +1,9 @@
+package cs321.customstrength;
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+
 class makeArrays {
   static Exercise[] presetExercises=new Exercise[1067];
   static String[][] strings=new String[1068][8];

@@ -1,4 +1,7 @@
-import java.util.*;
+package cs321.customstrength;
+
+import java.util.ArrayList;
+
 class Program {
   String name;
   //number of differing weeks in the program, if program does not differ by week, this value will be 1
@@ -8,5 +11,6 @@ class Program {
   ArrayList<Week> weeks;
   public Program(String name) {
     this.name=name;
+    weeks = new ArrayList<Week>();
   }
 }

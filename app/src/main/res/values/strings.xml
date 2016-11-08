@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CustomStrength</string>
+    <string name="homeTitleIntro">Customize to Your Needs</string>
+
+    <string name="startWorkoutBtnLabel">Start Workout</string>
+    <string name="programsBtnLabel">My Programs</string>
+    <string name="exercisesBtnLabel">Exercises</string>
+    <string name="progressBtnLabel">Track Progress</string>
+
 </resources>

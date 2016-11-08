@@ -10,8 +10,44 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="cs321.customstrength.MainActivity">
 
+
     <TextView
+        android:text="@string/homeTitleIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/homeTitleIntro" />
+
+    <Button
+        android:text="@string/startWorkoutBtnLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startWorkoutBtn"
+        android:layout_below="@+id/homeTitleIntro"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/programsBtnLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/programsBtn"
+        android:layout_below="@+id/startWorkoutBtn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/exercisesBtnLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exerciseBtn"
+        android:layout_below="@+id/programsBtn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/progressBtnLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBtn"
+        android:layout_below="@+id/exerciseBtn"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

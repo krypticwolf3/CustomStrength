@@ -1,4 +1,7 @@
-import java.util.*;
+package cs321.customstrength;
+
+import java.util.ArrayList;
+
 class Strength extends Exercise {
   String mechanics; //Compound, isolation, N/A
   String force; //push, pull, static, N/A 

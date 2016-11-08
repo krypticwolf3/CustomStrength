@@ -1,4 +1,7 @@
-import java.util.*;
+package cs321.customstrength;
+
+import java.util.ArrayList;
+
 class Week {
   //optional
   String name;

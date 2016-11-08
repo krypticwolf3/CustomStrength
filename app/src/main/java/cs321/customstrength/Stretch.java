@@ -1,4 +1,7 @@
-import java.util.*;
+package cs321.customstrength;
+
+import java.util.ArrayList;
+
 class Stretch extends Exercise {
   boolean dynamic; //true=dynamic false=static
   int volume; //if dynamic==true, measure in reps, else measure in time(seconds)
