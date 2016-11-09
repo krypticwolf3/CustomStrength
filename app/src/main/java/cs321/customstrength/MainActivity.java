@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     Button exerciseBtn;
     Button progressBtn;
 
+    int test;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         programsBtn = (Button) findViewById(R.id.programsBtn);
         exerciseBtn = (Button) findViewById(R.id.exerciseBtn);
         progressBtn = (Button) findViewById(R.id.progressBtn);
+
+        test = 0;
     }
 
     public void exercises(View view) {
