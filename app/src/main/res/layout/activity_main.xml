@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/startWorkoutBtn"
         android:layout_below="@+id/homeTitleIntro"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="startWorkout" />
 
     <Button
         android:text="@string/programsBtnLabel"
@@ -33,7 +34,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/programsBtn"
         android:layout_below="@+id/startWorkoutBtn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="myPrograms" />
 
     <Button
         android:text="@string/exercisesBtnLabel"
@@ -41,7 +43,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/exerciseBtn"
         android:layout_below="@+id/programsBtn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="exercises" />
 
     <Button
         android:text="@string/progressBtnLabel"
@@ -49,5 +52,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/progressBtn"
         android:layout_below="@+id/exerciseBtn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="trackProgress" />
 </RelativeLayout>
