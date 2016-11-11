@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity {
     public void exercises(View view) {
         //go to exercises page
         Intent exerciseIntent = new Intent("Open Exercises");
-
     }
     public void myPrograms(View view) {
         //go to myPrograms page
-        Intent programsIntent = new Intent("Open Programs");
+        Intent programsIntent = new Intent(this, MyPrograms.class);
+        startActivity(programsIntent);
     }
     public void startWorkout(View view) {
         //go to startWorkout page
