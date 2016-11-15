@@ -13,4 +13,7 @@ class Program {
     this.name=name;
     weeks = new ArrayList<Week>();
   }
+  public String toString() {
+      return name;
+  }
 }

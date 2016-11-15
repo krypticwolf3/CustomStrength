@@ -13,8 +13,6 @@ public class MainActivity extends AppCompatActivity {
     // Create the user interface objects. //
     ////////////////////////////////////////
 
-    // Text Here.
-    TextView titleIntro;
 
     // Buttons Here.
     Button startWorkoutBtn;
@@ -31,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
         // Initialize the user interface objects. //
         ////////////////////////////////////////////
 
-        // Text Here.
-        titleIntro = (TextView) findViewById(R.id.homeTitleIntro);
 
         // Buttons Here.
         startWorkoutBtn = (Button) findViewById(R.id.startWorkoutBtn);
