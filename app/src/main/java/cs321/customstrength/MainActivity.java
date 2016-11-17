@@ -13,8 +13,6 @@ public class MainActivity extends AppCompatActivity {
     // Create the user interface objects. //
     ////////////////////////////////////////
 
-    // Text Here.
-    TextView titleIntro;
 
     // Buttons Here.
     Button startWorkoutBtn;
@@ -31,24 +29,23 @@ public class MainActivity extends AppCompatActivity {
         // Initialize the user interface objects. //
         ////////////////////////////////////////////
 
-        // Text Here.
-        titleIntro = (TextView) findViewById(R.id.homeTitleIntro);
 
         // Buttons Here.
         startWorkoutBtn = (Button) findViewById(R.id.startWorkoutBtn);
         programsBtn = (Button) findViewById(R.id.programsBtn);
         exerciseBtn = (Button) findViewById(R.id.exerciseBtn);
         progressBtn = (Button) findViewById(R.id.progressBtn);
+
     }
 
     public void exercises(View view) {
         //go to exercises page
         Intent exerciseIntent = new Intent("Open Exercises");
-
     }
     public void myPrograms(View view) {
         //go to myPrograms page
-        Intent programsIntent = new Intent("Open Programs");
+        Intent programsIntent = new Intent(this, MyPrograms.class);
+        startActivity(programsIntent);
     }
     public void startWorkout(View view) {
         //go to startWorkout page

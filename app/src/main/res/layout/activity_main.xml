@@ -1,57 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cs321.customstrength.MainActivity">
-
-
-    <TextView
-        android:text="@string/homeTitleIntro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/homeTitleIntro" />
+    android:orientation="vertical">
 
     <Button
         android:text="@string/startWorkoutBtnLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:id="@+id/startWorkoutBtn"
-        android:layout_below="@+id/homeTitleIntro"
-        android:layout_centerHorizontal="true"
         android:onClick="startWorkout" />
 
     <Button
         android:text="@string/programsBtnLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:id="@+id/programsBtn"
-        android:layout_below="@+id/startWorkoutBtn"
-        android:layout_centerHorizontal="true"
         android:onClick="myPrograms" />
 
     <Button
         android:text="@string/exercisesBtnLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:id="@+id/exerciseBtn"
-        android:layout_below="@+id/programsBtn"
-        android:layout_centerHorizontal="true"
         android:onClick="exercises" />
 
     <Button
         android:text="@string/progressBtnLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:id="@+id/progressBtn"
-        android:layout_below="@+id/exerciseBtn"
-        android:layout_centerHorizontal="true"
         android:onClick="trackProgress" />
-</RelativeLayout>
+</LinearLayout>
