@@ -10,7 +10,7 @@ class LoadExerciseData {
     Scanner sc;
     HashMap<String,ExerciseData> preloadedExercises = new HashMap<String,ExerciseData>();
     try {
-      file=new File("ExerciseDataFinal2.txt");
+      file=new File("ExerciseDataFinal.txt");
       sc=new Scanner(file); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
       sc.nextLine(); // this gets rid of the first line
