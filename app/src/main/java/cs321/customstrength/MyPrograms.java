@@ -3,15 +3,11 @@ package cs321.customstrength;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.ContextThemeWrapper;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class MyPrograms extends Activity {
     Program[] programs = {new Program("Starting Strength"), new Program("Stronglifts"), new Program("5/3/1")};
@@ -24,11 +20,17 @@ public class MyPrograms extends Activity {
     }
     public void init() {
         TableLayout tableLayout=(TableLayout) findViewById(R.id.programTable);
+        TableRow header= new TableRow(this);
+        ContextThemeWrapper headerContext= new ContextThemeWrapper(this, R.style.headerText);
+        TextView text= new TextView(headerContext);
+        text.setText(R.string.programsBtnLabel);
+        header.addView(text);
+        tableLayout.addView(header);
         for (int i = 0; i < programs.length; i++) {
             TableRow row = new TableRow(this);
-            TextView text = new TextView(this);
-            text.setText(programs[i].toString());
-            row.addView(text);
+            Button button = new Button(this);
+            button.setText(programs[i].toString());
+            row.addView(button);
             tableLayout.addView(row);
         }
     }
