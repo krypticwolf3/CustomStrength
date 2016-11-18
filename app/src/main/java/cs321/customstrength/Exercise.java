@@ -6,7 +6,7 @@ abstract class Exercise {
   String name;
   String primaryMuscle;
   ArrayList<String> secondaryMuscles;
-  String equipmentUsed;
+  ArrayList<String> equipmentUsed;
   //beginner, intermediate, expert 
   String level;
   boolean fixedVolume;
