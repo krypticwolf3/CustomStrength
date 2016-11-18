@@ -6,12 +6,12 @@ abstract class Exercise {
   String name;
   String primaryMuscle;
   ArrayList<String> secondaryMuscles;
-  String equipmentUsed;
+  ArrayList<String> equipmentUsed;
   //beginner, intermediate, expert 
   String level;
   boolean fixedVolume;
   boolean fixedIntensity;
-  Exercise (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, String equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity) {
+  Exercise (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity) {
     this.name=name;
     this.primaryMuscle=primaryMuscle;
     this.secondaryMuscles=secondaryMuscles;

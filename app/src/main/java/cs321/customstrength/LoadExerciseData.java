@@ -1,4 +1,4 @@
-//package cs321.customstrength;
+package cs321.customstrength;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;

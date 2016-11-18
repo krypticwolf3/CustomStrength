@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 class Strength extends Exercise {
   String mechanics; //Compound, isolation, N/A
-  String force; //push, pull, static, N/A 
+  String force; //push, pull, static, N/A
+
+  ArrayList<String> equipment;
+
   //true if each set uses different weight or reps
   boolean differentSets;
   int sets;
@@ -14,7 +17,7 @@ class Strength extends Exercise {
   //for use when fixedIntensity==false || fixedVolume==false
   int[] repsOrWeight;
   //fixedIntensity==true && fixedVolume==true
-  Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, String equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, boolean differentSets, String mechanics, String force, int sets, int[] reps, int[] weight) {
+  Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, boolean differentSets, String mechanics, String force, int sets, int[] reps, int[] weight) {
     super(name, primaryMuscle, secondaryMuscles, equipmentUsed, level, fixedVolume, fixedIntensity);
     this.mechanics=mechanics;
     this.force=force;
@@ -24,7 +27,7 @@ class Strength extends Exercise {
     this.weight=weight;
   }
   //fixedIntensity==false || fixedVolume==false
-  Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, String equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, boolean differentSets, String mechanics, String force, int sets, int[] repsOrWeight) {
+  Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, boolean differentSets, String mechanics, String force, int sets, int[] repsOrWeight) {
     super(name, primaryMuscle, secondaryMuscles, equipmentUsed, level, fixedVolume, fixedIntensity);
     this.mechanics=mechanics;
     this.force=force;
@@ -40,7 +43,7 @@ class Strength extends Exercise {
     }
   }
   //fixedIntensity==false && fixedVolume==false
-  Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, String equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, boolean differentSets, String mechanics, String force, int sets) {
+  Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, boolean differentSets, String mechanics, String force, int sets) {
     super(name, primaryMuscle, secondaryMuscles, equipmentUsed, level, fixedVolume, fixedIntensity);
     this.mechanics=mechanics;
     this.force=force;
@@ -54,7 +57,11 @@ class Strength extends Exercise {
     al.add("Calves");
     al.add("Glutes");
     al.add("Lower Back");
-    Strength st=new Strength("Barbell Deadlift", "Hamstrings", al, "Barbell", "Intermediate", false, false, false, "Compound", "Pull", 3);
+
+    ArrayList<String> equipment = new ArrayList<String>();
+    equipment.add("Barbell");
+
+    Strength st=new Strength("Barbell Deadlift", "Hamstrings", al, equipment, "Intermediate", false, false, false, "Compound", "Pull", 3);
     System.out.println(st);
   }
 }

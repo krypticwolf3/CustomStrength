@@ -1,4 +1,6 @@
-import java.util.*;
+package cs321.customstrength;
+
+import java.util.ArrayList;
 //class ExerciseHolder{
 //  public HashMap<String,ExerciseData> preloadedExercises = new HashMap<String,ExerciseData>(1067);
 //  public HashMap<String,ExerciseData> getExercises(){
