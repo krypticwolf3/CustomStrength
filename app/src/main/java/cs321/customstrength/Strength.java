@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 class Strength extends Exercise {
   String mechanics; //Compound, isolation, N/A
-  String force; //push, pull, static, N/A 
+  String force; //push, pull, static, N/A
+
+  ArrayList<String> equipment;
+
   //true if each set uses different weight or reps
   boolean differentSets;
   int sets;
@@ -54,7 +57,11 @@ class Strength extends Exercise {
     al.add("Calves");
     al.add("Glutes");
     al.add("Lower Back");
-    Strength st=new Strength("Barbell Deadlift", "Hamstrings", al, "Barbell", "Intermediate", false, false, false, "Compound", "Pull", 3);
+
+    ArrayList<String> equipment = new ArrayList<String>();
+    equipment.add("Barbell");
+
+    Strength st=new Strength("Barbell Deadlift", "Hamstrings", al, equipment, "Intermediate", false, false, false, "Compound", "Pull", 3);
     System.out.println(st);
   }
 }

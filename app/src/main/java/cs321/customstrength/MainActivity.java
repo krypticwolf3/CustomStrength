@@ -36,11 +36,13 @@ public class MainActivity extends AppCompatActivity {
         exerciseBtn = (Button) findViewById(R.id.exerciseBtn);
         progressBtn = (Button) findViewById(R.id.progressBtn);
 
+
     }
 
     public void exercises(View view) {
         //go to exercises page
         Intent exerciseIntent = new Intent("Open Exercises");
+
     }
     public void myPrograms(View view) {
         //go to myPrograms page

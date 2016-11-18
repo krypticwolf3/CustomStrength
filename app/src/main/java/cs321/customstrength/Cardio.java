@@ -1,4 +1,4 @@
-ArrayList<String>ArrayList<String>package cs321.customstrength;
+package cs321.customstrength;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ class Cardio extends Exercise {
   int time; //in minutes
   Intensity intensity;
   //fixedVolume==true && fixedIntensity==true
-  Cardio (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String>ArrayList<String> equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, int time, Intensity intensity) {
+  Cardio (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, int time, Intensity intensity) {
     super(name, primaryMuscle, secondaryMuscles, equipmentUsed, level, fixedVolume, fixedIntensity);
     this.time=time;
     this.intensity=intensity;
