@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MyPrograms extends Activity {
 
-    ArrayList<Program> programs = new ArrayList<Program>();
+    static ArrayList<Program> programs = new ArrayList<Program>();
     static ArrayList<Boolean> expanded=new ArrayList<Boolean>();
 
     @Override
@@ -22,22 +22,34 @@ public class MyPrograms extends Activity {
         init();
     }
     public void init() {
+        //the tableLayout to add rows to
         TableLayout tableLayout=(TableLayout) findViewById(R.id.programTable);
+        //for testing purposes
         createProgram();
+        //create the buttons that display the programs
         for (int i = 0; i < programs.size(); i++) {
+            //create a new row to put the buttons in
             TableRow row = new TableRow(this);
+            //create the button to display the program
             Button button = new Button(this);
+            //set the text
             button.setText((i+1)+". "+programs.get(i).toString());
+            //add button to row
             row.addView(button);
+            //add row to table
             tableLayout.addView(row);
+            //onClick
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     Button innerbutton=(Button) view;
+                    //find which program it is
                     int position = Character.getNumericValue(innerbutton.getText().charAt(0));
+                    //if it is collapsed, expand it
                     if (MyPrograms.expanded.get(position-1)==false) {
                         innerbutton.setText(position+". "+programs.get(position - 1).toStringExpanded());
                         MyPrograms.expanded.set(position-1, true);
                     }
+                    //if it is expanded, collapse it
                     else {
                         innerbutton.setText(position+". "+programs.get(position-1).toString());
                         MyPrograms.expanded.set(position-1, false);
@@ -55,5 +67,10 @@ public class MyPrograms extends Activity {
         program.addWeek(week);
         programs.add(program);
         expanded.add(false);
+    }
+    //onClick for add new program
+    public void addProgram(View view) {
+        Intent createIntent=new Intent(this, addProgram.class);
+        startActivity(createIntent);
     }
 }
