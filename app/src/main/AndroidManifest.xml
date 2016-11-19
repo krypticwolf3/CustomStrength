@@ -19,11 +19,11 @@
             android:name=".MyPrograms"
             android:label="@string/title_activity_my_programs"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+        <activity android:name=".programDisplay"></activity>
     </application>
 
 </manifest>
