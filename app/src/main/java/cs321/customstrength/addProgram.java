@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class addProgram extends AppCompatActivity {
     TextView weekValue;
     LinearLayout weeks;
+    TextView dayValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,8 @@ public class addProgram extends AppCompatActivity {
         weekValue=(TextView) findViewById(R.id.weekValue);
         weekValue.setText("0");
         weeks=(LinearLayout) findViewById(R.id.weeks);
+        dayValue=(TextView) findViewById(R.id.dayValue);
+        dayValue.setText("0");
     }
     public void weekIncrement(View view) {
         int value=Character.getNumericValue(weekValue.getText().charAt(0));
@@ -34,11 +37,27 @@ public class addProgram extends AppCompatActivity {
             deleteWeek();
         }
     }
+
+    public void dayIncrement(View view) {
+        int value=Character.getNumericValue(dayValue.getText().charAt(0));
+        if (value<7) {
+            dayValue.setText(Integer.toString(value + 1));
+        }
+    }
+    public void dayDecrement(View view) {
+        int value=Character.getNumericValue(dayValue.getText().charAt(0));
+        if (value>0) {
+            dayValue.setText(Integer.toString(value-1));
+        }
+    }
+
     public void createWeek() {
+        LinearLayout currentWeek=new LinearLayout(this);
+        currentWeek.setOrientation(LinearLayout.VERTICAL);
         TextView title=new TextView(this);
         title.setText("\nWeek:");
 
-        weeks.addView(title);
+        currentWeek.addView(title);
 
         LinearLayout name=new LinearLayout(this);
 
@@ -50,35 +69,36 @@ public class addProgram extends AppCompatActivity {
         nameInput.setInputType(1);
         name.addView(nameInput);
 
-        weeks.addView(name);
+        currentWeek.addView(name);
 
-        LinearLayout numDays=new LinearLayout(this);
+        LinearLayout days=new LinearLayout(this);
+        days.setOrientation(LinearLayout.VERTICAL);
 
-        TextView daysQuestion=new TextView(this);
-        daysQuestion.setText("How many different days in the week? ");
-        numDays.addView(daysQuestion);
+        addDay(days);
 
-        Button minusButton=new Button(this);
-        minusButton.setWidth(32);
-        minusButton.setHeight(32);
-        minusButton.setText("-");
-        numDays.addView(minusButton);
+        currentWeek.addView(days);
 
-        TextView daysText=new TextView(this);
-        daysText.setText("0");
-        numDays.addView(daysText);
-
-        Button plusButton=new Button(this);
-        plusButton.setWidth(32);
-        plusButton.setHeight(32);
-        plusButton.setText("+");
-        numDays.addView(plusButton);
-
-        weeks.addView(numDays);
+        weeks.addView(currentWeek);
     }
     public void deleteWeek() {
-        for (int i=0; i<3; i++) {
-            weeks.removeView(weeks.getChildAt(weeks.getChildCount() - 1));
+        weeks.removeView(weeks.getChildAt(weeks.getChildCount() - 1));
+    }
+
+    private void addDay(LinearLayout days) {
+        for (int i=0; i<Character.getNumericValue(dayValue.getText().charAt(0)); i++) {
+            LinearLayout currentDay=new LinearLayout(this);
+            currentDay.setOrientation(LinearLayout.VERTICAL);
+
+            EditText nameInput=new EditText(this);
+            nameInput.setInputType(1);
+            nameInput.setText("Name of Day "+i);
+            currentDay.addView(nameInput);
+
+            Button addExercise=new Button(this);
+            addExercise.setText("Add Exercise");
+            currentDay.addView(addExercise);
+
+            days.addView(currentDay);
         }
     }
 }

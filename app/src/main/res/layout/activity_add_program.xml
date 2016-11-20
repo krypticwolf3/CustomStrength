@@ -33,23 +33,48 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="How many different weeks in the program? "/>
+            android:text="How many days a week? "/>
         <Button
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:id="@+id/weekMinusButton"
+            android:id="@+id/dayMinusButton"
             android:text="-"
-            android:onClick="weekDecrement"/>
+            android:onClick="dayDecrement"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/weekValue"/>
+            android:id="@+id/dayValue"/>
         <Button
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:id="@+id/weekPlusButton"
+            android:id="@+id/dayPlusButton"
             android:text="+"
-            android:onClick="weekIncrement"/>
+            android:onClick="dayIncrement"/>
+    </LinearLayout>
+    <LinearLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How many different weeks in the program? "/>
+    <Button
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/weekMinusButton"
+        android:text="-"
+        android:onClick="weekDecrement"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weekValue"/>
+    <Button
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/weekPlusButton"
+        android:text="+"
+        android:onClick="weekIncrement"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
