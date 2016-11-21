@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.startworkout.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Workout" />
+
+    <Button
+        android:text="Select Program"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/select_program"
+        tools:text="@string/SelectProgram"
+        android:layout_marginTop="137dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp" />
+
+    <Button
+        android:text="Start Exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/start_exercise"
+        tools:text="@string/StartExercise"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_alignBaseline="@+id/select_program"
+        android:layout_alignBottom="@+id/select_program"
+        android:layout_toLeftOf="@+id/select_program"
+        android:layout_toStartOf="@+id/select_program" />
+</RelativeLayout>
