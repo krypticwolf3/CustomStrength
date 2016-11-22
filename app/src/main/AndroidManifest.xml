@@ -18,7 +18,8 @@
         <activity
             android:name=".MyPrograms"
             android:label="@string/title_activity_my_programs"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".View_Exercises"></activity>
     </application>
 
 </manifest>
