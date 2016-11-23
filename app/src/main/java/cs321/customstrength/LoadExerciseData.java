@@ -1,4 +1,4 @@
-//package cs321.customstrength;
+package cs321.customstrength;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,6 +38,7 @@ class LoadExerciseData {
   }
   
   // this will be used to search through Custom Exercises and preloaded
+  // returns a sorted list of the names
   static ArrayList<String> searchExercises(String s, HashMap<String,ExerciseData> hm){
     s = s.toUpperCase();
     ArrayList<String> exerciseLoad = new ArrayList<String>(); // could use a different data structure here
@@ -49,9 +50,17 @@ class LoadExerciseData {
         exerciseLoad.add(exerciseArray[i]);
       }
     }
+    Collections.sort(exerciseLoad);
     return exerciseLoad;
   }
   
+  // return a sorted list of the exercise's names
+  static List<String> displayExercises(HashMap<String,ExerciseData> hm){
+    Set<String> exerciseSet = hm.keySet();
+    List<String> exerciseList = new ArrayList<String>(exerciseSet);
+    Collections.sort(exerciseList);
+    return exerciseList;
+  }
   // this method belongs to a different class
   // need to talk about the constructors for each exercise here, probably best to keep the
   // constructors for each type the same (Strength only has one constructor); (Stretch only has one constructor) etc
@@ -63,22 +72,24 @@ class LoadExerciseData {
     if(ed.getType().equals("Cardio")){
       e = new Cardio(ed.getName(), ed.getPrimaryMuscles(), 
                              ed.getSecondaryMuscles(), ed.getEquipment(), 
-                             ed.getLevel(), fixedVolume, fixedIntensity, 
+                             ed.getMechanics(), ed.getLevel(), ed.getForce(),
                              0, Intensity.LOW); // USER INPUTS, NEED TO FIGURE THIS OUT time and intensity
     }
     if(ed.getType().equals("Stretching")){
       e = new Stretch(ed.getName(), ed.getPrimaryMuscles(), 
                              ed.getSecondaryMuscles(), ed.getEquipment(), 
-                             ed.getLevel(), fixedVolume, fixedIntensity,
-                               false, 0); // USER INPUTS, NEED TO FIGURE THIS OUT dynamic and volume
+                             ed.getMechanics(), ed.getLevel(), ed.getForce(),
+                             fixedVolume, fixedIntensity,
+                             1, new int[]{0}, new Intensity[]{Intensity.LOW}); // USER INPUTS, NEED TO FIGURE THIS OUT dynamic and volume
     }
     if(ed.getType().equals("Strength") | ed.getType().equals("Powerlifting") |
        ed.getType().equals("Plyometrics") | ed.getType().equals("Strongman") |
        ed.getType().equals("OlympicWeightlifting")){
-      e = new Strength (ed.getName(), ed.getPrimaryMuscles(), 
+      e = new Strength(ed.getName(), ed.getPrimaryMuscles(), 
                              ed.getSecondaryMuscles(), ed.getEquipment(), 
-                             ed.getLevel(), fixedVolume, fixedIntensity,
-                            false, ed.getMechanics(), ed.getForce(), 0); // USER INPUTS, NEED TO FIGURE THIS OUT
+                             ed.getMechanics(), ed.getLevel(), ed.getForce(),
+                             fixedVolume, fixedIntensity,
+                             1, new int[]{0}, new int[]{0}); // USER INPUTS, NEED TO FIGURE THIS OUT
                                                                           // differentSets and sets
     }
     else{
@@ -86,6 +97,7 @@ class LoadExerciseData {
     }
     System.out.println(e);
   }
+  
     
 
   public static void main(String[] args) {
