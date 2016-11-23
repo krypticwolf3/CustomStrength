@@ -7,18 +7,21 @@ abstract class Exercise {
   String primaryMuscle;
   ArrayList<String> secondaryMuscles;
   ArrayList<String> equipmentUsed;
+  String mechanics;
+  String force;
   //beginner, intermediate, expert 
   String level;
-  boolean fixedVolume;
-  boolean fixedIntensity;
-  Exercise (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, String equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity) {
+//  boolean fixedVolume; don't need this
+//  boolean fixedIntensity; don't need this
+  Exercise (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, 
+            String mechanics, String level, String force) {
     this.name=name;
     this.primaryMuscle=primaryMuscle;
     this.secondaryMuscles=secondaryMuscles;
     this.equipmentUsed=equipmentUsed;
+    this.mechanics=mechanics;
     this.level=level;
-    this.fixedVolume=fixedVolume;
-    this.fixedIntensity=fixedIntensity;
+    this.force=force;
   }
   public String toString() {
     StringBuilder sb=new StringBuilder(name);
