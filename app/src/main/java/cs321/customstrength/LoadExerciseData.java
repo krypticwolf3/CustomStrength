@@ -1,21 +1,19 @@
 package cs321.customstrength;
 import java.util.Scanner;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 import java.io.*;
-import android.content.Context; // Use only when using Android
 class LoadExerciseData {
-  static protected final HashMap<String,ExerciseData> PRELOADED_EXERCISES = 
-    LoadExerciseData.loadPreloadedData();
-  static protected HashMap<String,ExerciseData> CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
+  protected static final HashMap<String,ExerciseData> PRELOADED_EXERCISES = LoadExerciseData.loadPreloadedData();
+  protected static HashMap<String,ExerciseData> CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
   static HashMap<String,ExerciseData> loadPreloadedData() {
-    InputStream inputStream;
+    File file;
     Scanner sc;
     HashMap<String,ExerciseData> preloadedExercises = new HashMap<String,ExerciseData>();
     try {
-      inputStream = MainActivity.getContext().getAssets().open("ExerciseDataFinal.txt"); // use this on Android SDK
-//      inputStream=new FileInputStream("ExerciseDataFinal.txt"); // use this on normal Java IDE
-      sc=new Scanner(inputStream); // separated this line because it leads to a memory leak
+      file=new File("ExerciseDataFinal.txt");
+      sc=new Scanner(file); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
       sc.nextLine(); // this gets rid of the first header line
       while (sc.hasNext()) {
@@ -35,21 +33,19 @@ class LoadExerciseData {
       }
      sc.close();
     }
-    catch (IOException e) {
+    catch (FileNotFoundException e) {
       System.out.println("Could not find ExerciseDataFinal.txt file");
     }
    return preloadedExercises; 
   }
     static HashMap<String,ExerciseData> loadCustomData() {
-    InputStream inputStream;
+    File file;
     Scanner sc;
     HashMap<String,ExerciseData> customExercises = new HashMap<String,ExerciseData>();
     try {
-      inputStream = MainActivity.getContext().getAssets().open("CustomExerciseData.txt"); // use this on Android SDK
-//      inputStream=new FileInputStream("CustomExerciseData.txt"); // use this on normal Java IDE
-      sc=new Scanner(inputStream); // separated this line because it leads to a memory leak
+      file=new File("CustomExerciseData.txt");
+      sc=new Scanner(file); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
-      sc.nextLine(); // this gets rid of the first header line
       while (sc.hasNext()) {
         // read all of the values, there should be 8 items
         String name = sc.next(); // adds the exercise name as upper case only because of search
@@ -61,18 +57,18 @@ class LoadExerciseData {
         String mechanics = sc.next();
         String level = sc.next();
         String force = sc.next();
-        ExerciseData ed = new ExerciseData(name, type, primaryMuscle, 
+        ExerciseData ed = new ExerciseData(name, type, primaryMuscle,
                        secondaryMuscles, equipmentUsed, mechanics, level, force);
         customExercises.put(name, ed); // add to HashMap, key = name, data = value
       }
      sc.close();
     }
-    catch (IOException e) {
+    catch (FileNotFoundException e) {
       System.out.println("Could not find ExerciseDataFinal.txt file");
     }
-   return customExercises; 
+   return customExercises;
   }
-  
+
   // this will be used to search through Custom Exercises and preloaded
   // returns a sorted list of the names
   static ArrayList<String> searchExercises(String s, HashMap<String,ExerciseData> hm){
@@ -121,7 +117,7 @@ class LoadExerciseData {
     if(ed.getType().equals("Strength") | ed.getType().equals("Powerlifting") |
        ed.getType().equals("Plyometrics") | ed.getType().equals("Strongman") |
        ed.getType().equals("OlympicWeightlifting")){
-      e = new Strength(ed.getName(), ed.getPrimaryMuscles(), 
+      e = new Strength(ed.getName(), ed.getPrimaryMuscles(),
                              ed.getSecondaryMuscles(), ed.getEquipment(), 
                              ed.getMechanics(), ed.getLevel(), ed.getForce(),
                              fixedVolume, fixedIntensity,
@@ -133,7 +129,7 @@ class LoadExerciseData {
     }
     System.out.println(e);
   }
-  
+
   // create a CustomExercise if the name does not already exist in the CustomExercise hashmap
   static void createCustomExercise(ExerciseData ed){
     if(LoadExerciseData.CUSTOM_EXERCISES.containsKey(ed.getName().toUpperCase())){
@@ -143,8 +139,8 @@ class LoadExerciseData {
       FileWriter fw = new FileWriter("CustomExerciseData.txt",true);
       BufferedWriter bw = new BufferedWriter(fw);
       PrintWriter pw = new PrintWriter(bw);
-      pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName().toUpperCase(), ed.getType(), ed.getPrimaryMuscles(), 
-                arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()), 
+      pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName().toUpperCase(), ed.getType(), ed.getPrimaryMuscles(),
+                arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()),
                 ed.getMechanics(), ed.getLevel(), ed.getForce());
       pw.close();
       updateCustomExercises();
@@ -153,7 +149,7 @@ class LoadExerciseData {
       System.out.println("Could not find CustomExerciseData.txt file");
     }
   }
-  
+
   static void removeCustomExercise(String customExerciseName){
     String s = customExerciseName.toUpperCase();
     if(!(LoadExerciseData.CUSTOM_EXERCISES.containsKey(s))){
@@ -163,11 +159,10 @@ class LoadExerciseData {
     ExerciseData[] eds = LoadExerciseData.CUSTOM_EXERCISES.values().toArray(new ExerciseData[0]);
     try{
       PrintWriter pw = new PrintWriter("CustomExerciseData.txt", "UTF-8");
-      pw.printf("name\ttype\tprimary\tsecondary\tequipment\tmechanics\tlevel\tforce\n"); // add the header row
       for(int i = 0; i < eds.length; i++){
-        ExerciseData ed = eds[i]; 
-        pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName(), ed.getType(), ed.getPrimaryMuscles(), 
-                  arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()), 
+        ExerciseData ed = eds[i];
+        pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName(), ed.getType(), ed.getPrimaryMuscles(),
+                  arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()),
                   ed.getMechanics(), ed.getLevel(), ed.getForce());
       }
       pw.close();
@@ -177,11 +172,11 @@ class LoadExerciseData {
       System.out.println("CustomExerciseData.txt file was not found");
     }
   }
-  
+
   static void updateCustomExercises(){
-    CUSTOM_EXERCISES =  LoadExerciseData.loadCustomData();
+    CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
   }
-  
+
   // Helper method
   // Used in create and removeCustomExercise to put it in the original format
   public static String arrayListToQuotes(ArrayList<String> al){
@@ -195,6 +190,24 @@ class LoadExerciseData {
     return s;
   }
   public static void main(String[] args) {
+//    HashMap<String,ExerciseData> preloadedExercises = makeArrays.PRELOADED_EXERCISES;
+//    File file;
+//    Scanner sc;
+//    try {
+//      file=new File("ExerciseDataFinal2.txt");
+//      sc=new Scanner(file); // separated this line because it leads to a memory leak
+//      sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
+//      sc.nextLine();
+//      while(sc.hasNext()){
+//        String word = sc.next();
+//        if(preloadedExercises.containsKey(word)){
+//          System.out.println(word);
+//        }
+//        sc.nextLine();
+//      }
+//       sc.close();
+//    }
+//    catch(Exception e){}
   }
 }
 
