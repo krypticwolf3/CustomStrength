@@ -1,19 +1,21 @@
 package cs321.customstrength;
 import java.util.Scanner;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 import java.io.*;
+import android.content.Context; // Use only when using Android
 class LoadExerciseData {
-  protected static final HashMap<String,ExerciseData> PRELOADED_EXERCISES = LoadExerciseData.loadPreloadedData();
-  protected static HashMap<String,ExerciseData> CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
+  static protected final HashMap<String,ExerciseData> PRELOADED_EXERCISES = 
+    LoadExerciseData.loadPreloadedData();
+  static protected HashMap<String,ExerciseData> CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
   static HashMap<String,ExerciseData> loadPreloadedData() {
-    File file;
+    InputStream inputStream;
     Scanner sc;
     HashMap<String,ExerciseData> preloadedExercises = new HashMap<String,ExerciseData>();
     try {
-      file=new File("ExerciseDataFinal.txt");
-      sc=new Scanner(file); // separated this line because it leads to a memory leak
+      inputStream = MainActivity.getContext().getAssets().open("ExerciseDataFinal.txt"); // use this on Android SDK
+//      inputStream=new FileInputStream("ExerciseDataFinal.txt"); // use this on normal Java IDE
+      sc=new Scanner(inputStream); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
       sc.nextLine(); // this gets rid of the first header line
       while (sc.hasNext()) {
@@ -33,18 +35,19 @@ class LoadExerciseData {
       }
      sc.close();
     }
-    catch (FileNotFoundException e) {
+    catch (IOException e) {
       System.out.println("Could not find ExerciseDataFinal.txt file");
     }
    return preloadedExercises; 
   }
     static HashMap<String,ExerciseData> loadCustomData() {
-    File file;
+    InputStream inputStream;
     Scanner sc;
     HashMap<String,ExerciseData> customExercises = new HashMap<String,ExerciseData>();
     try {
-      file=new File("CustomExerciseData.txt");
-      sc=new Scanner(file); // separated this line because it leads to a memory leak
+      inputStream = MainActivity.getContext().getAssets().open("CustomExerciseData.txt"); // use this on Android SDK
+//      inputStream=new FileInputStream("CustomExerciseData.txt"); // use this on normal Java IDE
+      sc=new Scanner(inputStream); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
       while (sc.hasNext()) {
         // read all of the values, there should be 8 items
@@ -63,7 +66,7 @@ class LoadExerciseData {
       }
      sc.close();
     }
-    catch (FileNotFoundException e) {
+    catch (IOException e) {
       System.out.println("Could not find ExerciseDataFinal.txt file");
     }
    return customExercises; 
@@ -174,7 +177,7 @@ class LoadExerciseData {
   }
   
   static void updateCustomExercises(){
-    CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
+    CUSTOM_EXERCISES =  LoadExerciseData.loadCustomData();
   }
   
   // Helper method
