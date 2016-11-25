@@ -49,6 +49,7 @@ class LoadExerciseData {
 //      inputStream=new FileInputStream("CustomExerciseData.txt"); // use this on normal Java IDE
       sc=new Scanner(inputStream); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
+      sc.nextLine(); // this gets rid of the first header line
       while (sc.hasNext()) {
         // read all of the values, there should be 8 items
         String name = sc.next(); // adds the exercise name as upper case only because of search
@@ -162,6 +163,7 @@ class LoadExerciseData {
     ExerciseData[] eds = LoadExerciseData.CUSTOM_EXERCISES.values().toArray(new ExerciseData[0]);
     try{
       PrintWriter pw = new PrintWriter("CustomExerciseData.txt", "UTF-8");
+      pw.printf("name\ttype\tprimary\tsecondary\tequipment\tmechanics\tlevel\tforce\n"); // add the header row
       for(int i = 0; i < eds.length; i++){
         ExerciseData ed = eds[i]; 
         pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName(), ed.getType(), ed.getPrimaryMuscles(), 
