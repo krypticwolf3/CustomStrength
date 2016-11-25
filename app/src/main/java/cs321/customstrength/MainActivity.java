@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.content.Context;
 public class MainActivity extends AppCompatActivity {
 
     ////////////////////////////////////////
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button programsBtn;
     Button exerciseBtn;
     Button progressBtn;
-
+    private static Context mContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         programsBtn = (Button) findViewById(R.id.programsBtn);
         exerciseBtn = (Button) findViewById(R.id.exerciseBtn);
         progressBtn = (Button) findViewById(R.id.progressBtn);
-
+        mContext = this;
     }
 
     public void exercises(View view) {
@@ -54,5 +54,10 @@ public class MainActivity extends AppCompatActivity {
     public void trackProgress(View view) {
         //go to trackProgress page
         Intent progressIntent = new Intent("Open Progress");
+    }
+
+    // returns a Context that can be called
+    public static Context getContext() {
+        return mContext;
     }
 }
