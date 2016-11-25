@@ -32,7 +32,7 @@ class LoadExerciseData {
         sc.close();
     }
     catch (FileNotFoundException e) {
-      System.out.println("Could not find ExerciseData file");
+      System.out.println("Could not find ExerciseDataFinal.txt file");
     }
    return preloadedExercises; 
   }

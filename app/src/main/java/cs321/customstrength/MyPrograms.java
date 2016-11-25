@@ -5,8 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TableRow;
+import android.widget.LinearLayout;
 import java.util.ArrayList;
 
 public class MyPrograms extends Activity {
@@ -22,22 +21,22 @@ public class MyPrograms extends Activity {
         init();
     }
     public void init() {
-        //the tableLayout to add rows to
-        TableLayout tableLayout=(TableLayout) findViewById(R.id.programTable);
+        //the LinearLayout to add programs to
+        LinearLayout programLayout=(LinearLayout) findViewById(R.id.programLayout);
         //for testing purposes
         createProgram();
         //create the buttons that display the programs
         for (int i = 0; i < programs.size(); i++) {
-            //create a new row to put the buttons in
-            TableRow row = new TableRow(this);
+            //create a new LinearLayout to put the buttons in
+            LinearLayout program = new LinearLayout(this);
             //create the button to display the program
             Button button = new Button(this);
             //set the text
             button.setText((i+1)+". "+programs.get(i).toString());
             //add button to row
-            row.addView(button);
+            program.addView(button);
             //add row to table
-            tableLayout.addView(row);
+            programLayout.addView(program);
             //onClick
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
