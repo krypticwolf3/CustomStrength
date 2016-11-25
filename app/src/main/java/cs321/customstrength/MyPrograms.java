@@ -5,12 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-<<<<<<< HEAD
 import android.widget.LinearLayout;
-=======
-import android.widget.TableLayout;
-import android.widget.TableRow;
->>>>>>> refs/remotes/origin/master
 import java.util.ArrayList;
 
 public class MyPrograms extends Activity {
@@ -26,38 +21,22 @@ public class MyPrograms extends Activity {
         init();
     }
     public void init() {
-<<<<<<< HEAD
         //the LinearLayout to add programs to
         LinearLayout programLayout=(LinearLayout) findViewById(R.id.programLayout);
-=======
-        //the tableLayout to add rows to
-        TableLayout tableLayout=(TableLayout) findViewById(R.id.programTable);
->>>>>>> refs/remotes/origin/master
         //for testing purposes
         createProgram();
         //create the buttons that display the programs
         for (int i = 0; i < programs.size(); i++) {
-<<<<<<< HEAD
             //create a new LinearLayout to put the buttons in
             LinearLayout program = new LinearLayout(this);
-=======
-            //create a new row to put the buttons in
-            TableRow row = new TableRow(this);
->>>>>>> refs/remotes/origin/master
             //create the button to display the program
             Button button = new Button(this);
             //set the text
             button.setText((i+1)+". "+programs.get(i).toString());
             //add button to row
-<<<<<<< HEAD
             program.addView(button);
             //add row to table
             programLayout.addView(program);
-=======
-            row.addView(button);
-            //add row to table
-            tableLayout.addView(row);
->>>>>>> refs/remotes/origin/master
             //onClick
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {

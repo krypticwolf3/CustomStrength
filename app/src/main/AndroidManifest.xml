@@ -29,13 +29,9 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".addProgram"></activity>
-=======
         <activity android:name=".addProgram"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".View_Exercises"></activity>
->>>>>>> refs/remotes/origin/master
     </application>
 
 </manifest>
