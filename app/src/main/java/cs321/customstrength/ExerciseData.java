@@ -1,9 +1,6 @@
-import java.util.*;
-//class ExerciseHolder{
-//  public HashMap<String,ExerciseData> preloadedExercises = new HashMap<String,ExerciseData>(1067);
-//  public HashMap<String,ExerciseData> getExercises(){
-//    return preloadedExercises;
-//  }
+package cs321.customstrength;
+
+import java.util.ArrayList;
  class ExerciseData{
     String name;
     String type;
@@ -44,6 +41,7 @@ import java.util.*;
       }
       return returnArray;
     }
+
     public String getName(){ return this.name; }
     public String getType(){ return this.type; }
     public String getPrimaryMuscles(){ return this.primaryMuscle; }
