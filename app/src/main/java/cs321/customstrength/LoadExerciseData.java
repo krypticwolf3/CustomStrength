@@ -190,24 +190,6 @@ class LoadExerciseData {
     return s;
   }
   public static void main(String[] args) {
-//    HashMap<String,ExerciseData> preloadedExercises = makeArrays.PRELOADED_EXERCISES;
-//    File file;
-//    Scanner sc;
-//    try {
-//      file=new File("ExerciseDataFinal2.txt");
-//      sc=new Scanner(file); // separated this line because it leads to a memory leak
-//      sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
-//      sc.nextLine();
-//      while(sc.hasNext()){
-//        String word = sc.next();
-//        if(preloadedExercises.containsKey(word)){
-//          System.out.println(word);
-//        }
-//        sc.nextLine();
-//      }
-//       sc.close();
-//    }
-//    catch(Exception e){}
   }
 }
 
