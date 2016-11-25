@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.content.Context;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     Button startWorkoutBtn;
     Button programsBtn;
     Button exerciseBtn;
+
+    private static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         programsBtn = (Button) findViewById(R.id.programsBtn);
         exerciseBtn = (Button) findViewById(R.id.exerciseBtn);
 
-
+        mContext = this;
     }
 
     public void exercises(View view) {
@@ -49,5 +52,10 @@ public class MainActivity extends AppCompatActivity {
     public void startWorkout(View view) {
         //go to startWorkout page
         Intent startIntent = new Intent("Open Start");
+    }
+
+    // returns a Context that can be called
+    public static Context getContext() {
+        return mContext;
     }
 }
