@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cs321.customstrength">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission-sdk-23>
-    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission-sdk-23>
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -29,9 +29,11 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".addProgram"
+        <activity
+            android:name=".addProgram"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".View_Exercises"></activity>
+        <activity android:name=".View_Exercises" />
+        <activity android:name=".selectExercise"></activity>
     </application>
 
 </manifest>

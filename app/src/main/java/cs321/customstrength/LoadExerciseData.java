@@ -97,38 +97,38 @@ class LoadExerciseData {
   // need to talk about the constructors for each exercise here, probably best to keep the
   // constructors for each type the same (Strength only has one constructor); (Stretch only has one constructor) etc
   // and use if statements and set methods inside the constructor
-  static void addPreloadedExercise(String s, HashMap<String,ExerciseData> hm, boolean fixedVolume, boolean fixedIntensity) throws IllegalArgumentException{
-    s = s.toUpperCase(); // make everything uppercase so it searches, still need to figure out a way to make this work
-    ExerciseData ed = hm.get(s);
-    Exercise e;
-    if(ed.getType().equals("Cardio")){
-      e = new Cardio(ed.getName(), ed.getPrimaryMuscles(), 
-                             ed.getSecondaryMuscles(), ed.getEquipment(), 
-                             ed.getMechanics(), ed.getLevel(), ed.getForce(),
-                             0, Intensity.LOW); // USER INPUTS, NEED TO FIGURE THIS OUT time and intensity
-    }
-    if(ed.getType().equals("Stretching")){
-      e = new Stretch(ed.getName(), ed.getPrimaryMuscles(), 
-                             ed.getSecondaryMuscles(), ed.getEquipment(), 
-                             ed.getMechanics(), ed.getLevel(), ed.getForce(),
-                             fixedVolume, fixedIntensity,
-                             1, new int[]{0}, new Intensity[]{Intensity.LOW}); // USER INPUTS, NEED TO FIGURE THIS OUT dynamic and volume
-    }
-    if(ed.getType().equals("Strength") | ed.getType().equals("Powerlifting") |
-       ed.getType().equals("Plyometrics") | ed.getType().equals("Strongman") |
-       ed.getType().equals("OlympicWeightlifting")){
-      e = new Strength(ed.getName(), ed.getPrimaryMuscles(), 
-                             ed.getSecondaryMuscles(), ed.getEquipment(), 
-                             ed.getMechanics(), ed.getLevel(), ed.getForce(),
-                             fixedVolume, fixedIntensity,
-                             1, new int[]{0}, new int[]{0}); // USER INPUTS, NEED TO FIGURE THIS OUT
+  //static void addPreloadedExercise(String s, HashMap<String,ExerciseData> hm, boolean fixedVolume, boolean fixedIntensity) throws IllegalArgumentException{
+    //s = s.toUpperCase(); // make everything uppercase so it searches, still need to figure out a way to make this work
+    //ExerciseData ed = hm.get(s);
+    //Exercise e;
+    //if(ed.getType().equals("Cardio")){
+      //e = new Cardio(ed.getName(), ed.getPrimaryMuscles(),
+        //                     ed.getSecondaryMuscles(), ed.getEquipment(),
+          //                   ed.getMechanics(), ed.getLevel(), ed.getForce(),
+            //                 0, Intensity.LOW); // USER INPUTS, NEED TO FIGURE THIS OUT time and intensity
+    //}
+    //if(ed.getType().equals("Stretching")){
+      //e = new Stretch(ed.getName(), ed.getPrimaryMuscles(),
+        //                     ed.getSecondaryMuscles(), ed.getEquipment(),
+          //                   ed.getMechanics(), ed.getLevel(), ed.getForce(),
+            //                 fixedVolume, fixedIntensity,
+              //               1, new int[]{0}, new Intensity[]{Intensity.LOW}); // USER INPUTS, NEED TO FIGURE THIS OUT dynamic and volume
+    //}
+    //if(ed.getType().equals("Strength") | ed.getType().equals("Powerlifting") |
+      // ed.getType().equals("Plyometrics") | ed.getType().equals("Strongman") |
+       //ed.getType().equals("OlympicWeightlifting")){
+      //e = new Strength(ed.getName(), ed.getPrimaryMuscles(),
+        //                     ed.getSecondaryMuscles(), ed.getEquipment(),
+          //                   ed.getMechanics(), ed.getLevel(), ed.getForce(),
+            //                 fixedVolume, fixedIntensity,
+              //               1, new int[]{0}, new int[]{0}); // USER INPUTS, NEED TO FIGURE THIS OUT
                                                                           // differentSets and sets
-    }
-    else{
-      throw new IllegalArgumentException("Wrong type on exercise");
-    }
-    System.out.println(e);
-  }
+    //}
+    //else{
+      //throw new IllegalArgumentException("Wrong type on exercise");
+    //}
+    //System.out.println(e);
+  //}
   
   // create a CustomExercise if the name does not already exist in the CustomExercise hashmap
   static void createCustomExercise(ExerciseData ed){
