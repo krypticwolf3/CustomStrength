@@ -1,14 +1,20 @@
 package cs321.customstrength;
 
+<<<<<<< HEAD
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+=======
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+>>>>>>> refs/remotes/origin/master
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+<<<<<<< HEAD
 import android.support.v7.widget.SearchView;
 import android.widget.TextView;
 
@@ -19,6 +25,14 @@ public class addProgram extends AppCompatActivity implements SearchView.OnQueryT
     LinearLayout weeks;
     TextView dayValue;
     LinearLayout mainLayout;
+=======
+import android.widget.TextView;
+
+public class addProgram extends AppCompatActivity {
+    TextView weekValue;
+    LinearLayout weeks;
+    TextView dayValue;
+>>>>>>> refs/remotes/origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +43,10 @@ public class addProgram extends AppCompatActivity implements SearchView.OnQueryT
         weeks=(LinearLayout) findViewById(R.id.weeks);
         dayValue=(TextView) findViewById(R.id.dayValue);
         dayValue.setText("0");
+<<<<<<< HEAD
         mainLayout=(LinearLayout) findViewById(R.id.activity_add_program);
+=======
+>>>>>>> refs/remotes/origin/master
     }
     public void weekIncrement(View view) {
         int value=Character.getNumericValue(weekValue.getText().charAt(0));
@@ -109,6 +126,7 @@ public class addProgram extends AppCompatActivity implements SearchView.OnQueryT
             days.addView(currentDay);
         }
     }
+<<<<<<< HEAD
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
 
@@ -141,4 +159,6 @@ public class addProgram extends AppCompatActivity implements SearchView.OnQueryT
         // User changed the text
         return false;
     }
+=======
+>>>>>>> refs/remotes/origin/master
 }
