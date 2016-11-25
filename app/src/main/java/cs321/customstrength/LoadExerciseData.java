@@ -3,9 +3,11 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.io.*;
 class LoadExerciseData {
-  protected static final HashMap<String,ExerciseData> PRELOADED_EXERCISES = LoadExerciseData.loadData();
-  static HashMap<String,ExerciseData> loadData() {
+  protected static final HashMap<String,ExerciseData> PRELOADED_EXERCISES = LoadExerciseData.loadPreloadedData();
+  protected static HashMap<String,ExerciseData> CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
+  static HashMap<String,ExerciseData> loadPreloadedData() {
     File file;
     Scanner sc;
     HashMap<String,ExerciseData> preloadedExercises = new HashMap<String,ExerciseData>();
@@ -13,8 +15,9 @@ class LoadExerciseData {
       file=new File("ExerciseDataFinal.txt");
       sc=new Scanner(file); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
-      sc.nextLine(); // this gets rid of the first line
+      sc.nextLine(); // this gets rid of the first header line
       while (sc.hasNext()) {
+        // read all of the values, there should be 8 items
         String name = sc.next(); // adds the exercise name as upper case only because of search
         name = name.toUpperCase(); // I don't know how to make search not case sensitive
         String type = sc.next();
@@ -26,15 +29,44 @@ class LoadExerciseData {
         String force = sc.next();
         ExerciseData ed = new ExerciseData(name, type, primaryMuscle, 
                        secondaryMuscles, equipmentUsed, mechanics, level, force);
-          preloadedExercises.put(name, ed); // add to HashMap, key = name, data = value
+        preloadedExercises.put(name, ed); // add to HashMap, key = name, data = value
       }
-      if(sc != null) // added sc.close() to get rid of memory leak
-        sc.close();
+     sc.close();
     }
     catch (FileNotFoundException e) {
-      System.out.println("Could not find ExerciseData file");
+      System.out.println("Could not find ExerciseDataFinal.txt file");
     }
    return preloadedExercises; 
+  }
+    static HashMap<String,ExerciseData> loadCustomData() {
+    File file;
+    Scanner sc;
+    HashMap<String,ExerciseData> customExercises = new HashMap<String,ExerciseData>();
+    try {
+      file=new File("CustomExerciseData.txt");
+      sc=new Scanner(file); // separated this line because it leads to a memory leak
+      sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
+      while (sc.hasNext()) {
+        // read all of the values, there should be 8 items
+        String name = sc.next(); // adds the exercise name as upper case only because of search
+        name = name.toUpperCase(); // I don't know how to make search not case sensitive
+        String type = sc.next();
+        String primaryMuscle = sc.next();
+        String secondaryMuscles = sc.next();
+        String equipmentUsed = sc.next();
+        String mechanics = sc.next();
+        String level = sc.next();
+        String force = sc.next();
+        ExerciseData ed = new ExerciseData(name, type, primaryMuscle, 
+                       secondaryMuscles, equipmentUsed, mechanics, level, force);
+        customExercises.put(name, ed); // add to HashMap, key = name, data = value
+      }
+     sc.close();
+    }
+    catch (FileNotFoundException e) {
+      System.out.println("Could not find ExerciseDataFinal.txt file");
+    }
+   return customExercises; 
   }
   
   // this will be used to search through Custom Exercises and preloaded
@@ -98,8 +130,65 @@ class LoadExerciseData {
     System.out.println(e);
   }
   
-    
-
+  // create a CustomExercise if the name does not already exist in the CustomExercise hashmap
+  static void createCustomExercise(ExerciseData ed){
+    if(LoadExerciseData.CUSTOM_EXERCISES.containsKey(ed.getName().toUpperCase())){
+      throw new IllegalArgumentException("This Custom Exercise already exists, please use a different name");
+    }
+    try {
+      FileWriter fw = new FileWriter("CustomExerciseData.txt",true);
+      BufferedWriter bw = new BufferedWriter(fw);
+      PrintWriter pw = new PrintWriter(bw);
+      pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName().toUpperCase(), ed.getType(), ed.getPrimaryMuscles(), 
+                arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()), 
+                ed.getMechanics(), ed.getLevel(), ed.getForce());
+      pw.close();
+      updateCustomExercises();
+    }
+    catch (IOException e) {
+      System.out.println("Could not find CustomExerciseData.txt file");
+    }
+  }
+  
+  static void removeCustomExercise(String customExerciseName){
+    String s = customExerciseName.toUpperCase();
+    if(!(LoadExerciseData.CUSTOM_EXERCISES.containsKey(s))){
+      return;
+    }
+    LoadExerciseData.CUSTOM_EXERCISES.remove(s);
+    ExerciseData[] eds = LoadExerciseData.CUSTOM_EXERCISES.values().toArray(new ExerciseData[0]);
+    try{
+      PrintWriter pw = new PrintWriter("CustomExerciseData.txt", "UTF-8");
+      for(int i = 0; i < eds.length; i++){
+        ExerciseData ed = eds[i]; 
+        pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName(), ed.getType(), ed.getPrimaryMuscles(), 
+                  arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()), 
+                  ed.getMechanics(), ed.getLevel(), ed.getForce());
+      }
+      pw.close();
+      updateCustomExercises();
+    }
+    catch(IOException e){
+      System.out.println("CustomExerciseData.txt file was not found");
+    }
+  }
+  
+  static void updateCustomExercises(){
+    CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
+  }
+  
+  // Helper method
+  // Used in create and removeCustomExercise to put it in the original format
+  public static String arrayListToQuotes(ArrayList<String> al){
+    String s = "";
+    for(int i = 0; i < al.size(); i++){
+      s += al.get(i);
+      if(i != al.size()-1){
+        s += ",";
+      }
+    }
+    return s;
+  }
   public static void main(String[] args) {
 //    HashMap<String,ExerciseData> preloadedExercises = makeArrays.PRELOADED_EXERCISES;
 //    File file;
