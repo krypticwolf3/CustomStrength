@@ -5,16 +5,16 @@ import java.util.*;
 import java.io.*;
 import android.content.Context; // Use only when using Android
 class LoadExerciseData {
-  static protected final HashMap<String,ExerciseData> PRELOADED_EXERCISES = 
-    LoadExerciseData.loadPreloadedData();
+  static protected final HashMap<String,ExerciseData> PRELOADED_EXERCISES = LoadExerciseData.loadPreloadedData();
   static protected HashMap<String,ExerciseData> CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
   static HashMap<String,ExerciseData> loadPreloadedData() {
     InputStream inputStream;
+//    File f;
     Scanner sc;
     HashMap<String,ExerciseData> preloadedExercises = new HashMap<String,ExerciseData>();
     try {
       inputStream = MainActivity.getContext().getAssets().open("ExerciseDataFinal.txt"); // use this on Android SDK
-//      inputStream=new FileInputStream("ExerciseDataFinal.txt"); // use this on normal Java IDE
+//      f=new File("ExerciseDataFinal.txt"); // use this on normal Java IDE
       sc=new Scanner(inputStream); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
       sc.nextLine(); // this gets rid of the first header line
@@ -36,18 +36,19 @@ class LoadExerciseData {
      sc.close();
     }
     catch (IOException e) {
-      System.out.println("Could not find ExerciseDataFinal.txt file");
+      System.out.println("loadPreloadedExercises: Could not find ExerciseDataFinal.txt file");
     }
    return preloadedExercises; 
   }
     static HashMap<String,ExerciseData> loadCustomData() {
-    InputStream inputStream;
+//    InputStream inputStream;
+    File f;
     Scanner sc;
     HashMap<String,ExerciseData> customExercises = new HashMap<String,ExerciseData>();
     try {
-      inputStream = MainActivity.getContext().getAssets().open("CustomExerciseData.txt"); // use this on Android SDK
-//      inputStream=new FileInputStream("CustomExerciseData.txt"); // use this on normal Java IDE
-      sc=new Scanner(inputStream); // separated this line because it leads to a memory leak
+      f = new File(MainActivity.getContext().getFilesDir(),"CustomExerciseData.txt"); // use on Android SDK
+//      f=new File("CustomExerciseData.txt"); // use this on normal Java IDE
+      sc=new Scanner(f); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
       sc.nextLine(); // this gets rid of the first header line
       while (sc.hasNext()) {
@@ -68,7 +69,7 @@ class LoadExerciseData {
      sc.close();
     }
     catch (IOException e) {
-      System.out.println("Could not find ExerciseDataFinal.txt file");
+      System.out.println("loadCustomData: Could not find CustomExerciseData.txt file");
     }
    return customExercises; 
   }
@@ -140,7 +141,11 @@ class LoadExerciseData {
       throw new IllegalArgumentException("This Custom Exercise already exists, please use a different name");
     }
     try {
-      FileWriter fw = new FileWriter("CustomExerciseData.txt",true);
+      // use if using Android SDK
+      FileWriter fw = new FileWriter(new File(MainActivity.getContext().getFilesDir(), "CustomExerciseData.txt"), true);
+//      // use if using Java IDE
+//      FileWriter fw = new FileWriter("CustomExerciseData.txt",true);
+      
       BufferedWriter bw = new BufferedWriter(fw);
       PrintWriter pw = new PrintWriter(bw);
       pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName().toUpperCase(), ed.getType(), ed.getPrimaryMuscles(), 
@@ -150,7 +155,7 @@ class LoadExerciseData {
       updateCustomExercises();
     }
     catch (IOException e) {
-      System.out.println("Could not find CustomExerciseData.txt file");
+      System.out.println("createCustomExercise: Could not find CustomExerciseData.txt file");
     }
   }
   
@@ -180,6 +185,42 @@ class LoadExerciseData {
   
   static void updateCustomExercises(){
     CUSTOM_EXERCISES =  LoadExerciseData.loadCustomData();
+  }
+  
+  // used in onCreate() in MainActivity, writes the files for the exercises if it doesn't already exist
+  static void writeFilesIntoStorage(){
+    try {
+      File f;
+      f = new File(MainActivity.getContext().getFilesDir(), "ExerciseDataFinal.txt");
+      f.createNewFile();
+      PrintWriter preloadedWriter = new PrintWriter(f, "UTF-8");
+      InputStream inputStream = MainActivity.getContext().getAssets().open("ExerciseDataFinal.txt");
+      Scanner s = new Scanner(inputStream);
+      while (s.hasNextLine()) {
+        preloadedWriter.println(s.nextLine());
+      }
+      preloadedWriter.close();
+      s.close();
+    }
+    catch(IOException e){
+      System.out.println("writeFilesIntoStorage(): Could not find ExerciseDataFinal.txt");
+    }
+    try{
+      File f;
+      f = new File(MainActivity.getContext().getFilesDir(), "CustomExerciseData.txt");
+      f.createNewFile();
+      PrintWriter customWriter = new PrintWriter(f, "UTF-8");
+      InputStream inputStream = MainActivity.getContext().getAssets().open("CustomExerciseData.txt");
+      Scanner s = new Scanner(inputStream);
+      while (s.hasNextLine()) {
+        customWriter.println(s.nextLine());
+      }
+      customWriter.close();
+      s.close();
+    }
+    catch(IOException e){
+      System.out.println("writeFilesIntoStorage(): Could not find CustomDataFile.txt");
+    }
   }
   
   // Helper method
