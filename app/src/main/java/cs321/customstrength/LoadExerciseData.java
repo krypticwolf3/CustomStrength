@@ -1,23 +1,30 @@
 package cs321.customstrength;
+import java.io.*;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.util.*;
-import java.io.*;
 import android.content.Context; // Use only when using Android
+
 class LoadExerciseData {
-  static protected final HashMap<String,ExerciseData> PRELOADED_EXERCISES = LoadExerciseData.loadPreloadedData();
-  static protected HashMap<String,ExerciseData> CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
+
+  protected static final HashMap<String,ExerciseData> PRELOADED_EXERCISES = LoadExerciseData.loadPreloadedData();
+  protected static HashMap<String,ExerciseData> CUSTOM_EXERCISES = LoadExerciseData.loadCustomData();
+
   static HashMap<String,ExerciseData> loadPreloadedData() {
     InputStream inputStream;
 //    File f;
     Scanner sc;
     HashMap<String,ExerciseData> preloadedExercises = new HashMap<String,ExerciseData>();
+
     try {
       inputStream = MainActivity.getContext().getAssets().open("ExerciseDataFinal.txt"); // use this on Android SDK
+
 //      f=new File("ExerciseDataFinal.txt"); // use this on normal Java IDE
+
       sc=new Scanner(inputStream); // separated this line because it leads to a memory leak
       sc.useDelimiter("\t|\n"); // since you can't properly close everything if it's one line
       sc.nextLine(); // this gets rid of the first header line
+
       while (sc.hasNext()) {
         // read all of the values, there should be 8 items
         String name = sc.next(); // adds the exercise name as upper case only because of search
