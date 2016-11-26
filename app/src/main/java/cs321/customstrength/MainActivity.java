@@ -1,12 +1,16 @@
 package cs321.customstrength;
 
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.content.Context;
+import java.io.*;
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     ////////////////////////////////////////
@@ -36,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
         exerciseBtn = (Button) findViewById(R.id.exerciseBtn);
         progressBtn = (Button) findViewById(R.id.progressBtn);
         mContext = this;
+        // BRANDON: I WILL HAVE TO ADD MORE TO THIS TO MAKE IT NOT CONSTANTLY OVERWRITE
+        File f1 = new File(getContext().getFilesDir(), "ExerciseDataFinal.txt");
+        File f2 = new File(getContext().getFilesDir(), "CustomExerciseData.txt");
+        // writes new files into internal storage if it doesn't already exist
+        // this is how we read CustomExerciseData
+        if(!f1.exists() && !f2.exists()){
+          LoadExerciseData.writeFilesIntoStorage();
+        }
     }
 
     public void exercises(View view) {
@@ -60,4 +72,5 @@ public class MainActivity extends AppCompatActivity {
     public static Context getContext() {
         return mContext;
     }
+
 }
