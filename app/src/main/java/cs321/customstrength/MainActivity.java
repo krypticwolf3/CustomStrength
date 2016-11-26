@@ -1,11 +1,13 @@
 package cs321.customstrength;
 
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.content.Context;
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
     Button startWorkoutBtn;
     Button programsBtn;
     Button exerciseBtn;
-    Button progressBtn;
+
+    private static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +37,22 @@ public class MainActivity extends AppCompatActivity {
         startWorkoutBtn = (Button) findViewById(R.id.startWorkoutBtn);
         programsBtn = (Button) findViewById(R.id.programsBtn);
         exerciseBtn = (Button) findViewById(R.id.exerciseBtn);
-        progressBtn = (Button) findViewById(R.id.progressBtn);
 
-
+        mContext = this;
+        // BRANDON: I WILL HAVE TO ADD MORE TO THIS TO MAKE IT NOT CONSTANTLY OVERWRITE
+        File f1 = new File(getContext().getFilesDir(), "ExerciseDataFinal.txt");
+        File f2 = new File(getContext().getFilesDir(), "CustomExerciseData.txt");
+        // writes new files into internal storage if it doesn't already exist
+        // this is how we read CustomExerciseData
+        if(!f1.exists() && !f2.exists()){
+          LoadExerciseData.writeFilesIntoStorage();
+        }
     }
 
     public void exercises(View view) {
         //go to exercises page
-        Intent exerciseIntent = new Intent("Open Exercises");
-
+        Intent exerciseIntent = new Intent(this, View_Exercises.class);
+        startActivity(exerciseIntent);
     }
     public void myPrograms(View view) {
         //go to myPrograms page
@@ -53,8 +63,9 @@ public class MainActivity extends AppCompatActivity {
         //go to startWorkout page
         Intent startIntent = new Intent("Open Start");
     }
-    public void trackProgress(View view) {
-        //go to trackProgress page
-        Intent progressIntent = new Intent("Open Progress");
+
+    // returns a Context that can be called
+    public static Context getContext() {
+        return mContext;
     }
 }
