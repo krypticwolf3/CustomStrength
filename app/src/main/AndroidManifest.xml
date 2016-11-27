@@ -2,36 +2,53 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cs321.customstrength">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <!-- Requested Permission List -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission-sdk-23>
-    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission-sdk-23>
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!-- Application Configuration -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+        <!-- Main Activity Screen -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <!-- My Programs Section -->
         <activity
             android:name=".MyPrograms"
             android:label="@string/title_activity_my_programs"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
+
         </activity>
-        <activity android:name=".addProgram"
+
+        <activity
+            android:name=".addProgram"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".View_Exercises"></activity>
+
+
+        <!-- Exercise Section -->
+        <activity android:name=".View_Exercises">
+        </activity>
+
+
+        <!-- Start Workout Section -->
+        <activity android:name=".StartWorkout">
+        </activity>
+
     </application>
 
 </manifest>

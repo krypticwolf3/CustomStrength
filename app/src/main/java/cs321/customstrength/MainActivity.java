@@ -21,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
     Button programsBtn;
     Button exerciseBtn;
 
+    ////////////////////////////////////////
+    // Parameters for the app's sections. //
+    ////////////////////////////////////////
+
+    static private MyPrograms currentProgram;
+
     private static Context mContext;
 
     @Override
@@ -53,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         //go to exercises page
         Intent exerciseIntent = new Intent(this, View_Exercises.class);
         startActivity(exerciseIntent);
+        finish();
     }
     public void myPrograms(View view) {
         //go to myPrograms page
@@ -61,11 +68,19 @@ public class MainActivity extends AppCompatActivity {
     }
     public void startWorkout(View view) {
         //go to startWorkout page
-        Intent startIntent = new Intent("Open Start");
+        Intent startIntent = new Intent(this, StartWorkout.class);
+        startActivity(startIntent);
     }
 
     // returns a Context that can be called
     public static Context getContext() {
         return mContext;
+    }
+
+    protected void setWorkout() {
+        Intent choice = getIntent();
+        if (choice != null) {
+
+        }
     }
 }
