@@ -37,6 +37,9 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity android:name=".selectExercise"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
         <!-- Exercise Section -->
         <activity android:name=".View_Exercises"

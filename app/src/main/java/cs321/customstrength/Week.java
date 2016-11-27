@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 class Week {
     //optional
-    String name;
+    String name="Week";
     int numDays=0;
     //use an ArrayList to help with editing
     ArrayList<Day> days=new ArrayList<Day>();

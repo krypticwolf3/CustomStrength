@@ -1,10 +1,7 @@
 package cs321.customstrength;
-import java.io.*;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
 import java.util.*;
-import android.content.Context; // Use only when using Android
-
+import java.io.*;
 class LoadExerciseData {
 
     protected static final HashMap<String,ExerciseData> PRELOADED_EXERCISES = LoadExerciseData.loadPreloadedData();

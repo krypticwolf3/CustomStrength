@@ -40,17 +40,17 @@ public class MyPrograms extends Activity {
             //onClick
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Button innerbutton=(Button) view;
+                    Button innerbutton = (Button) view;
                     //find which program it is
                     int position = Character.getNumericValue(innerbutton.getText().charAt(0));
                     //if it is collapsed, expand it
                     if (MyPrograms.expanded.get(position-1)==false) {
-                        innerbutton.setText(position+". "+programs.get(position - 1).toStringExpanded());
+                        innerbutton.setText(position +". "+ programs.get(position - 1).toStringExpanded());
                         MyPrograms.expanded.set(position-1, true);
                     }
                     //if it is expanded, collapse it
                     else {
-                        innerbutton.setText(position+". "+programs.get(position-1).toString());
+                        innerbutton.setText(position +". "+ programs.get(position - 1).toString());
                         MyPrograms.expanded.set(position-1, false);
                     }
                 }
