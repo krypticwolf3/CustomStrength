@@ -17,8 +17,8 @@ class Strength extends Exercise {
   //use when fixedIntensity==false || fixedVolume==false
   int[] repsOrWeight;
   //fixedIntensity==true && fixedVolume==true
-  Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, 
-            String mechanics, String level, String force, boolean fixedVolume, boolean fixedIntensity, 
+  Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed,
+            String mechanics, String level, String force, boolean fixedVolume, boolean fixedIntensity,
             int sets, int[] reps, int[] weight) {
     super(name, primaryMuscle, secondaryMuscles, equipmentUsed, mechanics, level, force);
     this.fixedVolume=fixedVolume;
@@ -61,7 +61,7 @@ class Strength extends Exercise {
      * END CODE
     */
   }
-  
+
 //  unneeded constructors
 //  //fixedIntensity==false || fixedVolume==false
 //  Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, boolean differentSets, String mechanics, String force, int sets, int[] repsOrWeight) {
@@ -74,7 +74,7 @@ class Strength extends Exercise {
 //      this.repsOrWeight=weight;
 //      reps=new int[sets];
 //    }
-//    else { 
+//    else {
 //      this.repsOrWeight=reps;
 //      weight=new int[sets];
 //    }
@@ -89,7 +89,7 @@ class Strength extends Exercise {
 //    this.reps=new int[sets];
 //    this.weight=new int[sets];
 //  }
-  
+
   public static void main (String[] args) {
 //    ArrayList<String> al=new ArrayList<String>();
 //    al.add("Calves");

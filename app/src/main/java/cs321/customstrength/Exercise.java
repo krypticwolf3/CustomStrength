@@ -9,11 +9,11 @@ abstract class Exercise {
   ArrayList<String> equipmentUsed;
   String mechanics;
   String force;
-  //beginner, intermediate, expert 
+  //beginner, intermediate, expert
   String level;
 //  boolean fixedVolume; don't need this
 //  boolean fixedIntensity; don't need this
-  Exercise (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, 
+  Exercise (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed,
             String mechanics, String level, String force) {
     this.name=name;
     this.primaryMuscle=primaryMuscle;
