@@ -60,7 +60,8 @@ public class MyPrograms extends Activity {
     //for testing purposes
     public void createProgram() {
         Program program=new Program("Starting Strength");
-        Week week=new Week("Week One");
+        Week week=new Week();
+        week.name="Week One";
         Day day=new Day("Legs");
         week.addDay(day);
         program.addWeek(week);

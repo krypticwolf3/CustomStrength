@@ -110,7 +110,7 @@ public class addProgram extends AppCompatActivity {
                     exercise=null;
                     Intent searchIntent=new Intent(view.getContext(), selectExercise.class);
                     startActivityForResult(searchIntent, 1);
-                    day.exercises.add(exercise);
+                    //day.exercises.add(exercise);
                 }
             });
             currentDay.addView(addExercise);
