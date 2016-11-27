@@ -1,213 +1,219 @@
 name	type	primary	secondary	equipment	mechanics	level	force
-3/4 Sit-Up	Strength	Abdominals	N/A	None	Compound	Beginner	Pull
-90-Degree Jump Squat Twist	Plyometrics	Quadriceps	"Calves,Glutes,Hamstrings"	None	Compound	Beginner	Push
-90/90 Hamstring	Stretching	Hamstrings	Calves	None	N/A	Beginner	Push
-Ab Crunch Machine	Strength	Abdominals	N/A	Machine	Isolation	Intermediate	Pull
-Ab Roller	Strength	Abdominals	Shoulders	Other	Compound	Intermediate	Pull
-Adductor	Stretching	Adductors	N/A	Foam Roll	Isolation	Intermediate	Static
-Adductor/Groin	Stretching	Adductors	N/A	None	N/A	Intermediate	Static
-Advanced Kettlebell Windmill	Strength	Abdominals	"Glutes,Hamstrings,Shoulders"	Kettlebells	Isolation	Intermediate	Push
-Air Bike	Strength	Abdominals	N/A	None	Compound	Beginner	Pull
-Alien Squat	Plyometrics	Quadriceps	"Abductors,Calves,Glutes,Hamstrings"	None	Compound	Beginner	Push
-All Fours Quad Stretch	Stretching	Quadriceps	Quadriceps	None	N/A	Intermediate	Static
-Alternate Hammer Curl	Strength	Biceps	Forearms	Dumbbell	Isolation	Beginner	Pull
-Alternate Heel Touchers	Strength	Abdominals	N/A	None	Isolation	Beginner	Pull
-Alternate Incline Dumbbell Curl	Strength	Biceps	Forearms	Dumbbell	Isolation	Beginner	Pull
-Alternate Leg Diagonal Bound	Plyometrics	Quadriceps	"Abductors,Adductors,Calves,Glutes,Hamstrings"	None	Compound	Beginner	Push
-Alternating Cable Shoulder Press	Strength	Shoulders	Triceps	Cable	Compound	Beginner	Push
-Alternating Deltoid Raise	Strength	Shoulders	N/A	Dumbbell	Isolation	Beginner	Push
-Alternating Floor Press	Strength	Chest	"Abdominals,Shoulders,Triceps"	Kettlebells	Compound	Beginner	Push
-Alternating Hang Clean	Strength	Hamstrings	"Biceps,Calves,Forearms,Glutes,LowerBack,Traps"	Kettlebells	Compound	Intermediate	Pull
-Alternating Kettlebell Press	Strength	Shoulders	Triceps	Kettlebells	Compound	Intermediate	Push
-Alternating Kettlebell Row	Strength	MiddleBack	"Biceps,Lats"	Kettlebells	Isolation	Intermediate	Pull
-Alternating Leg Swing	Stretching	Hamstrings	"Calves,Glutes,LowerBack"	None	Compound	Beginner	N/A
-Alternating Renegade Row	Strength	MiddleBack	"Abdominals,Biceps,Chest,Lats,Triceps"	Kettlebells	Compound	Expert	Pull
-Ankle Circles	Stretching	Calves	N/A	None	Isolation	Beginner	Pull
-Ankle On The Knee	Stretching	Glutes	N/A	None	N/A	Beginner	Static
-Anterior Tibialis-SMR	Stretching	Calves	N/A	Other	N/A	Intermediate	Static
-Anti-Gravity Press	Strength	Shoulders	"MiddleBack,Traps,Triceps"	Barbell	Compound	Beginner	Push
-Arm Circles	Stretching	Shoulders	Traps	None	Isolation	Beginner	Push
-Arnold Dumbbell Press	Strength	Shoulders	Triceps	Dumbbell	Compound	Intermediate	Push
-Around The World Pull-Up	Strength	Lats	"Biceps,MiddleBack"	Other	Compound	Expert	Pull
-Around The Worlds	Strength	Chest	Shoulders	Dumbbell	Compound	Intermediate	Push
-Assisted Chin-Up	Strength	Lats	"Biceps,MiddleBack"	Bands	Compound	Beginner	Pull
-Atlas Stone Trainer	Strongman	LowerBack	"Biceps,Forearms,Glutes,Hamstrings,Quadriceps"	Other	Compound	Intermediate	Pull
-Atlas Stones	Strongman	LowerBack	"Abdominals,Adductors,Biceps,Calves,Forearms,Glutes,Hamstrings,MiddleBack,Quadriceps,Traps"	Other	Compound	Expert	Pull
-Axle Clean And Press	Strongman	Shoulders	"Glutes,Hamstrings,LowerBack,MiddleBack,Quadriceps,Traps,Triceps"	Barbell	Compound	Expert	Push
-Axle Deadlift	Strongman	LowerBack	"Forearms,Glutes,Hamstrings,MiddleBack,Quadriceps,Traps"	Other	Compound	Intermediate	Pull
-Back Flyes - With Bands	Strength	Shoulders	"MiddleBack,Triceps"	Bands	Compound	Beginner	Pull
-Backward Drag	Strongman	Quadriceps	"Calves,Forearms,Glutes,Hamstrings,LowerBack"	Other	Compound	Beginner	Pull
-Backward Medicine Ball Throw	Plyometrics	Shoulders	N/A	Medicine Ball	Compound	Beginner	Push
-Balance Board	Strength	Calves	"Hamstrings,Quadriceps"	Other	Compound	Beginner	N/A
-Ball Leg Curl	Strength	Hamstrings	"Calves,Glutes"	Exercise Ball	Isolation	Beginner	Pull
-Band Assisted Pull-Up	Strength	Lats	"Abdominals,Forearms,MiddleBack"	Other	Compound	Beginner	N/A
-Band Good Morning	Powerlifting	Hamstrings	"Glutes,LowerBack"	Bands	Compound	Beginner	Pull
-Band Good Morning (Pull Through)	Powerlifting	Hamstrings	"Glutes,LowerBack"	Bands	Compound	Beginner	Pull
-Band Hip Adductions	Strength	Adductors	N/A	Bands	Isolation	Beginner	Pull
-Band Pull Apart	Strength	Shoulders	"MiddleBack,Traps"	Bands	Isolation	Beginner	Pull
-Band Skull Crusher	Strength	Triceps	N/A	Bands	Isolation	Beginner	Push
-Bar Push-Up Smith Machine	Plyometrics	Chest	"Shoulders,Triceps"	Other	Compound	Beginner	Push
-Bar Throw And Press	Strength	Chest	"Shoulders,Triceps"	Machine	Compound	Intermediate	Push
-Barbell Ab Rollout	Strength	Abdominals	"LowerBack,Shoulders"	Barbell	Compound	Intermediate	Pull
-Barbell Ab Rollout - On Knees	Strength	Abdominals	"LowerBack,Shoulders"	Barbell	Compound	Expert	Pull
-Barbell Bench Press - Medium Grip	Strength	Chest	"Shoulders,Triceps"	Barbell	Compound	Beginner	Push
-Barbell Bench Press-Wide Grip	Strength	Chest	"Shoulders,Triceps"	Barbell	Compound	Beginner	Push
-Barbell Curl	Strength	Biceps	Forearms	Barbell	Isolation	Beginner	Pull
-Barbell Curls Lying Against An Incline	Strength	Biceps	N/A	Barbell	Isolation	Beginner	Pull
-Barbell Deadlift	Strength	Hamstrings	"Calves,Glutes,LowerBack"	Barbell	Compound	Intermediate	Pull
-Barbell Deadlift Bent Row Complex	Strength	MiddleBack	"Glutes,Hamstrings,Lats,LowerBack"	Barbell	Compound	Intermediate	Pull
-Barbell Front Raise	Strength	Shoulders	N/A	Barbell	Isolation	Beginner	Push
-Barbell Front-To-Back Squat	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Barbell	Compound	Intermediate	Push
-Barbell Full Squat	Strength	Quadriceps	"Calves,Glutes,Hamstrings,LowerBack"	Barbell	Compound	Intermediate	Push
-Barbell Glute Bridge	Powerlifting	Glutes	"Calves,Hamstrings"	Barbell	Compound	Intermediate	Push
-Barbell Guillotine Bench Press	Strength	Chest	"Shoulders,Triceps"	Barbell	Compound	Intermediate	Push
-Barbell Hack Squat	Strength	Quadriceps	"Calves,Forearms,Hamstrings"	Barbell	Compound	Intermediate	Push
-Barbell Hip Thrust	Powerlifting	Glutes	"Calves,Hamstrings"	Barbell	Compound	Intermediate	Push
-Barbell Incline Bench Press Medium-Grip	Strength	Chest	"Shoulders,Triceps"	Barbell	Compound	Beginner	Push
-Barbell Incline Shoulder Raise	Strength	Shoulders	Chest	Barbell	Compound	Beginner	Push
-Barbell Lunge	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Barbell	Compound	Intermediate	Push
-Barbell Rear Delt Row	Strength	Shoulders	"Biceps,Lats,MiddleBack"	Barbell	Compound	Beginner	Pull
-Barbell Reverse Lunge	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Barbell	Compound	Beginner	Push
-Barbell Rollout from Bench	Strength	Abdominals	"Glutes,Hamstrings,Lats,Shoulders"	Barbell	Compound	Intermediate	Pull
-Barbell Seated Calf Raise	Strength	Calves	N/A	Barbell	Isolation	Beginner	Push
-Barbell Shoulder Press	Strength	Shoulders	"Chest,Triceps"	Barbell	Compound	Intermediate	Push
-Barbell Shrug	Strength	Traps	N/A	Barbell	Isolation	Beginner	Pull
-Barbell Shrug Behind The Back	Strength	Traps	"Forearms,MiddleBack"	Barbell	Isolation	Beginner	Pull
-Barbell Side Bend	Strength	Abdominals	LowerBack	Barbell	Isolation	Beginner	Pull
-Barbell Side Split Squat	Strength	Quadriceps	"Calves,Hamstrings,LowerBack"	Barbell	Compound	Beginner	Push
-Barbell Squat	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Barbell	Compound	Beginner	Push
-Barbell Squat To A Bench	Strength	Quadriceps	"Calves,Glutes,Hamstrings,LowerBack"	Barbell	Compound	Expert	Push
-Barbell Squat To A Box	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Other	Compound	Beginner	Push
-Barbell Step Ups	Strength	Quadriceps	"Calves,Glutes,Hamstrings,Quadriceps"	Barbell	Compound	Intermediate	Push
-Barbell Thruster	Strength	Quadriceps	"Glutes,Hamstrings,MiddleBack,Shoulders,Traps,Triceps"	Barbell	Compound	Intermediate	Push
-Barbell Walking Lunge	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Barbell	Compound	Beginner	Push
-Battling Ropes	Strength	Shoulders	"Chest,Forearms"	Other	Compound	Beginner	Push
-Bear Crawl Sled Drags	Strongman	Quadriceps	"Calves,Glutes,Hamstrings"	Other	Compound	Beginner	Push
-Behind Head Chest Stretch	Stretching	Chest	Shoulders	Other	Isolation	Expert	Static
-Bench Dips	Strength	Triceps	"Chest,Shoulders"	None	Compound	Beginner	Push
-Bench Jump	Plyometrics	Quadriceps	"Calves,Glutes,Hamstrings"	None	Compound	Intermediate	Push
-Bench Press - Powerlifting	Powerlifting	Triceps	"Chest,Forearms,Lats,Shoulders"	Barbell	Compound	Intermediate	Push
-Bench Press - With Bands	Strength	Chest	"Shoulders,Triceps"	Bands	Compound	Beginner	Push
-Bench Press with Chains	Powerlifting	Triceps	"Chest,Lats,Shoulders"	Barbell	Compound	Expert	Push
-Bench Press With Short Bands	Powerlifting	Chest	"Shoulders,Triceps"	Bands	Compound	Intermediate	Push
-Bench Sprint	Plyometrics	Quadriceps	"Calves,Glutes,Hamstrings"	Other	Compound	Beginner	Push
-Bent Over Barbell Row	Strength	MiddleBack	"Biceps,Lats,Shoulders"	Barbell	Compound	Beginner	Pull
-Bent Over Dumbbell Rear Delt Raise With Head On Bench	Strength	Shoulders	N/A	Dumbbell	Isolation	Beginner	Pull
-Bent Over Low-Pulley Side Lateral	Strength	Shoulders	"LowerBack,MiddleBack,Traps"	Cable	Isolation	Beginner	Pull
-Bent Over One-Arm Long Bar Row	Strength	MiddleBack	"Biceps,Lats,LowerBack,Traps"	Barbell	Compound	Beginner	Pull
-Bent Over Two-Arm Long Bar Row	Strength	MiddleBack	"Biceps,Lats"	Barbell	Compound	Intermediate	Pull
-Bent Over Two-Dumbbell Row	Strength	MiddleBack	"Biceps,Lats,Shoulders"	Dumbbell	Compound	Beginner	Pull
-Bent Over Two-Dumbbell Row With Palms In	Strength	MiddleBack	"Biceps,Lats"	Dumbbell	Compound	Beginner	Pull
-Bent Press	Strength	Abdominals	"Glutes,Hamstrings,LowerBack,Quadriceps,Shoulders,Triceps"	Kettlebells	Compound	Expert	Pull
-Bent-Arm Barbell Pullover	Strength	Lats	"Chest,Lats,Shoulders,Triceps"	Barbell	Compound	Intermediate	Pull
-Bent-Arm Dumbbell Pullover	Strength	Chest	"Lats,Shoulders,Triceps"	Dumbbell	Compound	Intermediate	Push
-Bent-Knee Hip Raise	Strength	Abdominals	N/A	None	Compound	Beginner	Pull
-Biceps Curl To Shoulder Press	Strength	Biceps	"Biceps,Shoulders,Triceps"	Dumbbell	Compound	Intermediate	Pull
-Bicycling	Cardio	Quadriceps	"Calves,Glutes,Hamstrings"	Other	N/A	Beginner	N/A
-Bicycling, Stationary	Cardio	Quadriceps	"Calves,Glutes,Hamstrings"	Machine	N/A	Beginner	N/A
-Board Press	Powerlifting	Triceps	"Chest,Forearms,Lats,Shoulders"	Barbell	Compound	Intermediate	Push
-Body Tricep Press	Strength	Triceps	N/A	None	Isolation	Beginner	Push
-Body Triceps Press Using Flat Bench	Strength	Triceps	"Abdominals,Shoulders"	Other	Compound	Intermediate	Push
-Body-Up	Strength	Triceps	"Chest,Shoulders"	None	Isolation	Intermediate	Push
-Bodyweight Flyes	Strength	Chest	"Abdominals,Shoulders,Triceps"	E-Z Curl Bar	Isolation	Intermediate	Push
-Bodyweight Lunge	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	None	Compound	Beginner	Push
-Bodyweight Mid Row	Strength	MiddleBack	"Biceps,Lats"	Other	Compound	Intermediate	Pull
-Bodyweight Reverse Lunge	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	None	Compound	Beginner	Push
-Bodyweight Squat	Strength	Quadriceps	"Glutes,Hamstrings"	None	Compound	Beginner	Push
-Bodyweight Walking Lunge	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	None	Compound	Beginner	Push
-Bosu Ball Cable Crunch With Side Bends	Strength	Abdominals	N/A	Cable	Isolation	Beginner	Pull
-Bosu Ball Crunch	Strength	Abdominals	N/A	Exercise Ball	Compound	Beginner	Pull
-Bosu Ball Push-Up	Strength	Chest	"Shoulders,Triceps"	Exercise Ball	Compound	Intermediate	Push
-Bosu Ball Squat	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Exercise Ball	Compound	Intermediate	Push
-Bottoms Up	Strength	Abdominals	N/A	None	Compound	Beginner	Pull
-Bottoms-Up Clean From The Hang Position	Strength	Forearms	"Biceps,Shoulders"	Kettlebells	Compound	Intermediate	Pull
-Box Jump (Multiple Response)	Plyometrics	Hamstrings	"Abductors,Adductors,Calves,Glutes,Quadriceps"	Other	Compound	Beginner	Push
-Box Skip	Plyometrics	Hamstrings	"Abductors,Adductors,Calves,Glutes,Quadriceps"	Other	Compound	Beginner	Push
-Box Squat	Powerlifting	Quadriceps	"Adductors,Calves,Glutes,Hamstrings,LowerBack"	Barbell	Compound	Intermediate	Push
-Box Squat with Bands	Powerlifting	Quadriceps	"Abductors,Adductors,Calves,Glutes,Hamstrings,LowerBack"	Barbell	Compound	Expert	Push
-Box Squat with Chains	Strength	Quadriceps	"Abductors,Adductors,Calves,Glutes,Hamstrings,LowerBack"	Barbell	Compound	Expert	Push
-Brachialis-SMR	Stretching	Biceps	N/A	Foam Roll	N/A	Intermediate	Static
-Bradford/Rocky Presses	Strength	Shoulders	Triceps	Barbell	Compound	Beginner	Push
-Burpee	Cardio	Quadriceps	"Calves,Chest,Hamstrings,Shoulders,Triceps"	None	Compound	Intermediate	Push
-Burpee Over Barbell	Plyometrics	Quadriceps	"Calves,Chest,Glutes,Hamstrings,Triceps"	Barbell	Compound	Intermediate	Push
-Burpee Pull-Up	Plyometrics	Lats	"Biceps,Calves,Glutes,Hamstrings,Lats"	Other	Compound	Expert	Pull
-Burpee To Medicine Ball Press	Strength	Chest	"Glutes,Hamstrings,Quadriceps,Shoulders,Triceps"	Medicine Ball	Compound	Intermediate	Push
-Butt Kicks	Cardio	Quadriceps	"Calves,Hamstrings"	None	N/A	Beginner	Pull
-Butt Lift (Bridge)	Strength	Glutes	Hamstrings	None	Isolation	Beginner	Push
-Butt-Ups	Strength	Abdominals	N/A	None	Compound	Beginner	Pull
-Butterfly	Strength	Chest	N/A	Machine	Isolation	Beginner	Pull
-Cable Chest Press	Strength	Chest	"Shoulders,Triceps"	Cable	Compound	Beginner	Push
-Cable Crossover	Strength	Chest	Shoulders	Cable	Isolation	Beginner	Push
-Cable Crunch	Strength	Abdominals	N/A	Cable	Isolation	Beginner	Pull
-Cable Deadlifts	Strength	Quadriceps	"Forearms,Glutes,Hamstrings,LowerBack"	Cable	Compound	Beginner	Pull
-Cable Hammer Curls - Rope Attachment	Strength	Biceps	N/A	Cable	Isolation	Beginner	Pull
-Cable Hip Adduction	Strength	Quadriceps	N/A	Cable	Isolation	Beginner	Pull
-Cable Incline Pushdown	Strength	Lats	N/A	Cable	Isolation	Beginner	Pull
-Cable Incline Triceps Extension	Strength	Triceps	N/A	Cable	Isolation	Beginner	Push
-Cable Internal Rotation	Strength	Shoulders	N/A	Cable	Compound	Beginner	Pull
-Cable Iron Cross	Strength	Chest	N/A	Cable	Isolation	Beginner	Push
-Cable Judo Flip	Strength	Abdominals	N/A	Cable	Compound	Beginner	Pull
-Cable Lying Triceps Extension	Strength	Triceps	N/A	Cable	Isolation	Beginner	Push
-Cable One Arm Tricep Extension	Strength	Triceps	N/A	Cable	Isolation	Beginner	Push
-Cable Preacher Curl	Strength	Biceps	Forearms	Cable	Isolation	Beginner	Pull
-Cable Rear Delt Fly	Strength	Shoulders	N/A	Cable	Isolation	Beginner	Pull
-Cable Reverse Crunch	Strength	Abdominals	N/A	Cable	Isolation	Beginner	Pull
-Cable Rope Overhead Triceps Extension	Strength	Triceps	N/A	Cable	Isolation	Beginner	Push
-Cable Rope Rear-Delt Rows	Strength	Shoulders	"Biceps,MiddleBack"	Cable	Compound	Beginner	Pull
-Cable Russian Twists	Strength	Abdominals	N/A	Cable	Compound	Beginner	Pull
-Cable Seated Crunch	Strength	Abdominals	N/A	Cable	Isolation	Beginner	Pull
-Cable Seated Lateral Raise	Strength	Shoulders	"MiddleBack,Traps"	Cable	Isolation	Beginner	Pull
-Cable Shoulder Press	Strength	Shoulders	Triceps	Cable	Compound	Beginner	Push
-Cable Shrugs	Strength	Traps	N/A	Cable	Isolation	Beginner	Pull
-Cable Wrist Curl	Strength	Forearms	N/A	Cable	Isolation	Beginner	Pull
-Calf Press	Strength	Calves	N/A	Machine	Isolation	Beginner	Push
-Calf Press On The Leg Press Machine	Strength	Calves	N/A	Machine	Isolation	Beginner	Push
-Calf Raise On A Dumbbell	Strength	Calves	N/A	Dumbbell	Isolation	Intermediate	Push
-Calf Raises - With Bands	Strength	Calves	N/A	Bands	Isolation	Beginner	Push
-Calf Stretch Elbows Against Wall	Stretching	Calves	N/A	None	Isolation	Beginner	Static
-Calf Stretch Hands Against Wall	Stretching	Calves	N/A	None	Isolation	Beginner	Static
-Calf-Machine Shoulder Shrug	Strength	Traps	N/A	Machine	Isolation	Beginner	Pull
-Calves-SMR	Stretching	Calves	N/A	Foam Roll	N/A	Intermediate	Static
-Car Deadlift	Strongman	Quadriceps	"Forearms,Glutes,Hamstrings,LowerBack,Traps"	Other	Compound	Intermediate	Pull
-Car Drivers	Strength	Shoulders	Forearms	Barbell	Isolation	Beginner	Push
-Carioca Quick Step	Plyometrics	Adductors	"Abdominals,Abductors,Calves,Glutes,Hamstrings,Quadriceps"	None	N/A	Beginner	N/A
-Cat Stretch	Stretching	LowerBack	"MiddleBack,Traps"	None	N/A	Beginner	Static
-Catch and Overhead Throw	Plyometrics	Lats	"Abdominals,Chest,Shoulders"	Medicine Ball	Compound	Beginner	Push
-Chain Handle Extension	Powerlifting	Triceps	N/A	Other	Isolation	Intermediate	Push
-Chain Press	Powerlifting	Chest	"Shoulders,Triceps"	Other	Compound	Intermediate	Push
-Chair Leg Extended Stretch	Stretching	Hamstrings	Adductors	Other	Isolation	Beginner	Static
-Chair Lower Back Stretch	Stretching	Lats	LowerBack	None	Isolation	Beginner	Static
-Chair Squat	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Machine	Compound	Beginner	Push
-Chair Upper Body Stretch	Stretching	Shoulders	"Biceps,Chest"	Other	N/A	Beginner	Static
-Chest And Front Of Shoulder Stretch	Stretching	Chest	Shoulders	Other	Isolation	Beginner	Static
-Chest Push (multiple response)	Plyometrics	Chest	"Abdominals,Shoulders,Triceps"	Medicine Ball	Compound	Beginner	Push
-Chest Push (single response)	Plyometrics	Chest	"Abdominals,Shoulders,Triceps"	Medicine Ball	Compound	Beginner	Push
-Chest Push from 3 point stance	Plyometrics	Chest	"Abdominals,Shoulders,Triceps"	Medicine Ball	Compound	Beginner	Push
-Chest Push with Run Release	Plyometrics	Chest	"Abdominals,Shoulders,Triceps"	Medicine Ball	Compound	Beginner	Push
-Chest Stretch on Stability Ball	Stretching	Chest	N/A	Exercise Ball	Isolation	Beginner	Static
-Child's Pose	Stretching	LowerBack	"Glutes,MiddleBack"	None	N/A	Beginner	Static
-Chin To Chest Stretch	Stretching	Neck	Traps	None	N/A	Beginner	Static
-Chin-Up	Strength	Lats	"Biceps,Forearms,MiddleBack"	None	Compound	Beginner	Pull
-Circus Bell	Strongman	Shoulders	"Forearms,Glutes,Hamstrings,LowerBack,Traps,Triceps"	Other	Compound	Expert	Push
-Clam	Strength	Abductors	N/A	None	Isolation	Beginner	Push
-Clapping Push-Up	Plyometrics	Chest	"Shoulders,Triceps"	None	Compound	Intermediate	Push
-Clean	OlympicWeightlifting	Hamstrings	"Calves,Forearms,Glutes,LowerBack,Quadriceps,Shoulders,Traps"	Barbell	Compound	Intermediate	Pull
-Clean and Jerk	OlympicWeightlifting	Shoulders	"Abdominals,Glutes,Hamstrings,LowerBack,Quadriceps,Traps,Triceps"	Barbell	Compound	Expert	Push
-Clean and Press	Strength	Shoulders	"Abdominals,Calves,Glutes,Hamstrings,LowerBack,MiddleBack,Quadriceps,Shoulders,Traps,Triceps"	Barbell	Compound	Intermediate	Push
-Clean Deadlift	OlympicWeightlifting	Hamstrings	"Forearms,Glutes,LowerBack,MiddleBack,Quadriceps,Traps"	Barbell	Compound	Beginner	Pull
-Clean from Blocks	OlympicWeightlifting	Quadriceps	"Calves,Glutes,Hamstrings,Shoulders,Traps"	Barbell	Compound	Intermediate	Pull
-Clean Pull	OlympicWeightlifting	Quadriceps	"Forearms,Glutes,Hamstrings,LowerBack,Traps"	Barbell	Compound	Intermediate	Pull
-Clean Shrug	OlympicWeightlifting	Traps	"Forearms,Shoulders"	Barbell	Compound	Beginner	Pull
-Clock Push-Up	Strength	Chest	"Shoulders,Triceps"	None	Compound	Intermediate	Push
-Close-Grip Barbell Bench Press	Strength	Triceps	"Chest,Shoulders"	Barbell	Compound	Beginner	Push
-Close-Grip Dumbbell Press	Strength	Triceps	"Chest,Shoulders"	Dumbbell	Compound	Beginner	Push
-Close-Grip EZ Bar Curl	Strength	Biceps	Forearms	Barbell	Isolation	Beginner	Pull
-Close-Grip EZ-Bar Curl with Band	Strength	Biceps	Forearms	E-Z Curl Bar	Isolation	Beginner	Pull
-Close-Grip EZ-Bar Press	Strength	Triceps	"Chest,Shoulders"	E-Z Curl Bar	Compound	Beginner	Push
-Close-Grip Front Lat Pulldown	Strength	Lats	"Biceps,MiddleBack,Shoulders"	Cable	Compound	Beginner	Pull
-Close-Grip Push-Up off of a Dumbbell	Strength	Triceps	"Abdominals,Chest,Shoulders"	None	Compound	Intermediate	Push
-Close-Grip Standing Barbell Curl	Strength	Biceps	Forearms	Barbell	Isolation	Beginner	Pull
-Close-Hands Push-Up	Strength	Chest	"Shoulders,Triceps"	None	Compound	Beginner	Push
+3/4 Sit-Up
+90-Degree Jump Squat Twist
+90/90 Hamstring	Stretching
+
+A
+
+Ab Crunch Machine
+Ab Roller
+Adductor
+Adductor/Groin
+Advanced Kettlebell
+Air Bike
+Alien Squat
+All Fours
+Alternate Hammer Curl
+Alternate Heel Touchers
+Alternate Incline Dumbbell Curl
+Alternate Leg Diagonal Bound
+Alternating Cable Shoulder Press
+Alternating Deltoid Raise
+Alternating Floor Press
+Alternating Hang Clean
+Alternating Kettlebell Press
+Alternating Kettlebell Row
+Alternating Leg Swing
+Alternating Renegade Row
+Ankle Circles
+Ankle On The Knee
+Anterior Tibialis-SMR
+Anti-Gravity Press
+Arm Circles	Stretching
+Arnold Dumbbell Press
+Around The World Pull-Up
+Around The Worlds
+Assisted Chin-Up
+Atlas Stone Trainer
+Atlas Stones
+Axle Clean And Press
+Axle Deadlift
+
+
+B
+
+Back Flyes - With Bands
+Backward Drag
+Backward Medicine Ball Throw
+Balance Board
+Ball Leg Curl
+Band Assisted Pull-Up
+Band Good Morning
+Band Good Morning (Pull Through)
+Band Hip Adductions
+Band Pull Apart
+Band Skull Crusher
+Bar Push-Up Smith Machine
+Bar Throw And Press
+Barbell Ab Rollout
+Barbell Ab Rollout - On Knees
+Barbell Bench Press - Medium Grip
+Barbell Bench Press-Wide Grip
+Barbell Curl	Strength
+Barbell Curls Lying Against An Incline
+Barbell Deadlift
+Barbell Deadlift Bent Row Complex
+Barbell Front Raise	Strength
+Barbell Front-To-Back Squat
+Barbell Full Squat
+Barbell Glute Bridge
+Barbell Guillotine Bench Press
+Barbell Hack Squat
+Barbell Hip Thrust
+Barbell Incline Bench Press Medium-Grip
+Barbell Incline Shoulder Raise
+Barbell Lunge
+Barbell Rear Delt Row
+Barbell Reverse Lunge
+Barbell Rollout from Bench
+Barbell Seated Calf Raise
+Barbell Shoulder Press
+Barbell Shrug
+Barbell Shrug Behind The Back
+Barbell Side Bend
+Barbell Side Split Squat
+Barbell Squat
+Barbell Squat To A Bench
+Barbell Squat To A Box
+Barbell Step Ups
+Barbell Thruster
+Barbell Walking Lunge
+Battling Ropes	Strength
+Bear Crawl Sled Drags
+Behind Head Chest Stretch
+Bench Dips
+Bench Jump
+Bench Press - Powerlifting
+Bench Press - With Bands
+Bench Press with Chains
+Bench Press With Short Bands
+Bench Sprint
+Bent Over Barbell Row
+Bent Over Dumbbell Rear Delt Raise With Head On Bench
+Bent Over Low-Pulley Side Lateral
+Bent Over One-Arm Long Bar Row
+Bent Over Two-Arm Long Bar Row
+Bent Over Two-Dumbbell Row
+Bent Over Two-Dumbbell Row With Palms In
+Bent Press
+Bent-Arm Barbell Pullover
+Bent-Arm Dumbbell Pullover
+Bent-Knee Hip Raise
+Biceps Curl To Shoulder Press
+Bicycling
+Bicycling, Stationary
+Board Press	Powerlifting
+Body Tricep Press
+Body Triceps Press Using Flat Bench
+Body-Up
+Bodyweight Flyes
+Bodyweight Lunge
+Bodyweight Mid Row
+Bodyweight Reverse Lunge
+Bodyweight Squat
+Bodyweight Walking Lunge
+Bosu Ball Cable Crunch With Side Bends
+Bosu Ball Crunch
+Bosu Ball Push-Up
+Bosu Ball Squat
+Bottoms Up
+Bottoms-Up Clean From The Hang Position
+Box Jump (Multiple Response)
+Box Skip
+Box Squat
+Box Squat with Bands
+Box Squat with Chains
+Brachialis-SMR	Stretching
+Bradford/Rocky Presses
+Burpee
+Burpee Over Barbell
+Burpee Pull-Up
+Burpee To Medicine Ball Press
+Butt Kicks
+Butt Lift (Bridge)
+Butt-Ups
+Butterfly
+Cable Chest Press
+Cable Crossover
+Cable Crunch
+Cable Deadlifts
+Cable Hammer Curls - Rope Attachment
+Cable Hip Adduction
+Cable Incline Pushdown
+Cable Incline Triceps Extension
+Cable Internal Rotation
+Cable Iron Cross
+Cable Judo Flip
+Cable Lying Triceps Extension
+Cable One Arm Tricep Extension
+Cable Preacher Curl
+Cable Rear Delt Fly
+Cable Reverse Crunch
+Cable Rope Overhead Triceps Extension
+Cable Rope Rear-Delt Rows
+Cable Russian Twists
+Cable Seated Crunch
+Cable Seated Lateral Raise
+Cable Shoulder Press
+Cable Shrugs
+Cable Wrist Curl
+Calf Press
+Calf Press On The Leg Press Machine
+Calf Raise On A Dumbbell
+Calf Raises - With Bands
+Calf Stretch Elbows Against Wall
+Calf Stretch Hands Against Wall
+Calf-Machine Shoulder Shrug
+Calves-SMR
+Car Deadlift
+Car Drivers
+Carioca Quick Step
+Cat Stretch
+Catch and Overhead Throw
+Chain Handle Extension
+Chain Press
+Chair Leg Extended Stretch
+Chair Lower Back Stretch
+Chair Squat
+Chair Upper Body Stretch
+Chest And Front Of Shoulder Stretch
+Chest Push (multiple response)
+Chest Push (single response)
+Chest Push from 3 point stance
+Chest Push with Run Release
+Chest Stretch on Stability Ball
+Chin To Chest Stretch
+Chin-Up
+Circus Bell
+Clam
+Clapping
+Clean
+Clean and Jerk
+Clean and Press
+Clean Deadlift
+Clean from Blocks
+Clean Pull
+Clean Shrug
+Clock Push-Up
+Close-Grip Barbell Bench Press
+Close-Grip Dumbbell Press
+Close-Grip EZ Bar Curl
+Close-Grip EZ-Bar Curl with Band
+Close-Grip EZ-Bar Press
+Close-Grip Front Lat Pulldown
+Close-Grip Push-Up off of a Dumbbell
+Close-Grip Standing Barbell Curl
+Close-Hands Push-Up	
 Close-Stance Dumbbell Front Squat	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Dumbbell	Compound	Beginner	Push
 Cobra Triceps Extension	Strength	Triceps	Chest	None	Compound	Intermediate	Push
 Cocoons	Strength	Abdominals	N/A	None	Compound	Beginner	Pull

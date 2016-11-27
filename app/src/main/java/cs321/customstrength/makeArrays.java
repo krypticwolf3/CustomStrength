@@ -20,13 +20,10 @@ class makeArrays {
       }
     }
     catch (FileNotFoundException e) {
-      System.out.println("I Fucked Up");
+      System.out.println("I messed Up");
     }
   }
   public static void main(String[] args) {
     makeArrays.arrayMaker();
   }
 }
-    
-    
-  

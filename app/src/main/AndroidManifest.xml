@@ -18,8 +18,17 @@
         <activity
             android:name=".MyPrograms"
             android:label="@string/title_activity_my_programs"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".View_Exercises" />
+        <activity
+            android:name=".All_Exercises"
+            android:label="@string/title_activity_all__exercises"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".View_Exercises"></activity>
     </application>
 
 </manifest>
