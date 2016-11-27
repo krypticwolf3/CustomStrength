@@ -17,12 +17,12 @@ public class MyPrograms extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_programs);
-        Intent programsIntent=getIntent();
+        Intent programsIntent = getIntent();
         init();
     }
     public void init() {
         //the LinearLayout to add programs to
-        LinearLayout programLayout=(LinearLayout) findViewById(R.id.programLayout);
+        LinearLayout programLayout = (LinearLayout) findViewById(R.id.programLayout);
         //for testing purposes
         createProgram();
         //create the buttons that display the programs

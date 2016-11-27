@@ -7,17 +7,17 @@ class Stretch extends Exercise {
   int sets;
   boolean fixedVolume;
   boolean fixedIntensity;
-  
+
   int[] volume; //if dynamic==true, measure in reps, else measure in time(seconds)
   Intensity[] intensity;
   //fixedVolume==true && fixedIntensity==true
-  Stretch(String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, 
-          String mechanics, String level, String force, boolean fixedVolume, boolean fixedIntensity, 
+  Stretch(String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed,
+          String mechanics, String level, String force, boolean fixedVolume, boolean fixedIntensity,
           int sets, int[] volume, Intensity[] intensity) {
     super(name, primaryMuscle, secondaryMuscles, equipmentUsed, mechanics, level, force);
     this.fixedVolume=fixedVolume;
     this.fixedIntensity=fixedIntensity;
-    
+
     // basically exactly like strength
     // this.dynamic=dynamic; // don't really need this actually
     this.volume=volume; // get this on the same page you are getting fixedVolume
@@ -57,7 +57,7 @@ class Stretch extends Exercise {
      * END CODE
     */
   }
-  
+
 //  unneeded constructors
 //  //fixedVolume==true && fixedIntensity==false
 //  Stretch(String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed, String level, boolean fixedVolume, boolean fixedIntensity, boolean dynamic, int volume) {

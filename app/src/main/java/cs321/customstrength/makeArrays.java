@@ -27,6 +27,3 @@ class makeArrays {
     makeArrays.arrayMaker();
   }
 }
-    
-    
-  
