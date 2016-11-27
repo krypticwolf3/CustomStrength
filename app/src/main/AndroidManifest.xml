@@ -28,25 +28,29 @@
 
 
         <!-- My Programs Section -->
-        <activity
-            android:name=".MyPrograms"
+        <activity android:name=".MyPrograms"
             android:label="@string/title_activity_my_programs"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
 
-        <activity
-            android:name=".addProgram"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".addProgram"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
 
         <!-- Exercise Section -->
-        <activity android:name=".View_Exercises">
+        <activity android:name=".View_Exercises"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name=".Exercise_List"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
 
         <!-- Start Workout Section -->
-        <activity android:name=".StartWorkout">
+        <activity android:name=".StartWorkout"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
     </application>

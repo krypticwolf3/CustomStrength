@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Context;
+import android.widget.Toast;
+
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
     // Parameters for the app's sections. //
     ////////////////////////////////////////
 
-    static private MyPrograms currentProgram;
+    private String currentProgName;
+    private int currentWeek = 0;
+    private int currentDay = 0;
 
     private static Context mContext;
 
@@ -59,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         //go to exercises page
         Intent exerciseIntent = new Intent(this, View_Exercises.class);
         startActivity(exerciseIntent);
-        finish();
+        //finish();
     }
     public void myPrograms(View view) {
         //go to myPrograms page
@@ -69,7 +73,17 @@ public class MainActivity extends AppCompatActivity {
     public void startWorkout(View view) {
         //go to startWorkout page
         Intent startIntent = new Intent(this, StartWorkout.class);
-        startActivity(startIntent);
+
+        if (currentProgName != null) {
+            startIntent.putExtra("CURRENT_PROGRAM", currentProgName);
+            startIntent.putExtra("CURRENT_WEEK", currentWeek);
+            startIntent.putExtra("CURRENT_DAY", currentDay);
+
+            startActivity(startIntent);
+            //finish();
+        } else {
+            Toast.makeText(getApplicationContext(), "No program chosen yet.", Toast.LENGTH_LONG).show();
+        }
     }
 
     // returns a Context that can be called
@@ -80,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     protected void setWorkout() {
         Intent choice = getIntent();
         if (choice != null) {
-
+            currentProgName = choice.getExtras().getString("PROGRAM_NAME");
         }
     }
 }

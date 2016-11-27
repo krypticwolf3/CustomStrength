@@ -9,8 +9,5 @@
     <string name="title_activity_my_programs">MyPrograms</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="title_activity_all_exercises">Exercises</string>
-    <string name="title_activity_all__exercises">Exercises</string>
-    <string name="title_activity_fake">fake</string>
 
 </resources>
