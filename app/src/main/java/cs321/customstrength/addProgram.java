@@ -150,22 +150,33 @@ public class addProgram extends AppCompatActivity {
         return daysArrayData;
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String stringToAdd=data.getStringExtra("Exercise");
-        //If intensity or volume<0, there is no user inputted intensity or volume
-        int[] intensity=data.getIntArrayExtra("Intensity");
-        int[] volume=data.getIntArrayExtra("Volume");
-        //If sets==0, it is Cardio
-        int sets=data.getIntExtra("Sets", 0);
-        //get sets, reps, and weight from this page
-        //make the string into exercise data
-        ExerciseData exerciseData=LoadExerciseData.PRELOADED_EXERCISES.get(stringToAdd);
-        //make the exercise data into an exercise
-        exercise=LoadExerciseData.addPreloadedExercise(exerciseData, volume, intensity, sets);
-        //exercise should have content now from getting the result
-        weeksArray.get(requestCode/10).days.get(requestCode%10).exercises.add(exercise);
-        TextView text=new TextView(this);
-        text.setText(exercise.name);
-        LinearLayout currentDay=(LinearLayout)weeks.findViewById(dayIds.get(requestCode/10).get(requestCode%10));
-        currentDay.addView(text);
+        if (data!=null) {
+            String stringToAdd = data.getStringExtra("Exercise");
+            //If intensity or volume<0, there is no user inputted intensity or volume
+            int[] intensity = data.getIntArrayExtra("Intensity");
+            int[] volume = data.getIntArrayExtra("Volume");
+            //If sets==0, it is Cardio
+            int sets = data.getIntExtra("Sets", 0);
+            //get sets, reps, and weight from this page
+            //make the string into exercise data
+            ExerciseData exerciseData = LoadExerciseData.PRELOADED_EXERCISES.get(stringToAdd);
+            //make the exercise data into an exercise
+            exercise = LoadExerciseData.addPreloadedExercise(exerciseData, volume, intensity, sets);
+            //exercise should have content now from getting the result
+            weeksArray.get(requestCode / 10).days.get(requestCode % 10).exercises.add(exercise);
+            TextView text = new TextView(this);
+            text.setText(exercise.name);
+            LinearLayout currentDay = (LinearLayout) weeks.findViewById(dayIds.get(requestCode / 10).get(requestCode % 10));
+            currentDay.addView(text);
+        }
+    }
+    public void saveProgram(View view) {
+        Program toAdd=new Program("Figure out names later");
+        toAdd.weeks=weeksArray;
+        MyPrograms.programs.add(toAdd);
+        MyPrograms.expanded.add(false);
+        Intent returnIntent=new Intent(this, MyPrograms.class);
+        startActivity(returnIntent);
+        finish();
     }
 }
