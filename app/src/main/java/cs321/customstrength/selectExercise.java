@@ -1,11 +1,13 @@
 package cs321.customstrength;
 
+import android.content.Intent;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,9 +36,22 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
     public boolean onQueryTextSubmit(String query) {
         ArrayList<String> results = LoadExerciseData.searchExercises(query, LoadExerciseData.PRELOADED_EXERCISES);
         LinearLayout displayResults = new LinearLayout(this);
+        displayResults.setOrientation(LinearLayout.VERTICAL);
         for (int i = 0; i < results.size(); i++) {
             Button result = new Button(this);
             result.setText(results.get(i));
+            result.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Button innerResult=(Button)view;
+                    Intent output=new Intent();
+                    output.putExtra("Exercise", innerResult.getText());
+                    output.putExtra("Intensity", 2);
+                    output.putExtra("Volume", 10);
+                    output.putExtra("Sets", 3);
+                    setResult(RESULT_OK, output);
+                    finish();
+                }
+            });
             displayResults.addView(result);
         }
         if (results.size() == 0) {
@@ -45,9 +60,6 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
             displayResults.addView(noResults);
         }
         mainLayout.addView(displayResults);
-        //TextView test = new TextView(this);
-        //test.setText(getApplicationInfo().dataDir);
-        //mainLayout.addView(test);
         return true;
     }
 

@@ -12,17 +12,23 @@ import java.util.ArrayList;
 
 public class addProgram extends AppCompatActivity {
     TextView weekValue;
-    LinearLayout weeks;
     TextView dayValue;
     LinearLayout mainLayout;
+
+    LinearLayout weeks;//this is the container for all weeks in the program
+    int weekCounter=0;
+    int dayCounter=0;
+    ArrayList<ArrayList<Integer>> dayIds=new ArrayList<>();
+    ArrayList<Integer> weekIds=new ArrayList<>();
+
     ArrayList<Week> weeksArray=new ArrayList<Week>();
-    ExerciseData exercise;
-    Day day;
+    Exercise exercise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_program);
+        //button stuff and just finding views, don't worry about this
         weekValue = (TextView) findViewById(R.id.weekValue);
         weekValue.setText("0");
         weeks = (LinearLayout) findViewById(R.id.weeks);
@@ -62,37 +68,57 @@ public class addProgram extends AppCompatActivity {
     }
 
     public void createWeek() {
+        //Create the week being worked on
         LinearLayout currentWeek = new LinearLayout(this);
         currentWeek.setOrientation(LinearLayout.VERTICAL);
 
+        //Add the name input for the week
         EditText nameInput = new EditText(this);
         nameInput.setInputType(1);
         nameInput.setText("Name of Week");
-
         currentWeek.addView(nameInput);
+        weeks.addView(currentWeek);
 
+        //Create the set of days for the week
         LinearLayout days = new LinearLayout(this);
         days.setOrientation(LinearLayout.VERTICAL);
-
-        Week week=new Week();
-        week.days=addDay(days);
-
+        weekIds.add(View.generateViewId());
+        days.setId(weekIds.get(weekCounter));
+        //add the days to the week view
         currentWeek.addView(days);
 
-        weeks.addView(currentWeek);
+        //Create the actual week data
+        Week week=new Week();
+        //Call the addDay method to get the data for the ArrayList<Day> in the week and create and update the view
+        week.days=addDay();
+        //add the week to the array of weeks
+        weeksArray.add(week);
+
+        //add the week view to the main layout
+        weekCounter++;
     }
 
     public void deleteWeek() {
         weeks.removeView(weeks.getChildAt(weeks.getChildCount() - 1));
+        weekCounter--;
     }
 
-    private ArrayList<Day> addDay(LinearLayout days) {
-        ArrayList<Day> daysArray=new ArrayList<Day>();
+    private ArrayList<Day> addDay() {
+        //create an array list of days to add to the week
+        ArrayList<Day> daysArrayData=new ArrayList<Day>();
+        //create an array list of day view ids
+        ArrayList<Integer> dayIdsLocal=new ArrayList<>();
         //for number of days in the week
         for (int i = 0; i < Character.getNumericValue(dayValue.getText().charAt(0)); i++) {
             //Linear layout for the day
             LinearLayout currentDay = new LinearLayout(this);
             currentDay.setOrientation(LinearLayout.VERTICAL);
+            dayIdsLocal.add(View.generateViewId());
+            currentDay.setId(dayIdsLocal.get(i));
+
+            Day day=new Day("Day "+(i+1));
+            //add the day to the array of days for the actual data
+            daysArrayData.add(day);
 
             //Name of the day
             EditText nameInput = new EditText(this);
@@ -100,33 +126,46 @@ public class addProgram extends AppCompatActivity {
             nameInput.setText("Name of Day " + (i+1));
             currentDay.addView(nameInput);
 
-            //Add exercises to the day
-            day=new Day("Day "+(i+1));
+            //Add buttons for adding exercises to each day
             Button addExercise = new Button(this);
             addExercise.setText("Add Exercise");
-            addExercise.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    //empty out exercise
-                    exercise=null;
-                    Intent searchIntent=new Intent(view.getContext(), selectExercise.class);
-                    startActivityForResult(searchIntent, 1);
-                    //day.exercises.add(exercise);
-                }
-            });
+            addExercise.setTag((weekCounter*10)+i);
             currentDay.addView(addExercise);
 
-            days.addView(currentDay);
+            //add the day view to the week view
+            LinearLayout week=(LinearLayout)weeks.findViewById(weekIds.get(weekCounter));
+            week.addView(currentDay);
 
-            daysArray.add(day);
+            addExercise.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Button innerButton=(Button)view;
+                    //Get result from search intent
+                    Intent searchIntent=new Intent(view.getContext(), selectExercise.class);
+                    startActivityForResult(searchIntent, (int)innerButton.getTag());
+                }
+            });
+            dayCounter++;
         }
-        return daysArray;
+        dayIds.add(dayIdsLocal);
+        return daysArrayData;
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode==1 && requestCode==RESULT_OK && data!=null) {
-            String toAdd=data.getStringExtra("Exercise");
-            //make this into an exercise not exerciseData
-            //also get sets, reps, and weight from this page
-            exercise=LoadExerciseData.PRELOADED_EXERCISES.get(toAdd);
-        }
+        String stringToAdd=data.getStringExtra("Exercise");
+        //If intensity or volume<0, there is no user inputted intensity or volume
+        int[] intensity=data.getIntArrayExtra("Intensity");
+        int[] volume=data.getIntArrayExtra("Volume");
+        //If sets==0, it is Cardio
+        int sets=data.getIntExtra("Sets", 0);
+        //get sets, reps, and weight from this page
+        //make the string into exercise data
+        ExerciseData exerciseData=LoadExerciseData.PRELOADED_EXERCISES.get(stringToAdd);
+        //make the exercise data into an exercise
+        exercise=LoadExerciseData.addPreloadedExercise(exerciseData, volume, intensity, sets);
+        //exercise should have content now from getting the result
+        weeksArray.get(requestCode/10).days.get(requestCode%10).exercises.add(exercise);
+        TextView text=new TextView(this);
+        text.setText(exercise.name);
+        LinearLayout currentDay=(LinearLayout)weeks.findViewById(dayIds.get(requestCode/10).get(requestCode%10));
+        currentDay.addView(text);
     }
 }
