@@ -166,20 +166,21 @@ class LoadExerciseData {
     }
   }
 
-  static void removeCustomExercise(String customExerciseName){
+   static void removeCustomExercise(String customExerciseName){
     String s = customExerciseName.toUpperCase();
     if(!(LoadExerciseData.CUSTOM_EXERCISES.containsKey(s))){
       return;
     }
     LoadExerciseData.CUSTOM_EXERCISES.remove(s);
     ExerciseData[] eds = LoadExerciseData.CUSTOM_EXERCISES.values().toArray(new ExerciseData[0]);
+    Arrays.sort(eds);
     try{
-      PrintWriter pw = new PrintWriter("CustomExerciseData.txt", "UTF-8");
+      PrintWriter pw = new PrintWriter(new File(MainActivity.getContext().getFilesDir(), "CustomExerciseData.txt"), "UTF-8");
       pw.printf("name\ttype\tprimary\tsecondary\tequipment\tmechanics\tlevel\tforce\n"); // add the header row
       for(int i = 0; i < eds.length; i++){
-        ExerciseData ed = eds[i];
-        pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName(), ed.getType(), ed.getPrimaryMuscles(),
-                  arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()),
+        ExerciseData ed = eds[i]; 
+        pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName(), ed.getType(), ed.getPrimaryMuscles(), 
+                  arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()), 
                   ed.getMechanics(), ed.getLevel(), ed.getForce());
       }
       pw.close();
