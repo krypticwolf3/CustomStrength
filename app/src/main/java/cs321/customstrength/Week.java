@@ -11,6 +11,8 @@ class Week {
     //if there is no name, feed the week number into name (i.e. "Week 2")
     //when each day is added, incriment dumDays
 
+    Week () {}
+
     Week (String name) {
         this.name=name;
     }

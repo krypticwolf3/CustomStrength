@@ -9,6 +9,9 @@
     <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-sdk android:minSdkVersion="17"
+        android:targetSdkVersion="17" />
+
     <!-- Application Configuration -->
     <application
         android:allowBackup="true"

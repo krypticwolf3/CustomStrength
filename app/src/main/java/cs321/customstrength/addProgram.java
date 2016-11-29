@@ -88,9 +88,9 @@ public class addProgram extends AppCompatActivity {
         currentWeek.addView(days);
 
         //Create the actual week data
-        Week week=new Week();
+        Week week = new Week();
         //Call the addDay method to get the data for the ArrayList<Day> in the week and create and update the view
-        week.days=addDay();
+        week.days = addDay();
         //add the week to the array of weeks
         weeksArray.add(week);
 
