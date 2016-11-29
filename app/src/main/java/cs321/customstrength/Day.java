@@ -18,7 +18,7 @@ class Day {
   public String toString() {
     String repr=name+":\n";
     for (int i=0; i<exercises.size(); i++) {
-        repr+=i+". ";
+        repr+=(i+1)+". ";
         repr+=exercises.get(i).toString();
         repr+="\n";
     }
