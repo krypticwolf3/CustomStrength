@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void exercises(View view) {
         //go to exercises page
-        Intent exerciseIntent = new Intent(this, View_Exercises.class);
+       Intent exerciseIntent = new Intent(this, AllExercises.class);
         startActivity(exerciseIntent);
         //finish();
     }
