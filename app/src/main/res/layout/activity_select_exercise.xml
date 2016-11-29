@@ -9,5 +9,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/mainLayout">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of Sets     "/>
+            <NumberPicker
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/numberPicker"/>
+            <Switch
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="                   Sets differ?"
+                android:textOff="No"
+                android:textOn="Yes"
+                android:id="@+id/setSwitch"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/volumeAndIntensity">
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
