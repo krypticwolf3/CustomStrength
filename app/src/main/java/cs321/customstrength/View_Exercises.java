@@ -1,5 +1,6 @@
 package cs321.customstrength;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class View_Exercises extends AppCompatActivity {
+public class View_Exercises extends Activity {
     private static final int NUM_COLS = 10;
 
     @Override
@@ -60,8 +61,8 @@ public class View_Exercises extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Log.i("TAG", "index :" + index);
-                    Intent exercise = new Intent(View_Exercises.this, Exercise_List.class);
-                    startActivity(exercise);
+                    //Intent exercise = new Intent(View_Exercises.this, Exercise_List.class);
+                    //startActivity(exercise);
                     //Log.i(TAG, "Button was clicked (Select_Program)");
                 }
             });

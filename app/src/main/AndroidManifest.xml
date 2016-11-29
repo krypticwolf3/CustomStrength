@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cs321.customstrength">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,12 +29,15 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".View_Exercises" />
         <activity
-            android:name=".All_Exercises"
-            android:label="@string/title_activity_all__exercises"
+            android:name=".addProgram"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".View_Exercises" />
+
+        <activity
+            android:name=".AllExercises"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
     </application>
 
 </manifest>

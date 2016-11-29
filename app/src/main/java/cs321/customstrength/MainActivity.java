@@ -2,12 +2,17 @@ package cs321.customstrength;
 
 import android.content.Intent;
 import android.os.Environment;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.content.Context;
 import java.io.File;
+
+import static cs321.customstrength.R.id.toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,13 +50,15 @@ public class MainActivity extends AppCompatActivity {
         // writes new files into internal storage if it doesn't already exist
         // this is how we read CustomExerciseData
         if(!f1.exists() && !f2.exists()){
-            LoadExerciseData.writeFilesIntoStorage();
+          LoadExerciseData.writeFilesIntoStorage();
+
         }
+
     }
 
     public void exercises(View view) {
         //go to exercises page
-        Intent exerciseIntent = new Intent(this, View_Exercises.class);
+       Intent exerciseIntent = new Intent(this, AllExercises.class);
         startActivity(exerciseIntent);
     }
     public void myPrograms(View view) {
@@ -61,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void startWorkout(View view) {
         //go to startWorkout page
-        Intent startIntent = new Intent("Open Start");
+        //Intent startWorkout = new Intent(this, startWorkout.class);
+        //startActivity(startWorkout);
     }
 
     // returns a Context that can be called

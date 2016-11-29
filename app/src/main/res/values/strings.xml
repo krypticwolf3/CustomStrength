@@ -11,6 +11,8 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_all_exercises">Exercises</string>
     <string name="title_activity_all__exercises">Exercises</string>
-    <string name="title_activity_fake">fake</string>
+    <string name="title_activity_main2">Exercises</string>
+    <string name="title_activity_fake2">Fake2</string>
+    <string name="title_activity_all_kind_exercises">Exercises</string>
 
 </resources>

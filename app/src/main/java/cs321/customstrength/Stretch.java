@@ -3,7 +3,7 @@ package cs321.customstrength;
 import java.util.ArrayList;
 
 class Stretch extends Exercise {
-  //  boolean dynamic; //true=dynamic false=static // don't really need this
+//  boolean dynamic; //true=dynamic false=static // don't really need this
   int sets;
   boolean fixedVolume;
   boolean fixedIntensity;
