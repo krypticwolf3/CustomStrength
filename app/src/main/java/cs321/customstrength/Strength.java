@@ -12,17 +12,12 @@ class Strength extends Exercise {
   //use int arrys to cover the case where sets are different, if differentSets is false, the array length will be 1
   int[] reps;
   int[] weight;
-  boolean fixedVolume;
-  boolean fixedIntensity;
   //use when fixedIntensity==false || fixedVolume==false
   int[] repsOrWeight;
   //fixedIntensity==true && fixedVolume==true
   Strength (String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed,
-            String mechanics, String level, String force, boolean fixedVolume, boolean fixedIntensity,
-            int sets, int[] reps, int[] weight) {
+            String mechanics, String level, String force, int sets, int[] reps, int[] weight) {
     super(name, primaryMuscle, secondaryMuscles, equipmentUsed, mechanics, level, force);
-    this.fixedVolume=fixedVolume;
-    this.fixedIntensity=fixedIntensity;
     this.sets=sets;
     this.reps=reps; // get this on the same page you are getting fixedVolume
     // PSEUDO-CODE FOR THE CODE TO GET REPS INFORMATION

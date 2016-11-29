@@ -109,39 +109,35 @@ class LoadExerciseData {
   // need to talk about the constructors for each exercise here, probably best to keep the
   // constructors for each type the same (Strength only has one constructor); (Stretch only has one constructor) etc
   // and use if statements and set methods inside the constructor
-  static void addPreloadedExercise(String s, HashMap<String,ExerciseData> hm, boolean fixedVolume, boolean fixedIntensity) throws IllegalArgumentException{
-    s = s.toUpperCase(); // make everything uppercase so it searches, still need to figure out a way to make this work
-    ExerciseData ed = hm.get(s);
+  static Exercise addPreloadedExercise(ExerciseData ed, int[] volume, int[] intensity, int sets) throws IllegalArgumentException{
+    //fix this later, just making it work now
     Exercise e;
     if(ed.getType().equals("Cardio")){
-      e = new Cardio(ed.getName(), ed.getPrimaryMuscles(), 
-                             ed.getSecondaryMuscles(), ed.getEquipment(), 
+      e = new Cardio(ed.getName(), ed.getPrimaryMuscles(),
+                             ed.getSecondaryMuscles(), ed.getEquipment(),
                              ed.getMechanics(), ed.getLevel(), ed.getForce(),
-                             0, Intensity.LOW); // USER INPUTS, NEED TO FIGURE THIS OUT time and intensity
+                             volume[0], Intensity.LOW); // USER INPUTS, NEED TO FIGURE THIS OUT time and intensity
     }
-    if(ed.getType().equals("Stretching")){
-      e = new Stretch(ed.getName(), ed.getPrimaryMuscles(), 
-                             ed.getSecondaryMuscles(), ed.getEquipment(), 
+    else if(ed.getType().equals("Stretching")){
+      e = new Stretch(ed.getName(), ed.getPrimaryMuscles(),
+                             ed.getSecondaryMuscles(), ed.getEquipment(),
                              ed.getMechanics(), ed.getLevel(), ed.getForce(),
-                             fixedVolume, fixedIntensity,
-                             1, new int[]{0}, new Intensity[]{Intensity.LOW}); // USER INPUTS, NEED TO FIGURE THIS OUT dynamic and volume
+                             sets, volume, new Intensity[0]); // USER INPUTS, NEED TO FIGURE THIS OUT dynamic and volume
     }
-    if(ed.getType().equals("Strength") | ed.getType().equals("Powerlifting") |
+    else if(ed.getType().equals("Strength") | ed.getType().equals("Powerlifting") |
        ed.getType().equals("Plyometrics") | ed.getType().equals("Strongman") |
        ed.getType().equals("OlympicWeightlifting")){
       e = new Strength(ed.getName(), ed.getPrimaryMuscles(),
-                             ed.getSecondaryMuscles(), ed.getEquipment(), 
+                             ed.getSecondaryMuscles(), ed.getEquipment(),
                              ed.getMechanics(), ed.getLevel(), ed.getForce(),
-                             fixedVolume, fixedIntensity,
-                             1, new int[]{0}, new int[]{0}); // USER INPUTS, NEED TO FIGURE THIS OUT
+                             sets, volume, intensity); // USER INPUTS, NEED TO FIGURE THIS OUT
                                                                           // differentSets and sets
     }
     else{
       throw new IllegalArgumentException("Wrong type on exercise");
     }
-    System.out.println(e);
+    return e;
   }
-
   // create a CustomExercise if the name does not already exist in the CustomExercise hashmap
   static void createCustomExercise(ExerciseData ed){
     if(LoadExerciseData.CUSTOM_EXERCISES.containsKey(ed.getName().toUpperCase())){
@@ -166,21 +162,20 @@ class LoadExerciseData {
     }
   }
 
-   static void removeCustomExercise(String customExerciseName){
+  static void removeCustomExercise(String customExerciseName){
     String s = customExerciseName.toUpperCase();
     if(!(LoadExerciseData.CUSTOM_EXERCISES.containsKey(s))){
       return;
     }
     LoadExerciseData.CUSTOM_EXERCISES.remove(s);
     ExerciseData[] eds = LoadExerciseData.CUSTOM_EXERCISES.values().toArray(new ExerciseData[0]);
-    Arrays.sort(eds);
     try{
-      PrintWriter pw = new PrintWriter(new File(MainActivity.getContext().getFilesDir(), "CustomExerciseData.txt"), "UTF-8");
+      PrintWriter pw = new PrintWriter("CustomExerciseData.txt", "UTF-8");
       pw.printf("name\ttype\tprimary\tsecondary\tequipment\tmechanics\tlevel\tforce\n"); // add the header row
       for(int i = 0; i < eds.length; i++){
-        ExerciseData ed = eds[i]; 
-        pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName(), ed.getType(), ed.getPrimaryMuscles(), 
-                  arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()), 
+        ExerciseData ed = eds[i];
+        pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName(), ed.getType(), ed.getPrimaryMuscles(),
+                  arrayListToQuotes(ed.getSecondaryMuscles()), arrayListToQuotes(ed.getEquipment()),
                   ed.getMechanics(), ed.getLevel(), ed.getForce());
       }
       pw.close();
@@ -231,20 +226,18 @@ class LoadExerciseData {
     }
   }
 
-  // Helper method
-  // Used in create and removeCustomExercise to put it in the original format
-  public static String arrayListToQuotes(ArrayList<String> al){
-    String s = "";
-    for(int i = 0; i < al.size(); i++){
-      s += al.get(i);
-      if(i != al.size()-1){
-        s += ",";
-      }
+    // Helper method
+    // Used in create and removeCustomExercise to put it in the original format
+    public static String arrayListToQuotes(ArrayList<String> al){
+        String s = "";
+        for(int i = 0; i < al.size(); i++){
+            s += al.get(i);
+            if(i != al.size()-1){
+                s += ",";
+            }
+        }
+        return s;
     }
-    return s;
-  }
-  public static void main(String[] args) {
-  }
+    public static void main(String[] args) {
+    }
 }
-
-
