@@ -176,6 +176,7 @@ class LoadExerciseData {
     Arrays.sort(eds);
     try{
       PrintWriter pw = new PrintWriter(new File(MainActivity.getContext().getFilesDir(), "CustomExerciseData.txt"), "UTF-8");
+      pw.printf("name\ttype\tprimary\tsecondary\tequipment\tmechanics\tlevel\tforce\n"); // add the header row
       for(int i = 0; i < eds.length; i++){
         ExerciseData ed = eds[i]; 
         pw.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", ed.getName(), ed.getType(), ed.getPrimaryMuscles(), 
