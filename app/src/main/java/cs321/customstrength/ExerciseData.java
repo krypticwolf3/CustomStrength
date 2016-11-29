@@ -1,7 +1,7 @@
 package cs321.customstrength;
 
 import java.util.ArrayList;
- class ExerciseData{
+ class ExerciseData implements Comparable<ExerciseData>{
     String name;
     String type;
     String primaryMuscle;
@@ -70,6 +70,10 @@ import java.util.ArrayList;
       }
       return false;
     
+    }
+    @Override
+    public int compareTo(ExerciseData ed2){
+      return this.name.compareTo(ed2.name);
     }
     @Override public int hashCode(){
       int result = 31;
