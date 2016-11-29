@@ -74,7 +74,7 @@ public class addProgram extends AppCompatActivity {
         LinearLayout days = new LinearLayout(this);
         days.setOrientation(LinearLayout.VERTICAL);
 
-        Week week=new Week("First");
+        Week week=new Week("First One");
         week.days=addDay(days);
 
         currentWeek.addView(days);
@@ -100,9 +100,7 @@ public class addProgram extends AppCompatActivity {
             nameInput.setText("Name of Day " + (i+1));
             currentDay.addView(nameInput);
 
-            //Add exercises to the day
-            day=new Day("Day "+(i+1));
-            Button addExercise = new Button(this);
+            Button addExercise=new Button(this);
             addExercise.setText("Add Exercise");
             addExercise.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
@@ -110,6 +108,8 @@ public class addProgram extends AppCompatActivity {
                     exercise=null;
                     Intent searchIntent=new Intent(view.getContext(), selectExercise.class);
                     startActivityForResult(searchIntent, 1);
+
+                    //onActivityResult(1, );
                     day.exercises.add(exercise);
                 }
             });
@@ -122,11 +122,9 @@ public class addProgram extends AppCompatActivity {
         return daysArray;
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode==1 && requestCode==RESULT_OK && data!=null) {
             String toAdd=data.getStringExtra("Exercise");
             //make this into an exercise not exerciseData
             //also get sets, reps, and weight from this page
             exercise=LoadExerciseData.PRELOADED_EXERCISES.get(toAdd);
-        }
     }
 }

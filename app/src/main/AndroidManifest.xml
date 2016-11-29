@@ -37,18 +37,17 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".selectExercise"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".selectExercise">
         </activity>
 
         <!-- Exercise Section -->
-        <activity android:name=".View_Exercises"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".View_Exercises">
         </activity>
 
         <activity android:name=".Exercise_List"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
 
 
         <!-- Start Workout Section -->
