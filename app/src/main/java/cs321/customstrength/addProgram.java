@@ -165,7 +165,7 @@ public class addProgram extends AppCompatActivity {
             //exercise should have content now from getting the result
             weeksArray.get(requestCode / 10).days.get(requestCode % 10).exercises.add(exercise);
             TextView text = new TextView(this);
-            text.setText(exercise.name);
+            text.setText(exercise.name+" "+sets+" Sets "+volume+" "+intensity);
             LinearLayout currentDay = (LinearLayout) weeks.findViewById(dayIds.get(requestCode / 10).get(requestCode % 10));
             currentDay.addView(text);
         }
