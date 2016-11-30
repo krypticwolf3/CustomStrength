@@ -1,6 +1,7 @@
 package cs321.customstrength;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -77,7 +78,9 @@ public class addProgram extends AppCompatActivity {
         //Add the name input for the week
         EditText nameInput = new EditText(this);
         nameInput.setInputType(1);
-        nameInput.setText("Name of Week");
+        nameInput.setHint("Name of Week");
+        nameInput.setHintTextColor(Color.BLACK);
+        nameInput.setTextColor(Color.BLACK);
         weekNames.add(nameInput);
         currentWeek.addView(nameInput);
         weeks.addView(currentWeek);
@@ -127,13 +130,16 @@ public class addProgram extends AppCompatActivity {
             //Name of the day
             EditText nameInput = new EditText(this);
             nameInput.setInputType(1);
-            nameInput.setText("Name of Day " + (i+1));
+            nameInput.setHint("Name of Day " + (i+1));
+            nameInput.setHintTextColor(Color.BLACK);
+            nameInput.setTextColor(Color.BLACK);
             names.add(nameInput);
             currentDay.addView(nameInput);
 
             //Add buttons for adding exercises to each day
             Button addExercise = new Button(this);
             addExercise.setText("Add Exercise");
+            addExercise.setTextColor(Color.BLACK);
             addExercise.setTag((weekCounter*10)+i);
             currentDay.addView(addExercise);
 
@@ -171,7 +177,7 @@ public class addProgram extends AppCompatActivity {
             //exercise should have content now from getting the result
             weeksArray.get(requestCode / 10).days.get(requestCode % 10).exercises.add(exercise);
             TextView text = new TextView(this);
-            text.setText(exercise.name+" "+sets+" Sets "+volume+" "+intensity);
+            text.setText(exercise.name);
             LinearLayout currentDay = (LinearLayout) weeks.findViewById(dayIds.get(requestCode / 10).get(requestCode % 10));
             currentDay.addView(text);
         }

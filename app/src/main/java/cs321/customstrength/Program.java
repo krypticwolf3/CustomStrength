@@ -26,7 +26,6 @@ class Program {
         String repr=name+":\n";
         for (int i=0; i<weeks.size(); i++) {
             repr+=weeks.get(i).toString();
-            repr+="\n";
         }
         return repr;
     }

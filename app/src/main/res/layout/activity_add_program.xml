@@ -26,6 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Save"
+            android:textColor="#000000"
             android:onClick="saveProgram"/>
     </LinearLayout>
     <LinearLayout
@@ -35,11 +36,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name:"/>
+            android:text="Name:"
+            android:textColor="#000000"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text"
+            android:textColor="#000000"
             android:id="@+id/programName"/>
     </LinearLayout>
     <LinearLayout
@@ -49,22 +52,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="How many days a week? "/>
+            android:text="How many days a week? "
+            android:textColor="#000000"/>
         <Button
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:id="@+id/dayMinusButton"
             android:text="-"
+            android:textColor="#000000"
             android:onClick="dayDecrement"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/dayValue"/>
+            android:id="@+id/dayValue"
+            android:textColor="#000000"/>
         <Button
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:id="@+id/dayPlusButton"
             android:text="+"
+            android:textColor="#000000"
             android:onClick="dayIncrement"/>
     </LinearLayout>
     <LinearLayout
@@ -74,22 +81,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="How many different weeks in the program? "/>
+        android:text="How many different weeks in the program?"
+        android:textColor="#000000"/>
     <Button
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:id="@+id/weekMinusButton"
         android:text="-"
+        android:textColor="#000000"
         android:onClick="weekDecrement"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#000000"
         android:id="@+id/weekValue"/>
     <Button
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:id="@+id/weekPlusButton"
         android:text="+"
+        android:textColor="#000000"
         android:onClick="weekIncrement"/>
     </LinearLayout>
     <LinearLayout
