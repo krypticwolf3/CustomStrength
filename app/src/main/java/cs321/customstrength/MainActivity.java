@@ -61,9 +61,7 @@ public class MainActivity extends AppCompatActivity {
         // this is how we read CustomExerciseData
         if(!f1.exists() && !f2.exists()){
           LoadExerciseData.writeFilesIntoStorage();
-
         }
-
     }
 
     public void exercises(View view) {

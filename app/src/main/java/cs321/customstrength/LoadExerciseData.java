@@ -99,9 +99,9 @@ class LoadExerciseData {
     }
 
     // return a sorted list of the exercise's names
-    static List<String> displayExercises(HashMap<String,ExerciseData> hm){
+    static ArrayList<String> displayExercises(HashMap<String,ExerciseData> hm){
         Set<String> exerciseSet = hm.keySet();
-        List<String> exerciseList = new ArrayList<String>(exerciseSet);
+        ArrayList<String> exerciseList = new ArrayList<String>(exerciseSet);
         Collections.sort(exerciseList);
         return exerciseList;
     }
