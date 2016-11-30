@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
     // Parameters for the app's sections. //
     ////////////////////////////////////////
 
-    private String currentProgName;
-    private int currentWeek = 0;
-    private int currentDay = 0;
+    static int currentProgIndex;
+    static int currentWeek;
+    static int currentDay;
 
     private static Context mContext;
 
@@ -72,29 +72,22 @@ public class MainActivity extends AppCompatActivity {
     }
     public void startWorkout(View view) {
         //go to startWorkout page
-        Intent startIntent = new Intent(this, StartWorkout.class);
+        Intent startIntent = new Intent(this, ValidateWorkout.class);
 
-        if (currentProgName != null) {
-            startIntent.putExtra("CURRENT_PROGRAM", currentProgName);
+        if (MyPrograms.programs.size()>0) {
+            startIntent.putExtra("CURRENT_PROGRAM", currentProgIndex);
             startIntent.putExtra("CURRENT_WEEK", currentWeek);
             startIntent.putExtra("CURRENT_DAY", currentDay);
 
             startActivity(startIntent);
-            //finish();
+            finish();
         } else {
-            Toast.makeText(getApplicationContext(), "No program chosen yet.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "No workout to start yet.", Toast.LENGTH_LONG).show();
         }
     }
 
     // returns a Context that can be called
     public static Context getContext() {
         return mContext;
-    }
-
-    protected void setWorkout() {
-        Intent choice = getIntent();
-        if (choice != null) {
-            currentProgName = choice.getExtras().getString("PROGRAM_NAME");
-        }
     }
 }

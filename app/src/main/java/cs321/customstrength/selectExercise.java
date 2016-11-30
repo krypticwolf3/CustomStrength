@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -57,10 +58,12 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
     }
     public boolean onQueryTextSubmit(String query) {
         ArrayList<String> results = LoadExerciseData.searchExercises(query, LoadExerciseData.PRELOADED_EXERCISES);
+        ScrollView scrollView=new ScrollView(this);
+        scrollView.setId(displayResultsId);
+        mainLayout.addView(scrollView);
         LinearLayout displayResults = new LinearLayout(this);
         displayResults.setOrientation(LinearLayout.VERTICAL);
-        displayResults.setId(displayResultsId);
-        mainLayout.addView(displayResults);
+        scrollView.addView(displayResults);
         for (int i = 0; i < results.size(); i++) {
             Button result = new Button(this);
             result.setText(results.get(i));
@@ -126,7 +129,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                                 volumeAndIntensity.addView(setNumber);
 
                                 EditText volume=new EditText(view.getContext());
-                                volume.setText("Minutes");
+                                volume.setHint("Minutes");
                                 volume.setInputType(InputType.TYPE_CLASS_NUMBER);
                                 volumeAndIntensity.addView(volume);
                             }
@@ -137,7 +140,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                             volumeAndIntensity.addView(setNumber);
 
                             EditText volume=new EditText(view.getContext());
-                            volume.setText("Minutes");
+                            volume.setHint("Minutes");
                             volume.setInputType(InputType.TYPE_CLASS_NUMBER);
                             volumeAndIntensity.addView(volume);
                         }
@@ -151,7 +154,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                                 volumeAndIntensity.addView(setNumber);
 
                                 EditText volume=new EditText(view.getContext());
-                                volume.setText("Reps/Seconds");
+                                volume.setHint("Reps/Seconds");
                                 volume.setInputType(InputType.TYPE_CLASS_NUMBER);
                                 volumeAndIntensity.addView(volume);
                             }
@@ -162,7 +165,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                             volumeAndIntensity.addView(setNumber);
 
                             EditText volume=new EditText(view.getContext());
-                            volume.setText("Reps/Seconds");
+                            volume.setHint("Reps/Seconds");
                             volume.setInputType(InputType.TYPE_CLASS_NUMBER);
                             volumeAndIntensity.addView(volume);
                         }
@@ -176,12 +179,12 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                                 volumeAndIntensity.addView(setNumber);
 
                                 EditText volume=new EditText(view.getContext());
-                                volume.setText("Reps");
+                                volume.setHint("Reps");
                                 volume.setInputType(InputType.TYPE_CLASS_NUMBER);
                                 volumeAndIntensity.addView(volume);
 
                                 EditText intensity=new EditText(view.getContext());
-                                intensity.setText("Weight");
+                                intensity.setHint("Weight");
                                 intensity.setInputType(InputType.TYPE_CLASS_NUMBER);
                                 volumeAndIntensity.addView(intensity);
                             }
@@ -192,12 +195,12 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                             volumeAndIntensity.addView(setNumber);
 
                             EditText volume=new EditText(view.getContext());
-                            volume.setText("Reps");
+                            volume.setHint("Reps");
                             volume.setInputType(InputType.TYPE_CLASS_NUMBER);
                             volumeAndIntensity.addView(volume);
 
                             EditText intensity=new EditText(view.getContext());
-                            intensity.setText("Weight");
+                            intensity.setHint("Weight");
                             intensity.setInputType(InputType.TYPE_CLASS_NUMBER);
                             volumeAndIntensity.addView(intensity);
                         }

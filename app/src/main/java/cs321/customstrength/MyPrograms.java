@@ -2,18 +2,22 @@ package cs321.customstrength;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MyPrograms extends Activity {
 
+    LinearLayout programLayout;
     static ArrayList<Program> programs = new ArrayList<Program>();
     static ArrayList<Boolean> expanded = new ArrayList<Boolean>();
+    boolean delete=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +28,16 @@ public class MyPrograms extends Activity {
     }
     public void init() {
         //the LinearLayout to add programs to
-        LinearLayout programLayout=(LinearLayout) findViewById(R.id.programLayout);
+        programLayout=(LinearLayout) findViewById(R.id.programLayout);
         //create the buttons that display the programs
         for (int i = 0; i < programs.size(); i++) {
             //create the button to display the program
             Button button = new Button(this);
             //set the text
-            button.setText((i+1)+". "+programs.get(i).toString());
+            button.setText(programs.get(i).toString());
+            button.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+            button.setTextColor(Color.BLACK);
+            button.setTag(i);
             //add button to row
             programLayout.addView(button);
             //onClick
@@ -38,21 +45,27 @@ public class MyPrograms extends Activity {
                 public void onClick(View view) {
                     Button innerbutton = (Button) view;
                     //find which program it is
-                    int position = Character.getNumericValue(innerbutton.getText().charAt(0));
-                    //if it is collapsed, expand it
-                    if (MyPrograms.expanded.get(position-1)==false) {
-                        innerbutton.setText(position +". "+ programs.get(position - 1).toStringExpanded());
-                        MyPrograms.expanded.set(position-1, true);
-                    }
-                    //if it is expanded, collapse it
-                    else {
-                        innerbutton.setText(position +". "+ programs.get(position - 1).toString());
-                        MyPrograms.expanded.set(position-1, false);
+                    int position = (int) innerbutton.getTag();
+                    if (delete) {
+                        programLayout.removeViewAt(position+1);
+                        programs.remove(position);
+                        delete=false;
+                    } else {
+                        //if it is collapsed, expand it
+                        if (!MyPrograms.expanded.get(position)) {
+                            innerbutton.setText(programs.get(position).toStringExpanded());
+                            MyPrograms.expanded.set(position, true);
+                        }
+                        //if it is expanded, collapse it
+                        else {
+                            innerbutton.setText(programs.get(position).toString());
+                            MyPrograms.expanded.set(position, false);
+                        }
                     }
                 }
             });
         }
-        if (programs.size()==0) {
+        if (programs.size() == 0) {
             TextView emptyMessage=new TextView(this);
             emptyMessage.setText("Nothing here... try adding a program");
             programLayout.addView(emptyMessage);
@@ -60,8 +73,17 @@ public class MyPrograms extends Activity {
     }
     //onClick for add new program
     public void addProgram(View view) {
-        Intent createIntent=new Intent(this, addProgram.class);
+        Intent createIntent = new Intent(this, addProgram.class);
         startActivity(createIntent);
         finish();
+    }
+    public void deleteProgram(View view) {
+        if (programs.size()>0) {
+            Toast.makeText(this, "Choose a program to delete.", Toast.LENGTH_LONG).show();
+            delete = true;
+        }
+        else {
+            Toast.makeText(this, "No program exists to delete", Toast.LENGTH_LONG).show();
+        }
     }
 }
