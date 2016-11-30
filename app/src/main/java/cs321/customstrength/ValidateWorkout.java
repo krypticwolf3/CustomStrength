@@ -24,7 +24,7 @@ public class ValidateWorkout extends AppCompatActivity {
         Program currentProgram=MyPrograms.programs.get(programNumber);
         LinearLayout linearLayout=(LinearLayout) findViewById(R.id.currentProgram);
         TextView text=new TextView(this);
-        text.setText("Current Workout: "+currentProgram.name+", Week: "+currentProgram.weeks.get(currentWeek).name+", Day: "+currentProgram.weeks.get(currentWeek).days.get(currentDay));
+        text.setText("Current Workout: "+currentProgram.name+", Week: "+currentProgram.weeks.get(currentWeek).name+", Day: "+currentProgram.weeks.get(currentWeek).days.get(currentDay).name);
         linearLayout.addView(text);
     }
     public void startWorkout(View view) {

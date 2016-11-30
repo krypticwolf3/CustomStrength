@@ -15,14 +15,13 @@ import java.util.List;
 public class StartWorkout extends AppCompatActivity {
 
     private Program currentProgram;
-    private String currentProgName;
     private int currentProgNumber;
     private int currentWeek;
     private int currentDay;
     private TextView showInfo;
 
     private ListView myListView;
-    private ArrayAdapter<Week> myLayoutAdapter;
+    private ArrayAdapter<Exercise> myLayoutAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,41 +33,25 @@ public class StartWorkout extends AppCompatActivity {
         showInfo = (TextView) findViewById(R.id.workoutInfoText);
 
         if (workoutIntent != null) {
-            Bundle extraInfo = workoutIntent.getExtras();
-
-            currentProgNumber = extraInfo.getInt("CURRENT_PROGRAM_NUMBER");
-            currentWeek = extraInfo.getInt("CURRENT_WEEK");
-            currentDay = extraInfo.getInt("CURRENT_DAY");
+            currentProgNumber = workoutIntent.getIntExtra("CURRENT_PROGRAM_NUMBER", 0);
+            currentWeek = workoutIntent.getIntExtra("CURRENT_WEEK", 0);
+            currentDay = workoutIntent.getIntExtra("CURRENT_DAY", 0);
 
             // Track which program is currently selected
-            if ( (currentProgNumber >= 0) && (currentProgNumber < MyPrograms.programs.size()) ) {
-                currentProgram = MyPrograms.programs.get(currentProgNumber);
-            } else {
-
-            }
-            showInfo.setText(
-                    "Program: " + currentProgName
-                    + "\nWeek: " + currentWeek
-                    + "\nDay: " + currentDay
-                    + "\nProgram Number: " + currentProgNumber);
+            currentProgram = MyPrograms.programs.get(currentProgNumber);
         }
 
         //////////////////////////////////
         // Set up the list view layout. //
         //////////////////////////////////
 
-        if (currentProgram != null) {
-            myLayoutAdapter = new ArrayAdapter<Week>(this,
-                    android.R.layout.simple_list_item_1, currentProgram.weeks);
+        myLayoutAdapter = new ArrayAdapter<Exercise>(this,
+                R.layout.workout_item, currentProgram.weeks.get(currentWeek).days.get(currentDay).exercises);
 
-            myListView = (ListView) findViewById(R.id.currentProgramWeeksList);
-            myListView.setAdapter(myLayoutAdapter);
+        myListView = (ListView) findViewById(R.id.currentProgramWeeksList);
+        myListView.setAdapter(myLayoutAdapter);
 
-            myListView.setOnItemClickListener(listItemClickedHandler);
-        } else {
-            Toast.makeText(getApplicationContext(),
-                    "ERROR: CURRENT PROGRAM WAS NULL", Toast.LENGTH_LONG).show();
-        }
+        myListView.setOnItemClickListener(listItemClickedHandler);
     }
 
     /**
