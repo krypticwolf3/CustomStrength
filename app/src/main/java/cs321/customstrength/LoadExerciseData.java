@@ -99,9 +99,9 @@ class LoadExerciseData {
   }
   
   // return a sorted list of the exercise's names
-  static List<String> displayExercises(HashMap<String,ExerciseData> hm){
+  static ArrayList<String> displayExercises(HashMap<String,ExerciseData> hm){
     Set<String> exerciseSet = hm.keySet();
-    List<String> exerciseList = new ArrayList<String>(exerciseSet);
+    ArrayList<String> exerciseList = new ArrayList<String>(exerciseSet);
     Collections.sort(exerciseList);
     return exerciseList;
   }
@@ -134,14 +134,16 @@ class LoadExerciseData {
                                                                           // differentSets and sets
     }
     else{
-      throw new IllegalArgumentException("Wrong type on exercise");
+      throw new IllegalArgumentException("Wrong type of exercise");
     }
     return e;
   }
   // create a CustomExercise if the name does not already exist in the CustomExercise hashmap
   static void createCustomExercise(ExerciseData ed){
-    if(LoadExerciseData.CUSTOM_EXERCISES.containsKey(ed.getName().toUpperCase())){
-      throw new IllegalArgumentException("This Custom Exercise already exists, please use a different name");
+    // adds a 1 to the name if it already exists, until it no longer exists
+    // gets rid of duplicate mappings
+    while(LoadExerciseData.CUSTOM_EXERCISES.containsKey(ed.getName().toUpperCase())){
+      ed.name = ed.name + "1";
     }
     try {
       // use if using Android SDK
