@@ -59,10 +59,10 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
     public boolean onQueryTextSubmit(String query) {
         ArrayList<String> results = LoadExerciseData.searchExercises(query, LoadExerciseData.PRELOADED_EXERCISES);
         ScrollView scrollView=new ScrollView(this);
+        scrollView.setId(displayResultsId);
         mainLayout.addView(scrollView);
         LinearLayout displayResults = new LinearLayout(this);
         displayResults.setOrientation(LinearLayout.VERTICAL);
-        displayResults.setId(displayResultsId);
         scrollView.addView(displayResults);
         for (int i = 0; i < results.size(); i++) {
             Button result = new Button(this);
