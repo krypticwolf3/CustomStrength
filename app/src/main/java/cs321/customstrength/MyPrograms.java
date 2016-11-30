@@ -22,7 +22,7 @@ public class MyPrograms extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_programs);
-        Intent programsIntent=getIntent();
+        Intent programsIntent = getIntent();
         init();
     }
     public void init() {
@@ -33,6 +33,7 @@ public class MyPrograms extends Activity {
             //create the button to display the program
             Button button = new Button(this);
             //set the text
+            button.setText((i + 1) + ". " + programs.get(i).toString());
             button.setText(programs.get(i).toString());
             button.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
             button.setTag(i);
@@ -63,7 +64,7 @@ public class MyPrograms extends Activity {
                 }
             });
         }
-        if (programs.size()==0) {
+        if (programs.size() == 0) {
             TextView emptyMessage=new TextView(this);
             emptyMessage.setText("Nothing here... try adding a program");
             programLayout.addView(emptyMessage);
@@ -71,7 +72,7 @@ public class MyPrograms extends Activity {
     }
     //onClick for add new program
     public void addProgram(View view) {
-        Intent createIntent=new Intent(this, addProgram.class);
+        Intent createIntent = new Intent(this, addProgram.class);
         startActivity(createIntent);
         finish();
     }
