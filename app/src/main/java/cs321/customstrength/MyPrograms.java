@@ -30,7 +30,7 @@ public class MyPrograms extends Activity {
             //create the button to display the program
             Button button = new Button(this);
             //set the text
-            button.setText((i+1)+". "+programs.get(i).toString());
+            button.setText((i + 1) + ". " + programs.get(i).toString());
             //add button to row
             programLayout.addView(button);
             //onClick
@@ -40,19 +40,19 @@ public class MyPrograms extends Activity {
                     //find which program it is
                     int position = Character.getNumericValue(innerbutton.getText().charAt(0));
                     //if it is collapsed, expand it
-                    if (MyPrograms.expanded.get(position-1)==false) {
-                        innerbutton.setText(position +". "+ programs.get(position - 1).toStringExpanded());
-                        MyPrograms.expanded.set(position-1, true);
+                    if (MyPrograms.expanded.get(position - 1) == false) {
+                        innerbutton.setText(position + ". " + programs.get(position - 1).toStringExpanded());
+                        MyPrograms.expanded.set(position - 1, true);
                     }
                     //if it is expanded, collapse it
                     else {
-                        innerbutton.setText(position +". "+ programs.get(position - 1).toString());
-                        MyPrograms.expanded.set(position-1, false);
+                        innerbutton.setText(position + ". " + programs.get(position - 1).toString());
+                        MyPrograms.expanded.set(position - 1, false);
                     }
                 }
             });
         }
-        if (programs.size()==0) {
+        if (programs.size() == 0) {
             TextView emptyMessage=new TextView(this);
             emptyMessage.setText("Nothing here... try adding a program");
             programLayout.addView(emptyMessage);
@@ -60,7 +60,7 @@ public class MyPrograms extends Activity {
     }
     //onClick for add new program
     public void addProgram(View view) {
-        Intent createIntent=new Intent(this, addProgram.class);
+        Intent createIntent = new Intent(this, addProgram.class);
         startActivity(createIntent);
         finish();
     }

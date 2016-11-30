@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ////////////////////////////////////////
 
     private String currentProgName;
+    private int currentProgNumber;
     private int currentWeek = 0;
     private int currentDay = 0;
 
@@ -74,14 +75,24 @@ public class MainActivity extends AppCompatActivity {
         //go to startWorkout page
         Intent startIntent = new Intent(this, StartWorkout.class);
 
-        if (currentProgName != null) {
-            startIntent.putExtra("CURRENT_PROGRAM", currentProgName);
+        if ( (MyPrograms.programs != null) && (MyPrograms.programs.size() > 0) ) {
+            startIntent.putExtra("CURRENT_PROGRAM_NAME", currentProgName);
+            startIntent.putExtra("CURRENT_PROGRAM_NUMBER", currentProgNumber);
             startIntent.putExtra("CURRENT_WEEK", currentWeek);
             startIntent.putExtra("CURRENT_DAY", currentDay);
 
             startActivity(startIntent);
             //finish();
         } else {
+            // Generate a test program se we can test the StartWorkout section.
+            startIntent.putExtra("CURRENT_PROGRAM_NAME", "Test Program 001");
+            startIntent.putExtra("CURRENT_PROGRAM_NUMBER", 0);
+            startIntent.putExtra("CURRENT_WEEK", 1);
+            startIntent.putExtra("CURRENT_DAY", 1);
+
+            startActivity(startIntent);
+            //finish();
+
             Toast.makeText(getApplicationContext(), "No program chosen yet.", Toast.LENGTH_LONG).show();
         }
     }
