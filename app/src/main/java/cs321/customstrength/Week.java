@@ -13,6 +13,10 @@ class Week {
 
     Week () {}
 
+    Week (String name) {
+        this.name=name;
+    }
+
     public void addDay(Day day) {
         days.add(day);
     }

@@ -36,13 +36,13 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
         mainLayout=(LinearLayout) findViewById(R.id.mainLayout);
 
         //Number picker stuff
-        numberPicker=(NumberPicker) findViewById(R.id.numberPicker);
+        numberPicker = (NumberPicker) findViewById(R.id.numberPicker);
         numberPicker.setMinValue(1);
         numberPicker.setMaxValue(99);
         numberPicker.setValue(1);
 
         //For getting volume and intensity
-        volumeAndIntensity=(LinearLayout) findViewById(R.id.volumeAndIntensity);
+        volumeAndIntensity = (LinearLayout) findViewById(R.id.volumeAndIntensity);
         setSwitch=(Switch) findViewById(R.id.setSwitch);
 
         displayResultsId=View.generateViewId();
@@ -77,14 +77,14 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                     save.setText("Save");
                     save.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View view) {
-                            Button innerButton=(Button)view;
-                            if (LoadExerciseData.PRELOADED_EXERCISES.get(innerButton.getTag()).type=="Cardio" || LoadExerciseData.PRELOADED_EXERCISES.get(innerButton.getTag()).type=="Stretching") {
+                            Button innerButton = (Button)view;
+                            if (LoadExerciseData.PRELOADED_EXERCISES.get(innerButton.getTag()).type == "Cardio" || LoadExerciseData.PRELOADED_EXERCISES.get(innerButton.getTag()).type == "Stretching") {
                                 volume=new int[volumeAndIntensity.getChildCount()/2];
                                 for (int i = 1; i < volumeAndIntensity.getChildCount(); i += 2) {
                                     if (Character.isDigit(((EditText) volumeAndIntensity.getChildAt(i)).getText().charAt(0))) {
-                                        volume[(i-1)/2]=Integer.parseInt(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString());
+                                        volume[(i-1)/2] = Integer.parseInt(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString());
                                     } else {
-                                        volume[(i-1)/2]=-1;
+                                        volume[(i-1)/2] = -1;
                                     }
                                 }
                             }
@@ -92,21 +92,21 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                                 volume=new int[volumeAndIntensity.getChildCount()/3];
                                 intensity=new int[volumeAndIntensity.getChildCount()/3];
                                 for (int i = 0; i < volumeAndIntensity.getChildCount(); i++) {
-                                    if (i%3!=0) {
+                                    if (i%3 != 0) {
                                         if (Character.isDigit(((EditText) volumeAndIntensity.getChildAt(i)).getText().charAt(0))) {
-                                            if ((i-1)%3==0) {
-                                                volume[(i-1)/3]=Integer.parseInt(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString());
+                                            if ((i-1)%3 == 0) {
+                                                volume[(i-1)/3] = Integer.parseInt(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString());
                                             }
                                             else {
-                                                intensity[(i-2)/3]=Integer.parseInt(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString());
+                                                intensity[(i-2)/3] = Integer.parseInt(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString());
                                             }
                                         }
                                         else {
-                                            if ((i-1)%3==0) {
-                                                volume[(i-1)/3]=-1;
+                                            if ((i-1)%3 == 0) {
+                                                volume[(i-1)/3] = -1;
                                             }
                                             else {
-                                                intensity[(i-1)/3]=-1;
+                                                intensity[(i-1)/3] = -1;
                                             }
                                         }
                                     }
@@ -121,7 +121,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                             finish();
                         }
                     });
-                    if (LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type=="Cardio") {
+                    if (LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type == "Cardio") {
                         if (setSwitch.isChecked()) {
                             for (int i=0; i<numberPicker.getValue(); i++) {
                                 TextView setNumber=new TextView(view.getContext());
@@ -144,9 +144,9 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                             volume.setInputType(InputType.TYPE_CLASS_NUMBER);
                             volumeAndIntensity.addView(volume);
                         }
-                        intensity=new int[]{-1};
+                        intensity = new int[]{-1};
                     }
-                    else if(LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type=="Stretching") {
+                    else if(LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type == "Stretching") {
                         if (setSwitch.isChecked()) {
                             for (int i=0; i<numberPicker.getValue(); i++) {
                                 TextView setNumber=new TextView(view.getContext());
@@ -173,7 +173,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                     }
                     else {
                         if (setSwitch.isChecked()) {
-                            for (int i=0; i<numberPicker.getValue(); i++) {
+                            for (int i = 0; i<numberPicker.getValue(); i++) {
                                 TextView setNumber=new TextView(view.getContext());
                                 setNumber.setText("Set "+(i+1));
                                 volumeAndIntensity.addView(setNumber);

@@ -113,14 +113,14 @@ class LoadExerciseData {
     //fix this later, just making it work now
     Exercise e;
     if(ed.getType().equals("Cardio")){
-      e = new Cardio(ed.getName(), ed.getPrimaryMuscles(), 
-                             ed.getSecondaryMuscles(), ed.getEquipment(), 
+      e = new Cardio(ed.getName(), ed.getPrimaryMuscles(),
+                             ed.getSecondaryMuscles(), ed.getEquipment(),
                              ed.getMechanics(), ed.getLevel(), ed.getForce(),
                              volume[0], Intensity.LOW); // USER INPUTS, NEED TO FIGURE THIS OUT time and intensity
     }
     else if(ed.getType().equals("Stretching")){
-      e = new Stretch(ed.getName(), ed.getPrimaryMuscles(), 
-                             ed.getSecondaryMuscles(), ed.getEquipment(), 
+      e = new Stretch(ed.getName(), ed.getPrimaryMuscles(),
+                             ed.getSecondaryMuscles(), ed.getEquipment(),
                              ed.getMechanics(), ed.getLevel(), ed.getForce(),
                              sets, volume, new Intensity[0]); // USER INPUTS, NEED TO FIGURE THIS OUT dynamic and volume
     }
@@ -128,7 +128,7 @@ class LoadExerciseData {
        ed.getType().equals("Plyometrics") | ed.getType().equals("Strongman") |
        ed.getType().equals("OlympicWeightlifting")){
       e = new Strength(ed.getName(), ed.getPrimaryMuscles(),
-                             ed.getSecondaryMuscles(), ed.getEquipment(), 
+                             ed.getSecondaryMuscles(), ed.getEquipment(),
                              ed.getMechanics(), ed.getLevel(), ed.getForce(),
                              sets, volume, intensity); // USER INPUTS, NEED TO FIGURE THIS OUT
                                                                           // differentSets and sets
@@ -226,20 +226,18 @@ class LoadExerciseData {
     }
   }
 
-  // Helper method
-  // Used in create and removeCustomExercise to put it in the original format
-  public static String arrayListToQuotes(ArrayList<String> al){
-    String s = "";
-    for(int i = 0; i < al.size(); i++){
-      s += al.get(i);
-      if(i != al.size()-1){
-        s += ",";
-      }
+    // Helper method
+    // Used in create and removeCustomExercise to put it in the original format
+    public static String arrayListToQuotes(ArrayList<String> al){
+        String s = "";
+        for(int i = 0; i < al.size(); i++){
+            s += al.get(i);
+            if(i != al.size()-1){
+                s += ",";
+            }
+        }
+        return s;
     }
-    return s;
-  }
-  public static void main(String[] args) {
-  }
+    public static void main(String[] args) {
+    }
 }
-
-
