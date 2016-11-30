@@ -23,6 +23,8 @@ public class addProgram extends AppCompatActivity {
 
     ArrayList<Week> weeksArray=new ArrayList<Week>();
     Exercise exercise;
+    ArrayList<EditText> weekNames=new ArrayList<>();
+    ArrayList<ArrayList<EditText>> dayNames=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,7 @@ public class addProgram extends AppCompatActivity {
         EditText nameInput = new EditText(this);
         nameInput.setInputType(1);
         nameInput.setText("Name of Week");
+        weekNames.add(nameInput);
         currentWeek.addView(nameInput);
         weeks.addView(currentWeek);
 
@@ -109,6 +112,7 @@ public class addProgram extends AppCompatActivity {
         //create an array list of day view ids
         ArrayList<Integer> dayIdsLocal=new ArrayList<>();
         //for number of days in the week
+        ArrayList<EditText> names=new ArrayList<>();
         for (int i = 0; i < Character.getNumericValue(dayValue.getText().charAt(0)); i++) {
             //Linear layout for the day
             LinearLayout currentDay = new LinearLayout(this);
@@ -124,6 +128,7 @@ public class addProgram extends AppCompatActivity {
             EditText nameInput = new EditText(this);
             nameInput.setInputType(1);
             nameInput.setText("Name of Day " + (i+1));
+            names.add(nameInput);
             currentDay.addView(nameInput);
 
             //Add buttons for adding exercises to each day
@@ -146,6 +151,7 @@ public class addProgram extends AppCompatActivity {
             });
             dayCounter++;
         }
+        dayNames.add(names);
         dayIds.add(dayIdsLocal);
         return daysArrayData;
     }
@@ -173,6 +179,13 @@ public class addProgram extends AppCompatActivity {
     public void saveProgram(View view) {
         Program toAdd=new Program("Figure out names later");
         toAdd.weeks=weeksArray;
+        for (int i=0; i<weekNames.size(); i++) {
+            toAdd.weeks.get(i).name=weekNames.get(i).getText().toString();
+            for (int j=0; j<dayNames.get(i).size(); j++) {
+                toAdd.weeks.get(i).days.get(j).name=dayNames.get(i).get(j).getText().toString();
+            }
+        }
+        toAdd.name=((EditText)findViewById(R.id.programName)).getText().toString();
         MyPrograms.programs.add(toAdd);
         MyPrograms.expanded.add(false);
         Intent returnIntent=new Intent(this, MyPrograms.class);
