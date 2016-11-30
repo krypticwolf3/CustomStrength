@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -57,10 +58,12 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
     }
     public boolean onQueryTextSubmit(String query) {
         ArrayList<String> results = LoadExerciseData.searchExercises(query, LoadExerciseData.PRELOADED_EXERCISES);
+        ScrollView scrollView=new ScrollView(this);
+        mainLayout.addView(scrollView);
         LinearLayout displayResults = new LinearLayout(this);
         displayResults.setOrientation(LinearLayout.VERTICAL);
         displayResults.setId(displayResultsId);
-        mainLayout.addView(displayResults);
+        scrollView.addView(displayResults);
         for (int i = 0; i < results.size(); i++) {
             Button result = new Button(this);
             result.setText(results.get(i));
