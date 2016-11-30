@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.content.Context;
+import android.widget.Toast;
+
 import java.io.File;
 
 import static cs321.customstrength.R.id.toolbar;
@@ -25,6 +27,14 @@ public class MainActivity extends AppCompatActivity {
     Button startWorkoutBtn;
     Button programsBtn;
     Button exerciseBtn;
+
+    ////////////////////////////////////////
+    // Parameters for the app's sections. //
+    ////////////////////////////////////////
+
+    private String currentProgName;
+    private int currentWeek = 0;
+    private int currentDay = 0;
 
     private static Context mContext;
 
@@ -60,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         //go to exercises page
        Intent exerciseIntent = new Intent(this, AllExercises.class);
         startActivity(exerciseIntent);
+        //finish();
     }
     public void myPrograms(View view) {
         //go to myPrograms page
@@ -68,12 +79,30 @@ public class MainActivity extends AppCompatActivity {
     }
     public void startWorkout(View view) {
         //go to startWorkout page
-        //Intent startWorkout = new Intent(this, startWorkout.class);
-        //startActivity(startWorkout);
+
+        Intent startIntent = new Intent(this, StartWorkout.class);
+
+        if (currentProgName != null) {
+            startIntent.putExtra("CURRENT_PROGRAM", currentProgName);
+            startIntent.putExtra("CURRENT_WEEK", currentWeek);
+            startIntent.putExtra("CURRENT_DAY", currentDay);
+
+            startActivity(startIntent);
+            //finish();
+        } else {
+            Toast.makeText(getApplicationContext(), "No program chosen yet.", Toast.LENGTH_LONG).show();
+        }
     }
 
     // returns a Context that can be called
     public static Context getContext() {
         return mContext;
+    }
+
+    protected void setWorkout() {
+        Intent choice = getIntent();
+        if (choice != null) {
+            currentProgName = choice.getExtras().getString("PROGRAM_NAME");
+        }
     }
 }

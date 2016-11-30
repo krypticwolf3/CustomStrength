@@ -26,5 +26,5 @@
             android:textAlignment="center"
             android:onClick="addProgram" />
     </LinearLayout>
-</LinearLayout>
 
+</LinearLayout>

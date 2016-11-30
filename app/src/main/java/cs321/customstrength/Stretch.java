@@ -3,24 +3,24 @@ package cs321.customstrength;
 import java.util.ArrayList;
 
 class Stretch extends Exercise {
-//  boolean dynamic; //true=dynamic false=static // don't really need this
+  //boolean dynamic; //true=dynamic false=static // don't really need this
   int sets;
-  boolean fixedVolume;
-  boolean fixedIntensity;
-
   int[] volume; //if dynamic==true, measure in reps, else measure in time(seconds)
   Intensity[] intensity;
+
   //fixedVolume==true && fixedIntensity==true
   Stretch(String name, String primaryMuscle, ArrayList<String> secondaryMuscles, ArrayList<String> equipmentUsed,
-          String mechanics, String level, String force, boolean fixedVolume, boolean fixedIntensity,
+
+          String mechanics, String level, String force,
           int sets, int[] volume, Intensity[] intensity) {
+
     super(name, primaryMuscle, secondaryMuscles, equipmentUsed, mechanics, level, force);
-    this.fixedVolume=fixedVolume;
-    this.fixedIntensity=fixedIntensity;
+
 
     // basically exactly like strength
     // this.dynamic=dynamic; // don't really need this actually
     this.volume=volume; // get this on the same page you are getting fixedVolume
+
     // PSEUDO-CODE FOR THE CODE TO GET REPS INFORMATION
     /* START CODE:
      * int[] volume = new int[sets];
@@ -38,6 +38,7 @@ class Stretch extends Exercise {
      * }
      * END CODE
     */
+
     this.intensity=intensity; // get this on the same page you are getting fixedIntensity
     // PSEUDO-CODE FOR THE CODE TO GET WEIGHTS INFORMATION
     /* START CODE:

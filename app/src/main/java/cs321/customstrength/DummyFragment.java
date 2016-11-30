@@ -47,13 +47,16 @@ public class DummyFragment extends Fragment {
         recyclerView
                 .setLayoutManager(new LinearLayoutManager(getActivity()));//Linear Items
 
-        ArrayList<String> List= new ArrayList<>();
+        ArrayList<String> L= new ArrayList<>();
         //AllExercises.ViewPagerAdapter  v = new AllExercises.ViewPagerAdapter();
         //if (v.getPageTitle(0) == "Preloaded Exercises") {
             List<String> preloadedExercise = LoadExerciseData.displayExercises(loadPreloadedData());
             ArrayList<String> arrayList = new ArrayList<>(preloadedExercise.size());
+
             arrayList.addAll(preloadedExercise);
-            List = arrayList;
+            L = arrayList;
+            //System.out.print(title);
+
         //}
        /* else
         {
@@ -65,7 +68,7 @@ public class DummyFragment extends Fragment {
        /* for (int i = 0; i < 20; i++) {
             arrayList.add(title+" Items " + i);//Adding items to recycler view
         }*/
-        RecyclerView_Adapter adapter = new RecyclerView_Adapter(getActivity(), List);
+        RecyclerView_Adapter adapter = new RecyclerView_Adapter(getActivity(), L);
         recyclerView.setAdapter(adapter);// set adapter on recyclerview
     }
 }
