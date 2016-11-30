@@ -33,7 +33,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_exercise);
-        mainLayout=(LinearLayout) findViewById(R.id.mainLayout);
+        mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 
         //Number picker stuff
         numberPicker = (NumberPicker) findViewById(R.id.numberPicker);
