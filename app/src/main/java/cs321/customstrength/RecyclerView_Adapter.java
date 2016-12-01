@@ -8,6 +8,8 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 import java.util.ArrayList;
 
 public class RecyclerView_Adapter extends
@@ -34,13 +36,13 @@ public class RecyclerView_Adapter extends
         mainHolder.title.setText(arrayList.get(position));
     }
 
-    @Override
+    //@Override
     public DemoViewHolder onCreateViewHolder(
             ViewGroup viewGroup, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(viewGroup.getContext());
-
         ViewGroup mainGroup = (ViewGroup) mInflater.inflate(
                 R.layout.item_row, viewGroup, false);
+
         DemoViewHolder mainHolder = new DemoViewHolder(mainGroup) {
             @Override
             public String toString() {
