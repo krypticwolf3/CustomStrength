@@ -75,8 +75,8 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                 public void onClick(View view) {
                     Button innerResult=(Button)view;
                     resultString=innerResult.getText().toString();
+                    int sets=Integer.parseInt(numberPicker.getText().toString());
                     Button save=new Button(view.getContext());
-                    mainLayout.addView(save);
                     save.setTag(resultString);
                     save.setText("Save");
                     save.setOnClickListener(new View.OnClickListener() {
@@ -127,7 +127,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                     });
                     if (LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type == "Cardio") {
                         if (setSwitch.isChecked()) {
-                            for (int i=0; i< Integer.getInteger(numberPicker.getText().toString()); i++) {
+                            for (int i=0; i< sets; i++) {
                                 TextView setNumber=new TextView(view.getContext());
                                 setNumber.setText("Set "+(i+1));
                                 volumeAndIntensity.addView(setNumber);
@@ -152,7 +152,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                     }
                     else if(LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type == "Stretching") {
                         if (setSwitch.isChecked()) {
-                            for (int i=0; i<Integer.getInteger(numberPicker.getText().toString()); i++) {
+                            for (int i=0; i<sets; i++) {
                                 TextView setNumber=new TextView(view.getContext());
                                 setNumber.setText("Set "+(i+1));
                                 volumeAndIntensity.addView(setNumber);
@@ -177,7 +177,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                     }
                     else {
                         if (setSwitch.isChecked()) {
-                            for (int i = 0; i<Integer.getInteger(numberPicker.getText().toString()); i++) {
+                            for (int i = 0; i<sets; i++) {
                                 TextView setNumber=new TextView(view.getContext());
                                 setNumber.setText("Set "+(i+1));
                                 volumeAndIntensity.addView(setNumber);
@@ -211,6 +211,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                     }
                     scrollView.removeAllViews();
                     titleView.setText(resultString);
+                    volumeAndIntensity.addView(save);
                 }
             });
             displayResults.addView(result);
