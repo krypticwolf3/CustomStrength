@@ -35,7 +35,7 @@ public class ValidateWorkout extends AppCompatActivity {
         startActivity(startIntent);
     }
     public void selectWorkout(View view) {
-        Intent selectIntent=new Intent(this, ValidateWorkout.class);
+        Intent selectIntent=new Intent(this, selectWorkout.class);
         startActivityForResult(selectIntent, 0);
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

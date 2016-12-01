@@ -35,25 +35,26 @@
         <activity
             android:name=".MyPrograms"
             android:label="@string/title_activity_my_programs"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".addProgram"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".selectExercise"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".selectExercise" />
 
         <!-- Exercise Section -->
         <activity
             android:name=".AllExercises"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".addCustomExercise"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-		 <activity android:name=".addCustomExercise"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <!-- Start Workout Section -->
         <activity
             android:name=".StartWorkout"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ValidateWorkout"></activity>
-        <activity android:name=".ExerciseInfo"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ValidateWorkout" />
+        <activity android:name=".ExerciseInfo" />
+        <activity android:name=".selectWorkout"></activity>
     </application>
 
 </manifest>
