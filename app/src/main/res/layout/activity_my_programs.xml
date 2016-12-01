@@ -23,17 +23,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:text="+"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:onClick="addProgram" />
+            android:text="-"
+            android:textColor="#000000"
+            android:onClick="deleteProgram" />
         <Button
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:text="-"
-            android:layout_gravity="center"
-            android:onClick="deleteProgram"/>
+            android:text="+"
+            android:textColor="#000000"
+            android:onClick="addProgram"/>
     </LinearLayout>
 </LinearLayout>
 </ScrollView>

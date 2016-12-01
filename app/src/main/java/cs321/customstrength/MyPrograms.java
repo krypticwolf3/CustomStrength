@@ -2,6 +2,7 @@ package cs321.customstrength;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,9 +34,9 @@ public class MyPrograms extends Activity {
             //create the button to display the program
             Button button = new Button(this);
             //set the text
-            button.setText((i + 1) + ". " + programs.get(i).toString());
             button.setText(programs.get(i).toString());
             button.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+            button.setTextColor(Color.BLACK);
             button.setTag(i);
             //add button to row
             programLayout.addView(button);
@@ -52,12 +53,12 @@ public class MyPrograms extends Activity {
                     } else {
                         //if it is collapsed, expand it
                         if (!MyPrograms.expanded.get(position)) {
-                            innerbutton.setText((position+1) + ". " + programs.get(position).toStringExpanded());
+                            innerbutton.setText(programs.get(position).toStringExpanded());
                             MyPrograms.expanded.set(position, true);
                         }
                         //if it is expanded, collapse it
                         else {
-                            innerbutton.setText((position+1) + ". " + programs.get(position).toString());
+                            innerbutton.setText(programs.get(position).toString());
                             MyPrograms.expanded.set(position, false);
                         }
                     }
