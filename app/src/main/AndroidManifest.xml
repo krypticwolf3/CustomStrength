@@ -52,6 +52,7 @@
             android:name=".StartWorkout"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ValidateWorkout"></activity>
+        <activity android:name=".ExerciseInfo"></activity>
     </application>
 
 </manifest>
