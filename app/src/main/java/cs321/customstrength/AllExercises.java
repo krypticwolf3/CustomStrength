@@ -24,6 +24,8 @@ public class AllExercises extends AppCompatActivity {
     private static Toolbar toolbar;
     private static ViewPager viewPager;
     private static TabLayout tabLayout;
+
+    private static Button addCustomButton;
     //public static  tabLayout;
 
     @Override
@@ -79,12 +81,16 @@ public class AllExercises extends AppCompatActivity {
     //Setting View Pager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new DummyFragment("Preloaded Exercises"), "Preloaded Exercises");
-        adapter.addFrag(new DummyFragment("Custom Exercises"), "Custom Exercises");
+        adapter.clearFrag();
+        adapter.addFrag(new PreloadedFragment("Preloaded Exercises"), "Preloaded Exercises");
+        adapter.addFrag(new CustomFragment("Custom Exercises"), "Custom Exercises");
 
         viewPager.setAdapter(adapter);
     }
-
+    public void addCustom(View view){
+        Intent createIntent=new Intent(this, addCustomExercise.class);
+        startActivity(createIntent);
+    }
     //View Pager fragments setting adapter class
     static class ViewPagerAdapter extends FragmentPagerAdapter {
         private static final List<Fragment> mFragmentList = new ArrayList<>();//fragment arraylist
@@ -109,15 +115,15 @@ public class AllExercises extends AppCompatActivity {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
-
+        public void clearFrag(){
+            mFragmentList.removeAll(mFragmentList);
+            mFragmentTitleList.removeAll(mFragmentTitleList);
+        }
         @Override
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
           // onClick for adding a custom exercise
-        public void addCustom(View view){
-            Intent createIntent=new Intent(this, addCustomExercise.class);
-            startActivity(createIntent);
-         }
+
     }
 }
