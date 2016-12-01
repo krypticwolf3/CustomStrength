@@ -44,7 +44,9 @@
         <activity
             android:name=".AllExercises"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-
+		 <activity android:name=".addCustomExercise"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <!-- Start Workout Section -->
         <activity
             android:name=".StartWorkout"

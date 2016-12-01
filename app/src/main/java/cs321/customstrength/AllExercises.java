@@ -39,7 +39,8 @@ public class AllExercises extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);//setting tab over viewpager
-
+        addListenerOnButton();
+        
         //Implementing tab selected listener over tablayout
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -64,7 +65,17 @@ public class AllExercises extends AppCompatActivity {
             }
         });
     }
-
+    
+    public void addListenerOnButton(){
+    addCustomButton = new Button(this);
+    addCustomButton.setText("+");
+    addCustomButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view){
+        addCustom(view);
+      }
+    } );
+  }
     //Setting View Pager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -103,5 +114,10 @@ public class AllExercises extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+          // onClick for adding a custom exercise
+        public void addCustom(View view){
+            Intent createIntent=new Intent(this, addCustomExercise.class);
+            startActivity(createIntent);
+         }
     }
 }
