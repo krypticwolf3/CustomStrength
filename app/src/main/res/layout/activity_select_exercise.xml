@@ -9,32 +9,45 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/mainLayout">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Input the number of sets and if they differ in volume or intensity, then search for an exercise"
+            android:textSize="8pt"
+            android:id="@+id/titleView"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number of Sets     "/>
-            <NumberPicker
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/numberPicker" />
+                android:layout_weight="1"
+                android:hint="Number of Sets"
+                android:inputType="number"
+                android:id="@+id/numberPicker"/>
             <Switch
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="                   Sets differ?"
+                android:text="Sets differ?"
                 android:textOff="No"
                 android:textOn="Yes"
                 android:id="@+id/setSwitch"/>
         </LinearLayout>
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/volumeAndIntensity">
-        </LinearLayout>
+            android:id="@+id/scrollView">
+        </ScrollView>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/volumeAndIntensity">
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </LinearLayout>
