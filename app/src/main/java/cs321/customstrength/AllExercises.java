@@ -101,10 +101,10 @@ public class AllExercises extends AppCompatActivity {
         startActivity(exerciseInfo);
     }
 
-
     //Setting View Pager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.clearFrag();
         adapter.addFrag(new PreloadedFragment("Preloaded Exercises"), "Preloaded Exercises");
         adapter.addFrag(new CustomFragment("Custom Exercises"), "Custom Exercises");
 
@@ -170,6 +170,10 @@ public class AllExercises extends AppCompatActivity {
         public void addFrag(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
+        }
+        public void clearFrag(){
+            mFragmentList.removeAll(mFragmentList);
+            mFragmentTitleList.removeAll(mFragmentTitleList);
         }
 
         @Override
