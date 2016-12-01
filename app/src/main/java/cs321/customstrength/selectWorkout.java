@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 
 public class selectWorkout extends AppCompatActivity {
 
@@ -13,29 +13,29 @@ public class selectWorkout extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_workout);
-        final ScrollView scrollView=(ScrollView) findViewById(R.id.activity_select_workout);
+        final LinearLayout mainLayout=(LinearLayout) findViewById(R.id.mainLayout);
         for (int i=0; i<MyPrograms.programs.size(); i++) {
             Button button=new Button(this);
             button.setText(MyPrograms.programs.get(i).toString());
             button.setTag(i);
-            scrollView.addView(button);
+            mainLayout.addView(button);
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     Button innerbutton=(Button) view;
                     int index=(int)innerbutton.getTag();
-                    scrollView.removeAllViews();
+                    mainLayout.removeAllViews();
                     for (int i=0; i<MyPrograms.programs.get(index).weeks.size(); i++) {
                         Button button=new Button(view.getContext());
                         button.setText(MyPrograms.programs.get(index).weeks.toString());
                         int[] tag={index, i};
                         button.setTag(tag);
-                        scrollView.addView(button);
+                        mainLayout.addView(button);
                         button.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View view) {
                                 Button innerbutton=(Button) view;
                                 int[] index=(int[])innerbutton.getTag();
                                 Week week=MyPrograms.programs.get(index[0]).weeks.get(index[1]);
-                                scrollView.removeAllViews();
+                                mainLayout.removeAllViews();
                                 for (int i=0; i<week.days.size(); i++) {
                                     Button button=new Button(view.getContext());
                                     button.setText(week.days.get(i).toString());
