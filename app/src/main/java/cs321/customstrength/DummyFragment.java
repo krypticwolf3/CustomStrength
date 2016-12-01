@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-public class DummyFragment extends Fragment {
+import static cs321.customstrength.LoadExerciseData.loadPreloadedData;
+
+/*public class DummyFragment extends Fragment {
     private View view;
     private String title;//String for tab title
     private static RecyclerView recyclerView;
@@ -40,11 +42,10 @@ public class DummyFragment extends Fragment {
                 .setLayoutManager(new LinearLayoutManager(getActivity()));//Linear Items
 
 
-        ArrayList<String> arrayList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            arrayList.add(title+" Items " + i);//Adding items to recycler view
-        }
+        ArrayList<String> preloadedList = LoadExerciseData.displayExercises(loadPreloadedData());
+
         RecyclerView_Adapter adapter = new RecyclerView_Adapter(getActivity(), arrayList);
         recyclerView.setAdapter(adapter);// set adapter on recyclerview
     }
 }
+*/
