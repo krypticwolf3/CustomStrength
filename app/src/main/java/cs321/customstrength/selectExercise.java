@@ -63,7 +63,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
         if (scrollView.getChildCount()>0) {
             scrollView.removeAllViews();
         }
-        ArrayList<String> results = LoadExerciseData.searchExercises(query, LoadExerciseData.PRELOADED_EXERCISES);
+        ArrayList<String> results = LoadExerciseData.searchExercises(query);
         LinearLayout displayResults = new LinearLayout(this);
         displayResults.setOrientation(LinearLayout.VERTICAL);
         scrollView.addView(displayResults);
