@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             startIntent.putExtra("CURRENT_DAY", currentDay);
 
             startActivity(startIntent);
-            finish();
+            //finish();
         } else {
             Toast.makeText(getApplicationContext(), "No workout to start yet.", Toast.LENGTH_LONG).show();
         }

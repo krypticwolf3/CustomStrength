@@ -35,7 +35,12 @@ public class ValidateWorkout extends AppCompatActivity {
         startActivity(startIntent);
     }
     public void selectWorkout(View view) {
-        //Intent selectIntent=new Intent(this, SelectWorkout.class);
-        //startActivityForResult(selectIntent, 0);
+        Intent selectIntent=new Intent(this, ValidateWorkout.class);
+        startActivityForResult(selectIntent, 0);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        programNumber=data.getIntExtra("PROGRAM",0);
+        currentWeek=data.getIntExtra("WEEK", 0);
+        currentDay=data.getIntExtra("DAY",0);
     }
 }
