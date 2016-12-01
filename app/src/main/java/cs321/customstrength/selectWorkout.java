@@ -26,7 +26,7 @@ public class selectWorkout extends AppCompatActivity {
                     mainLayout.removeAllViews();
                     for (int i=0; i<MyPrograms.programs.get(index).weeks.size(); i++) {
                         Button button=new Button(view.getContext());
-                        button.setText(MyPrograms.programs.get(index).weeks.toString());
+                        button.setText(MyPrograms.programs.get(index).weeks.get(i).name);
                         int[] tag={index, i};
                         button.setTag(tag);
                         mainLayout.addView(button);
@@ -38,9 +38,10 @@ public class selectWorkout extends AppCompatActivity {
                                 mainLayout.removeAllViews();
                                 for (int i=0; i<week.days.size(); i++) {
                                     Button button=new Button(view.getContext());
-                                    button.setText(week.days.get(i).toString());
+                                    button.setText(week.days.get(i).name);
                                     int[] tag={index[0], index[1], i};
                                     button.setTag(tag);
+                                    mainLayout.addView(button);
                                     button.setOnClickListener(new View.OnClickListener() {
                                         public void onClick(View view) {
                                             int[] results=(int[])view.getTag();
