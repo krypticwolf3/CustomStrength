@@ -77,11 +77,7 @@ public class addCustomExercise extends AppCompatActivity {
       }
     } );
   }
-  
-  
-  
-  
-  
+
   private void addNewCustomExercise(){
     // collect String inputs, if the values haven't been changed, it is by default "N/A"
     String customNameString = customNameValue.getText().toString();
@@ -107,6 +103,4 @@ public class addCustomExercise extends AppCompatActivity {
     startActivity(returnIntent);
     finish();
   }
-  
-  
 }
