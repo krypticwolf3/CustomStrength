@@ -48,14 +48,15 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".addCustomExercise"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <!-- Start Workout Section -->
         <activity
             android:name=".StartWorkout"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ValidateWorkout" />
         <activity android:name=".ExerciseInfo" />
-        <activity android:name=".selectWorkout"></activity>
+        <activity android:name=".selectWorkout" />
+        <activity android:name=".CustomData"></activity>
     </application>
 
 </manifest>
