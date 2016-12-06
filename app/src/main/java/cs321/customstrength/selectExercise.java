@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class selectExercise extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
@@ -75,6 +76,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                 public void onClick(View view) {
                     Button innerResult=(Button)view;
                     resultString=innerResult.getText().toString();
+                    final ExerciseData selectedExercise = LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText().toString()) != null ? LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText().toString()) : LoadExerciseData.CUSTOM_EXERCISES.get(innerResult.getText().toString());
                     int sets=Integer.parseInt(numberPicker.getText().toString());
                     Button save=new Button(view.getContext());
                     save.setTag(resultString);
@@ -82,7 +84,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                     save.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View view) {
                             Button innerButton = (Button)view;
-                            if (LoadExerciseData.PRELOADED_EXERCISES.get(innerButton.getTag()).type == "Cardio" || LoadExerciseData.PRELOADED_EXERCISES.get(innerButton.getTag()).type == "Stretching") {
+                            if (selectedExercise.type.equals("Cardio") || selectedExercise.type.equals("Stretching")) {
                                 volume=new int[volumeAndIntensity.getChildCount()/2];
                                 for (int i = 1; i < volumeAndIntensity.getChildCount(); i += 2) {
                                     if (selectExercise.isNumeric(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString())) {
@@ -125,7 +127,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                             finish();
                         }
                     });
-                    if (LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type == "Cardio") {
+                    if (selectedExercise.type == "Cardio") {
                         if (setSwitch.isChecked()) {
                             for (int i=0; i< sets; i++) {
                                 TextView setNumber=new TextView(view.getContext());
@@ -150,7 +152,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                         }
                         intensity = new int[]{-1};
                     }
-                    else if(LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type == "Stretching") {
+                    else if(selectedExercise.type.equals("Stretching")) {
                         if (setSwitch.isChecked()) {
                             for (int i=0; i<sets; i++) {
                                 TextView setNumber=new TextView(view.getContext());
