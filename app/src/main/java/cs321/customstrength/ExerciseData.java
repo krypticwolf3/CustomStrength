@@ -54,6 +54,8 @@ class ExerciseData{
         StringBuilder sb = new StringBuilder(name);
         sb.append("\nPrimary Muscle Worked: ");
         sb.append(primaryMuscle);
+        sb.append("\nExercise Type: ");
+        sb.append(type);
         sb.append("\nSecondary Muscles Worked: ");
         sb.append(secondaryMuscles);
         sb.append("\nEquipment Used: ");
