@@ -83,11 +83,19 @@ class LoadExerciseData {
 
   // this will be used to search through Custom Exercises and preloaded
   // returns a sorted list of the names
-  static ArrayList<String> searchExercises(String s, HashMap<String,ExerciseData> hm){
+  static ArrayList<String> searchExercises(String s){
     s = s.toUpperCase();
     ArrayList<String> exerciseLoad = new ArrayList<String>(); // could use a different data structure here
-    Set<String> exerciseSet = hm.keySet();
+    Set<String> exerciseSet = LoadExerciseData.PRELOADED_EXERCISES.keySet();
     String exerciseArray[] = exerciseSet.toArray(new String[0]);
+    // searches for name of each exercise
+    for(int i = 0; i < exerciseArray.length; i++){
+      if(exerciseArray[i].contains(s)){
+        exerciseLoad.add(exerciseArray[i]);
+      }
+    }
+    exerciseSet = LoadExerciseData.CUSTOM_EXERCISES.keySet();
+    exerciseArray = exerciseSet.toArray(new String[0]);
     // searches for name of each exercise
     for(int i = 0; i < exerciseArray.length; i++){
       if(exerciseArray[i].contains(s)){

@@ -171,7 +171,7 @@ public class addProgram extends AppCompatActivity {
             int sets = data.getIntExtra("Sets", 0);
             //get sets, reps, and weight from this page
             //make the string into exercise data
-            ExerciseData exerciseData = LoadExerciseData.PRELOADED_EXERCISES.get(stringToAdd);
+            ExerciseData exerciseData = LoadExerciseData.PRELOADED_EXERCISES.get(stringToAdd)!=null ? LoadExerciseData.PRELOADED_EXERCISES.get(stringToAdd) : LoadExerciseData.CUSTOM_EXERCISES.get(stringToAdd);
             //make the exercise data into an exercise
             exercise = LoadExerciseData.addPreloadedExercise(exerciseData, volume, intensity, sets);
             //exercise should have content now from getting the result
@@ -186,12 +186,19 @@ public class addProgram extends AppCompatActivity {
         Program toAdd=new Program("Figure out names later");
         toAdd.weeks=weeksArray;
         for (int i=0; i<weekNames.size(); i++) {
-            toAdd.weeks.get(i).name=weekNames.get(i).getText().toString();
+            if (!weekNames.get(i).getText().toString().isEmpty()) {
+                toAdd.weeks.get(i).name = weekNames.get(i).getText().toString();
+            }
             for (int j=0; j<dayNames.get(i).size(); j++) {
-                toAdd.weeks.get(i).days.get(j).name=dayNames.get(i).get(j).getText().toString();
+                if (!dayNames.get(i).get(j).getText().toString().trim().isEmpty()) {
+                    toAdd.weeks.get(i).days.get(j).name = dayNames.get(i).get(j).getText().toString();
+                }
             }
         }
-        toAdd.name=((EditText)findViewById(R.id.programName)).getText().toString();
+        toAdd.name=((EditText)findViewById(R.id.programName)).getText().toString().trim();
+        if (toAdd.name.isEmpty()) {
+            toAdd.name="Custom Program";
+        }
         MyPrograms.programs.add(toAdd);
         MyPrograms.expanded.add(false);
         Intent returnIntent=new Intent(this, MyPrograms.class);

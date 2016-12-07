@@ -1,6 +1,7 @@
 package cs321.customstrength;
 
 import android.content.Intent;
+import android.support.annotation.IntegerRes;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,21 +13,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.NumberPicker;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class selectExercise extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     LinearLayout mainLayout;
-    NumberPicker numberPicker;
+    EditText numberPicker;
     LinearLayout volumeAndIntensity;
+    ScrollView scrollView;
+    TextView titleView;
     Switch setSwitch;
     int[] volume;
     int[] intensity;
-    int displayResultsId;
     String resultString;
 
     @Override
@@ -34,18 +38,15 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_exercise);
         mainLayout=(LinearLayout) findViewById(R.id.mainLayout);
+        scrollView=(ScrollView) mainLayout.findViewById(R.id.scrollView);
 
         //Number picker stuff
-        numberPicker = (NumberPicker) findViewById(R.id.numberPicker);
-        numberPicker.setMinValue(1);
-        numberPicker.setMaxValue(99);
-        numberPicker.setValue(1);
+        numberPicker = (EditText) findViewById(R.id.numberPicker);
 
         //For getting volume and intensity
         volumeAndIntensity = (LinearLayout) findViewById(R.id.volumeAndIntensity);
         setSwitch=(Switch) findViewById(R.id.setSwitch);
-
-        displayResultsId=View.generateViewId();
+        titleView=(TextView) findViewById(R.id.titleView);
     }
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
@@ -57,10 +58,14 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
         return true;
     }
     public boolean onQueryTextSubmit(String query) {
-        ArrayList<String> results = LoadExerciseData.searchExercises(query, LoadExerciseData.PRELOADED_EXERCISES);
-        ScrollView scrollView=new ScrollView(this);
-        scrollView.setId(displayResultsId);
-        mainLayout.addView(scrollView);
+        if (numberPicker.getText().toString().trim().isEmpty()) {
+            Toast.makeText(this, "Input number of sets", Toast.LENGTH_LONG).show();
+            return true;
+        }
+        if (scrollView.getChildCount()>0) {
+            scrollView.removeAllViews();
+        }
+        ArrayList<String> results = LoadExerciseData.searchExercises(query);
         LinearLayout displayResults = new LinearLayout(this);
         displayResults.setOrientation(LinearLayout.VERTICAL);
         scrollView.addView(displayResults);
@@ -71,17 +76,18 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                 public void onClick(View view) {
                     Button innerResult=(Button)view;
                     resultString=innerResult.getText().toString();
+                    final ExerciseData selectedExercise = LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText().toString()) != null ? LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText().toString()) : LoadExerciseData.CUSTOM_EXERCISES.get(innerResult.getText().toString());
+                    int sets=Integer.parseInt(numberPicker.getText().toString());
                     Button save=new Button(view.getContext());
-                    mainLayout.addView(save);
                     save.setTag(resultString);
                     save.setText("Save");
                     save.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View view) {
                             Button innerButton = (Button)view;
-                            if (LoadExerciseData.PRELOADED_EXERCISES.get(innerButton.getTag()).type == "Cardio" || LoadExerciseData.PRELOADED_EXERCISES.get(innerButton.getTag()).type == "Stretching") {
+                            if (selectedExercise.type.equals("Cardio") || selectedExercise.type.equals("Stretching")) {
                                 volume=new int[volumeAndIntensity.getChildCount()/2];
                                 for (int i = 1; i < volumeAndIntensity.getChildCount(); i += 2) {
-                                    if (Character.isDigit(((EditText) volumeAndIntensity.getChildAt(i)).getText().charAt(0))) {
+                                    if (selectExercise.isNumeric(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString())) {
                                         volume[(i-1)/2] = Integer.parseInt(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString());
                                     } else {
                                         volume[(i-1)/2] = -1;
@@ -93,7 +99,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                                 intensity=new int[volumeAndIntensity.getChildCount()/3];
                                 for (int i = 0; i < volumeAndIntensity.getChildCount(); i++) {
                                     if (i%3 != 0) {
-                                        if (Character.isDigit(((EditText) volumeAndIntensity.getChildAt(i)).getText().charAt(0))) {
+                                        if (selectExercise.isNumeric(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString())) {
                                             if ((i-1)%3 == 0) {
                                                 volume[(i-1)/3] = Integer.parseInt(((EditText) volumeAndIntensity.getChildAt(i)).getText().toString());
                                             }
@@ -116,14 +122,14 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                             output.putExtra("Exercise", resultString);
                             output.putExtra("Intensity", intensity);
                             output.putExtra("Volume", volume);
-                            output.putExtra("Sets", numberPicker.getValue());
+                            output.putExtra("Sets", numberPicker.getText());
                             setResult(RESULT_OK, output);
                             finish();
                         }
                     });
-                    if (LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type == "Cardio") {
+                    if (selectedExercise.type == "Cardio") {
                         if (setSwitch.isChecked()) {
-                            for (int i=0; i<numberPicker.getValue(); i++) {
+                            for (int i=0; i< sets; i++) {
                                 TextView setNumber=new TextView(view.getContext());
                                 setNumber.setText("Set "+(i+1));
                                 volumeAndIntensity.addView(setNumber);
@@ -146,9 +152,9 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                         }
                         intensity = new int[]{-1};
                     }
-                    else if(LoadExerciseData.PRELOADED_EXERCISES.get(innerResult.getText()).type == "Stretching") {
+                    else if(selectedExercise.type.equals("Stretching")) {
                         if (setSwitch.isChecked()) {
-                            for (int i=0; i<numberPicker.getValue(); i++) {
+                            for (int i=0; i<sets; i++) {
                                 TextView setNumber=new TextView(view.getContext());
                                 setNumber.setText("Set "+(i+1));
                                 volumeAndIntensity.addView(setNumber);
@@ -173,7 +179,7 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                     }
                     else {
                         if (setSwitch.isChecked()) {
-                            for (int i = 0; i<numberPicker.getValue(); i++) {
+                            for (int i = 0; i<sets; i++) {
                                 TextView setNumber=new TextView(view.getContext());
                                 setNumber.setText("Set "+(i+1));
                                 volumeAndIntensity.addView(setNumber);
@@ -205,7 +211,9 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
                             volumeAndIntensity.addView(intensity);
                         }
                     }
-                    mainLayout.removeView(findViewById(displayResultsId));
+                    scrollView.removeAllViews();
+                    titleView.setText(resultString);
+                    volumeAndIntensity.addView(save);
                 }
             });
             displayResults.addView(result);
@@ -223,5 +231,8 @@ public class selectExercise extends AppCompatActivity implements SearchView.OnQu
     public boolean onQueryTextChange(String newText) {
         // User changed the text
         return false;
+    }
+    private static boolean isNumeric(String str) {
+        return str.matches("-?\\d+(\\.\\d+)?");
     }
 }

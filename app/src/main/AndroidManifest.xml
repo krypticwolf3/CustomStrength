@@ -13,7 +13,9 @@
     <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission-sdk-23 android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- Application Configuration -->
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Application Configuration -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,24 +36,26 @@
         <activity
             android:name=".MyPrograms"
             android:label="@string/title_activity_my_programs"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".addProgram"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".selectExercise"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".selectExercise" />
 
         <!-- Exercise Section -->
         <activity
             android:name=".AllExercises"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".addCustomExercise"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-		 <activity android:name=".addCustomExercise"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
         <!-- Start Workout Section -->
         <activity
             android:name=".StartWorkout"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ValidateWorkout"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ValidateWorkout" />
+        <activity android:name=".ExerciseInfo" />
+        <activity android:name=".selectWorkout"></activity>
     </application>
 
 </manifest>
