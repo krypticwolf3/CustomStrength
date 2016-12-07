@@ -648,7 +648,7 @@ Partner Suitcase Carry Competition	Strength	Forearms	"Abdominals,Glutes,Hamstrin
 Partner Supermans With Alternating High-Five	Strength	LowerBack	"Glutes,Hamstrings"	None	Compound	Beginner	Static
 Partner Target Sit-Up	Strength	Abdominals	N/A	None	Compound	Beginner	Pull
 Pelvic Tilt Into Bridge	Stretching	LowerBack	N/A	None	Compound	Intermediate	Static
-Pendlay Rown	Strength	MiddleBack	"Biceps,Lats,Shoulders"	Barbell	Compound	Intermediate	Pull
+Pendlay Row	Strength	MiddleBack	"Biceps,Lats,Shoulders"	Barbell	Compound	Intermediate	Pull
 Peroneals Stretch	Stretching	Calves	N/A	Other	N/A	Intermediate	Static
 Peroneals-SMR	Stretching	Calves	N/A	Foam Roll	N/A	Intermediate	Static
 Physioball Hip Bridge	Strength	Glutes	Hamstrings	Exercise Ball	Compound	Beginner	Push
