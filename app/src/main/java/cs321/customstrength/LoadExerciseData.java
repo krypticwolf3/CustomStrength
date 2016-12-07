@@ -180,7 +180,7 @@ class LoadExerciseData {
     LoadExerciseData.CUSTOM_EXERCISES.remove(s);
     ExerciseData[] eds = LoadExerciseData.CUSTOM_EXERCISES.values().toArray(new ExerciseData[0]);
     try{
-      PrintWriter pw = new PrintWriter("CustomExerciseData.txt", "UTF-8");
+      PrintWriter pw = new PrintWriter(new File(MainActivity.getContext().getFilesDir(), "CustomExerciseData.txt"));
       pw.printf("name\ttype\tprimary\tsecondary\tequipment\tmechanics\tlevel\tforce\n"); // add the header row
       for(int i = 0; i < eds.length; i++){
         ExerciseData ed = eds[i];

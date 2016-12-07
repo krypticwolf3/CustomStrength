@@ -91,6 +91,8 @@ public class AllExercises extends AppCompatActivity {
         Intent createIntent=new Intent(this, addCustomExercise.class);
         startActivity(createIntent);
     }
+    public void removeCustom(View view){
+    }
     //View Pager fragments setting adapter class
     static class ViewPagerAdapter extends FragmentPagerAdapter {
         private static final List<Fragment> mFragmentList = new ArrayList<>();//fragment arraylist
@@ -115,6 +117,7 @@ public class AllExercises extends AppCompatActivity {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
+        @SuppressWarnings("remove")
         public void clearFrag(){
             mFragmentList.removeAll(mFragmentList);
             mFragmentTitleList.removeAll(mFragmentTitleList);
