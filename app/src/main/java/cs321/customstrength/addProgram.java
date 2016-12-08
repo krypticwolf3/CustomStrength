@@ -171,7 +171,7 @@ public class addProgram extends AppCompatActivity {
             int sets = data.getIntExtra("Sets", 0);
             //get sets, reps, and weight from this page
             //make the string into exercise data
-            ExerciseData exerciseData = LoadExerciseData.PRELOADED_EXERCISES.get(stringToAdd);
+            ExerciseData exerciseData = LoadExerciseData.PRELOADED_EXERCISES.get(stringToAdd)!=null ? LoadExerciseData.PRELOADED_EXERCISES.get(stringToAdd) : LoadExerciseData.CUSTOM_EXERCISES.get(stringToAdd);
             //make the exercise data into an exercise
             exercise = LoadExerciseData.addPreloadedExercise(exerciseData, volume, intensity, sets);
             //exercise should have content now from getting the result

@@ -50,6 +50,10 @@ public class MyPrograms extends Activity {
                         programLayout.removeViewAt(position+1);
                         programs.remove(position);
                         delete=false;
+                        for (int i=1; i<programLayout.getChildCount(); i++) {
+                            Button button=(Button)programLayout.getChildAt(i);
+                            button.setTag(i-1);
+                        }
                     } else {
                         //if it is collapsed, expand it
                         if (!MyPrograms.expanded.get(position)) {

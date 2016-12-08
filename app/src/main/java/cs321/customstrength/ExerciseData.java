@@ -12,17 +12,26 @@ class ExerciseData{
     ArrayList<String> equipmentUsed;
     public ExerciseData(String name, String type, String primaryMuscle, String secondaryMuscles,
                         String equipmentUsed, String mechanics, String level, String force){
-        this.name = name;
-        this.type = type;
-        this.primaryMuscle = primaryMuscle;
+        this.name = whiteSpaceChecker(name);
+        this.type = whiteSpaceChecker(type);
+        this.primaryMuscle = whiteSpaceChecker(primaryMuscle);
         this.secondaryMuscles = extractStringsFromQuotes(secondaryMuscles);
         this.equipmentUsed = extractStringsFromQuotes(equipmentUsed);
-        this.mechanics = mechanics;
-        this.level = level;
-        this.force = force;
+        this.mechanics = whiteSpaceChecker(mechanics);
+        this.level = whiteSpaceChecker(level);
+        this.force = whiteSpaceChecker(force);
     }
     public ArrayList<String> extractStringsFromQuotes(String stringORquote){
+        String s = whiteSpaceChecker(stringORquote);
         ArrayList<String> returnArray = new ArrayList<String>();
+        if(s.equals("N/A")){
+            returnArray.add("N/A");
+            return returnArray;
+        }
+        if(this.primaryMuscle.equals(stringORquote)){
+            returnArray.add("N/A");
+            return returnArray;
+        }
         if(stringORquote.charAt(0) == '"'){
             String strings[] = stringORquote.split(",");
             String firstString = strings[0];
@@ -32,9 +41,6 @@ class ExerciseData{
             for(int i = 0; i < strings.length; i++){
                 returnArray.add(strings[i]);
             }
-        }
-        else if(this.primaryMuscle.equals(stringORquote)){
-            returnArray.add("N/A");
         }
         else{
             returnArray.add(stringORquote);
@@ -54,6 +60,8 @@ class ExerciseData{
         StringBuilder sb = new StringBuilder(name);
         sb.append("\nPrimary Muscle Worked: ");
         sb.append(primaryMuscle);
+        sb.append("\nExercise Type: ");
+        sb.append(type);
         sb.append("\nSecondary Muscles Worked: ");
         sb.append(secondaryMuscles);
         sb.append("\nEquipment Used: ");
@@ -76,5 +84,12 @@ class ExerciseData{
         result = 17 * result + type.hashCode();
         result = 17 * result + name.hashCode();
         return result;
+    }
+    // any empty string turns into "N/A"
+    public String whiteSpaceChecker(String s){
+        if(s.trim().equals("")){
+            return "N/A";
+        }
+        else{ return s; }
     }
 }

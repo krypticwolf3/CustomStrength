@@ -382,7 +382,6 @@ Hanging Bar Good Morning	Powerlifting	Hamstrings	"Abdominals,Glutes,LowerBack"	B
 Hanging Leg Raise	Strength	Abdominals	N/A	None	Isolation	Expert	Pull
 Hanging Oblique Knee Raise	Strength	Abdominals	N/A	None	Isolation	Expert	Pull
 Hanging Pike	Strength	Abdominals	N/A	None	Compound	Expert	Pull
-Hanging Pike	Strength	Abdominals	N/A	None	Compound	Expert	Pull
 Heaving Snatch Balance	OlympicWeightlifting	Quadriceps	"Abdominals,Forearms,Glutes,Hamstrings,Shoulders,Triceps"	Barbell	Compound	Intermediate	Push
 Heavy Bag Thrust	Plyometrics	Chest	"Abdominals,Shoulders,Triceps"	Other	Compound	Beginner	Push
 High Cable Curls	Strength	Biceps	N/A	Cable	Compound	Intermediate	Pull
@@ -438,7 +437,6 @@ Janda Sit-Up	Strength	Abdominals	N/A	None	Isolation	Beginner	Pull
 Jefferson Squats	Strength	Quadriceps	"Calves,Glutes,Hamstrings,LowerBack,Traps"	Barbell	Compound	Intermediate	Push
 Jerk Balance	OlympicWeightlifting	Shoulders	"Glutes,Hamstrings,Quadriceps,Triceps"	Barbell	Compound	Intermediate	Push
 Jerk Dip Squat	OlympicWeightlifting	Quadriceps	"Abdominals,Calves"	Barbell	Compound	Intermediate	Push
-JM Press	Strength	Triceps	"Chest,Shoulders"	Barbell	Compound	Beginner	Push
 JM Press	Strength	Triceps	"Chest,Shoulders"	Barbell	Compound	Beginner	Push
 JM Press With Bands	Strength	Triceps	"Chest,Shoulders"	Barbell	Compound	Intermediate	Push
 Jog In Place	Cardio	Quadriceps	"Calves,Glutes,Hamstrings"	None	Compound	Beginner	N/A
@@ -648,7 +646,7 @@ Partner Suitcase Carry Competition	Strength	Forearms	"Abdominals,Glutes,Hamstrin
 Partner Supermans With Alternating High-Five	Strength	LowerBack	"Glutes,Hamstrings"	None	Compound	Beginner	Static
 Partner Target Sit-Up	Strength	Abdominals	N/A	None	Compound	Beginner	Pull
 Pelvic Tilt Into Bridge	Stretching	LowerBack	N/A	None	Compound	Intermediate	Static
-Pendlay Rown	Strength	MiddleBack	"Biceps,Lats,Shoulders"	Barbell	Compound	Intermediate	Pull
+Pendlay Row	Strength	MiddleBack	"Biceps,Lats,Shoulders"	Barbell	Compound	Intermediate	Pull
 Peroneals Stretch	Stretching	Calves	N/A	Other	N/A	Intermediate	Static
 Peroneals-SMR	Stretching	Calves	N/A	Foam Roll	N/A	Intermediate	Static
 Physioball Hip Bridge	Strength	Glutes	Hamstrings	Exercise Ball	Compound	Beginner	Push
@@ -973,7 +971,6 @@ Suspended Hip Thrust	Strength	Glutes	"Hamstrings,LowerBack"	Other	Compound	Begin
 Suspended Leg Curl	Strength	Hamstrings	"Glutes,LowerBack"	Other	Compound	Intermediate	Pull
 Suspended Pike	Strength	Abdominals	N/A	Shoulders	Compound	Intermediate	Pull
 Suspended Push-Up	Strength	Chest	"Shoulders,Triceps"	Other	Compound	Beginner	Push
-Suspended Push-Up	Strength	Chest	"Shoulders,Triceps"	Other	Compound	Beginner	Push
 Suspended Reverse Crunch	Strength	Abdominals	N/A	Other	Isolation	Beginner	Pull
 Suspended Row	Strength	MiddleBack	"Biceps,Lats"	Other	Compound	Beginner	Pull
 Suspended Split Squat	Strength	Quadriceps	"Abductors,Adductors,Calves,Glutes,Hamstrings"	Other	Compound	Intermediate	Push
@@ -1035,7 +1032,6 @@ Weighted Bench Dip	Strength	Triceps	"Chest,Shoulders"	Other	Compound	Intermediat
 Weighted Crunches	Strength	Abdominals	N/A	Medicine Ball	Isolation	Beginner	Pull
 Weighted Jump Squat	Strength	Quadriceps	"Calves,Glutes,Hamstrings,LowerBack"	Barbell	Compound	Intermediate	Push
 Weighted Pull Ups	Strength	Lats	"Biceps,MiddleBack"	Other	Compound	Intermediate	Pull
-Weighted Push-Up	Strength	Chest	"Shoulders,Triceps"	Other	Compound	Intermediate	Push
 Weighted Push-Up	Strength	Chest	"Shoulders,Triceps"	Other	Compound	Intermediate	Push
 Weighted Sissy Squat	Strength	Quadriceps	"Calves,Glutes,Hamstrings"	Barbell	Compound	Expert	Push
 Weighted Sit-Ups - With Bands	Strength	Abdominals	N/A	Other	Isolation	Intermediate	Pull

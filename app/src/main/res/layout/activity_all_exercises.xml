@@ -29,15 +29,20 @@ android:layout_height="fill_parent">
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal">
-	<Button
-		android:id="@+id/addCustomButton"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:text="+"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-		android:onClick="addCustom"/>
+		 <Button
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="Remove Custom"
+            android:textColor="#FFFFFF"
+            android:onClick="removeCustom" />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="Add Custom"
+            android:textColor="#FFFFFF"
+            android:onClick="addCustom"/>
 	</LinearLayout>
 </android.support.design.widget.AppBarLayout>
 <!-- Helps handing the Fragments for each Tab -->

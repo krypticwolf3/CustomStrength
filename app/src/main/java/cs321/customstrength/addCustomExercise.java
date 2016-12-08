@@ -36,31 +36,25 @@ public class addCustomExercise extends AppCompatActivity {
     mainLayout = (ScrollView) findViewById(R.id.activity_create_custom);
     
     customNameValue = (EditText) findViewById(R.id.customNameValue);
-    customNameValue.setText("_", TextView.BufferType.EDITABLE);
     customNameValue.setImeOptions(EditorInfo.IME_ACTION_DONE);
     
     exerciseType = (TextView) findViewById(R.id.exerciseType);
-    exerciseType.setText("Select Exercise Type");
     Spinner typeValue = (Spinner) findViewById(R.id.typeValue);
     String[] typeArray = new String[]{"Strength", "Cardio", "Stretching"};
     ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, typeArray);
     typeValue.setAdapter(adapter);
     
     primaryValue = (EditText) findViewById(R.id.primaryValue);
-    primaryValue.setText("_", TextView.BufferType.EDITABLE);
     primaryValue.setImeOptions(EditorInfo.IME_ACTION_DONE);
     primaryValue.getBackground().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
     
     secondaryValue = (EditText) findViewById(R.id.secondaryValue);
-    secondaryValue.setText("_", TextView.BufferType.EDITABLE);
     secondaryValue.setImeOptions(EditorInfo.IME_ACTION_DONE);
     
     equipmentValue = (EditText) findViewById(R.id.equipmentValue);
-    equipmentValue.setText("_", TextView.BufferType.EDITABLE);
     equipmentValue.setImeOptions(EditorInfo.IME_ACTION_DONE);
     
     difficultyValue = (EditText) findViewById(R.id.difficultyValue);
-    difficultyValue.setText("_", TextView.BufferType.EDITABLE);
     difficultyValue.setImeOptions(EditorInfo.IME_ACTION_DONE);
     
     addListenerOnButton();
