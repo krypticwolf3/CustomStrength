@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class addCustomExercise extends AppCompatActivity {
@@ -99,6 +101,7 @@ public class addCustomExercise extends AppCompatActivity {
     LoadExerciseData.createCustomExercise(ed); // create the custom exercise
     Intent returnIntent = new Intent(this, AllExercises.class);
     startActivity(returnIntent);
+    Toast.makeText(this, "New Custom Exercise Added", Toast.LENGTH_SHORT).show();
     finish();
   }
   

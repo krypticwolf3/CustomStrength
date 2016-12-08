@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,15 +43,18 @@ public class CustomFragment extends Fragment {
     }
     //Setting recycler view
     private void setRecyclerView() {
-        recyclerView = (RecyclerView) view
-                .findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView
-                .setLayoutManager(new LinearLayoutManager(getActivity()));//Linear Items
-
-        ArrayList<String> customList = LoadExerciseData.displayExercises(loadCustomData());
-
-        RecyclerView_Adapter adapter = new RecyclerView_Adapter(getActivity(), customList);
-        recyclerView.setAdapter(adapter);// set adapter on recyclerview
+      recyclerView = (RecyclerView) view
+        .findViewById(R.id.recyclerView);
+      recyclerView.setHasFixedSize(true);
+      recyclerView
+        .setLayoutManager(new LinearLayoutManager(getActivity()));//Linear Items
+      
+      ArrayList<String> customList = LoadExerciseData.displayExercises(loadCustomData());
+      
+      recyclerView.setAdapter(new ContentAdapter(customList, new ContentAdapter.OnItemClickListener() {
+        @Override public void onItemClick(String item) {
+          Toast.makeText(getContext(), "Custom Exercise Clicked", Toast.LENGTH_SHORT).show();
+        }
+      }));
     }
 }

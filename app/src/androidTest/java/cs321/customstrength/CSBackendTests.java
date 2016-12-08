@@ -9,12 +9,6 @@ import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
@@ -105,7 +99,7 @@ public class CSBackendTests {
     assertTrue(LoadExerciseData.CUSTOM_EXERCISES.size() >= 1);
     // verify that ed has actually been added
     assertTrue(LoadExerciseData.CUSTOM_EXERCISES.get("N/A".toUpperCase()) != null);
-    assertEquals(LoadExerciseData.CUSTOM_EXERCISES.get("N/A".toUpperCase()), ed);
+    assertTrue(LoadExerciseData.CUSTOM_EXERCISES.get(ed.getName())!= null);
     assertTrue(LoadExerciseData.searchExercises("N/A").size() >= 1);
 
     // add a repeat of the same custom exercise

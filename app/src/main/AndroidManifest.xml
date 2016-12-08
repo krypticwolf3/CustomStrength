@@ -55,6 +55,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ValidateWorkout" />
         <activity android:name=".ExerciseInfo" />
+		<activity android:name=".CustomData" />
         <activity android:name=".selectWorkout"></activity>
     </application>
 

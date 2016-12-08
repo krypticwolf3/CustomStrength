@@ -10,24 +10,33 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
-public class AllExercises extends AppCompatActivity {
+public class AllExercises extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private static Toolbar toolbar;
     private static ViewPager viewPager;
     private static TabLayout tabLayout;
-
     private static Button addCustomButton;
-    //public static  tabLayout;
-
+    private static ScrollView scrollView;
+    public static boolean delete;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +51,6 @@ public class AllExercises extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);//setting tab over viewpager
         addListenerOnButton();
-        
         //Implementing tab selected listener over tablayout
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -50,10 +58,10 @@ public class AllExercises extends AppCompatActivity {
                 viewPager.setCurrentItem(tab.getPosition());//setting current selected item over viewpager
                 switch (tab.getPosition()) {
                     case 0:
-                        Log.e("TAG","TAB1");
+                        Log.e("TAG", "TAB1");
                         break;
                     case 1:
-                        Log.e("TAG","TAB2");
+                        Log.e("TAG", "TAB2");
                         break;
                 }
             }
@@ -67,7 +75,15 @@ public class AllExercises extends AppCompatActivity {
             }
         });
     }
-    
+    public boolean onCreateOptionsMenu(Menu menu) {
+      getMenuInflater().inflate(R.menu.menu_search, menu);
+      
+      MenuItem searchItem = menu.findItem(R.id.search);
+      SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+      searchView.setOnQueryTextListener(this);
+      
+      return true;
+    }
     public void addListenerOnButton(){
     addCustomButton = new Button(this);
     addCustomButton.setText("+");
@@ -90,9 +106,41 @@ public class AllExercises extends AppCompatActivity {
     public void addCustom(View view){
         Intent createIntent=new Intent(this, addCustomExercise.class);
         startActivity(createIntent);
+        finish();
     }
     public void removeCustom(View view){
+        if (LoadExerciseData.CUSTOM_EXERCISES.size()>0) {
+            Toast.makeText(this, "Choose a custom exercise to delete.", Toast.LENGTH_SHORT).show();
+            delete = true;
+        }
+        else {
+            Toast.makeText(this, "No custom exercise exists to delete", Toast.LENGTH_SHORT).show();
+        }
     }
+    
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+      ArrayList<String> results = LoadExerciseData.searchExercises(query);
+      LinearLayout displayResults = new LinearLayout(this);
+      displayResults.setOrientation(LinearLayout.VERTICAL);
+      for (int i = 0; i < results.size(); i++) {
+        Button result = new Button(this);
+        result.setText(results.get(i));
+        result.setOnClickListener(new View.OnClickListener() {
+          public void onClick(View view) {
+            Button innerResult = (Button) view;
+          }
+        });
+        displayResults.addView(result);
+      }
+      return true;
+    }
+    
+    @Override
+    public boolean onQueryTextChange(String newText) {
+      return false;
+    }
+ 
     //View Pager fragments setting adapter class
     static class ViewPagerAdapter extends FragmentPagerAdapter {
         private static final List<Fragment> mFragmentList = new ArrayList<>();//fragment arraylist
@@ -127,6 +175,5 @@ public class AllExercises extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
           // onClick for adding a custom exercise
-
     }
 }

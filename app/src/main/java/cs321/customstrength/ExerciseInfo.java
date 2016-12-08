@@ -19,9 +19,9 @@ public class ExerciseInfo extends AppCompatActivity {
         RelativeLayout rView = (RelativeLayout) findViewById(R.id.activity_exercise_info);
 
         Intent intent = getIntent();
-        String exerciseStr = intent.getExtras().getString("Exercise");
+        String exerciseStr = intent.getExtras().getString("Preloaded_Exercise");
 
-        System.out.print("EXERCISE"+exerciseStr);
+        System.out.print("Preloaded_Exercise"+exerciseStr);
 
         exerciseData = LoadExerciseData.PRELOADED_EXERCISES.get(exerciseStr);
         exerciseDataStr = exerciseData.toString();

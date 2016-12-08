@@ -63,17 +63,9 @@ public class PreloadedFragment extends Fragment {
 
         recyclerView.setAdapter(new ContentAdapter(preloadedList, new ContentAdapter.OnItemClickListener() {
            @Override public void onItemClick(String item) {
-                Toast.makeText(getContext(), "Exercise Clicked", Toast.LENGTH_LONG).show();
-             //   Intent activityChangeIntent = new Intent
-              // AllExercises.start(item);
-                // currentContext.startActivity(activityChangeIntent);
-               //Intent intent = new Intent(context, ExerciseInfo.class);
-               //context.startActivity(intent);
-               // AllExercises.start_Activity(item);
+             Toast.makeText(getContext(), "Preloaded Exercise Clicked", Toast.LENGTH_SHORT).show();
             }
         }));
 
-        /*RecyclerView_Adapter adapter = new RecyclerView_Adapter(getActivity(), preloadedList);
-        recyclerView.setAdapter(adapter);// set adapter on recyclerview*/
     }
 }
