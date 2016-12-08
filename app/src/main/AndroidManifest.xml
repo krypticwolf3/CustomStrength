@@ -56,7 +56,7 @@
         <activity android:name=".ValidateWorkout" />
         <activity android:name=".ExerciseInfo" />
         <activity android:name=".selectWorkout" />
-        <activity android:name=".CustomData"></activity>
+        <activity android:name=".CustomData" />
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ package cs321.customstrength;
  * Created by Savindi on 11/28/2016.
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,10 +49,20 @@ public class CustomFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView
                 .setLayoutManager(new LinearLayoutManager(getActivity()));//Linear Items
-
+        //String item;
         ArrayList<String> customList = LoadExerciseData.displayExercises(loadCustomData());
 
-        RecyclerView_Adapter adapter = new RecyclerView_Adapter(getActivity(), customList);
-        recyclerView.setAdapter(adapter);// set adapter on recyclerview
+       // RecyclerView_Adapter adapter = new RecyclerView_Adapter(getActivity(), customList);
+        //recyclerView.setAdapter(adapter);// set adapter on recyclerview
+        //Toast.makeText(getContext(), "Custom Exercise Clicked", Toast.LENGTH_LONG).show();
+        //item = view.toString();
+        //Intent intent = new Intent(view.getContext(), ExerciseInfo.class);
+        //intent.putExtra("Exercise", item);
+        //view.getContext().startActivity(intent);
+        recyclerView.setAdapter(new ContentAdapter(customList, new ContentAdapter.OnItemClickListener() {
+            @Override public void onItemClick(String item) {
+                Toast.makeText(getContext(), "Custom Exercise Clicked", Toast.LENGTH_LONG).show();
+            }
+        }));
     }
 }

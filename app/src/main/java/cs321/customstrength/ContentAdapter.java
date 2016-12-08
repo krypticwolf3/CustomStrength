@@ -28,7 +28,6 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
     public String getText()
     {
         String exercise = listener.toString();
-
         return exercise;
     }
 
@@ -59,8 +58,16 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
                     listener.onItemClick(item);
-                    Intent intent = new Intent(v.getContext(), ExerciseInfo.class);
-                    intent.putExtra("Exercise", item);
+                    Intent intent;
+                   if (LoadExerciseData.PRELOADED_EXERCISES.containsKey(item) == true) {
+                       intent = new Intent(v.getContext(), ExerciseInfo.class);
+                       intent.putExtra("Preloaded_Exercise", item);
+                   }
+                   else
+                   {
+                       intent = new Intent(v.getContext(), CustomData.class);
+                       intent.putExtra("Custom_Exercise", item);
+                   }
                     v.getContext().startActivity(intent);
                 }
             });

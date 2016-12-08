@@ -26,7 +26,6 @@ import static cs321.customstrength.LoadExerciseData.loadPreloadedData;
 
 public class PreloadedFragment extends Fragment {
     private View view;
-
     private String title;//String for tab title
     private static RecyclerView recyclerView;
 
@@ -63,7 +62,7 @@ public class PreloadedFragment extends Fragment {
 
         recyclerView.setAdapter(new ContentAdapter(preloadedList, new ContentAdapter.OnItemClickListener() {
            @Override public void onItemClick(String item) {
-                Toast.makeText(getContext(), "Exercise Clicked", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Preloaded Exercise Clicked", Toast.LENGTH_LONG).show();
 
             }
         }));
