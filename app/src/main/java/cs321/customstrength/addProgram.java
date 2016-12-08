@@ -42,7 +42,7 @@ public class addProgram extends AppCompatActivity {
 
     public void weekIncrement(View view) {
         int value = Character.getNumericValue(weekValue.getText().charAt(0));
-        if (value < 9) {
+        if (value < 9 && Character.getNumericValue(dayValue.getText().charAt(0))>0) {
             weekValue.setText(Integer.toString(value + 1));
             createWeek();
         }
@@ -71,6 +71,8 @@ public class addProgram extends AppCompatActivity {
     }
 
     public void createWeek() {
+        Button saveButton=(Button) findViewById(R.id.saveButton);
+        saveButton.setEnabled(true);
         //Create the week being worked on
         LinearLayout currentWeek = new LinearLayout(this);
         currentWeek.setOrientation(LinearLayout.VERTICAL);
@@ -107,6 +109,10 @@ public class addProgram extends AppCompatActivity {
     public void deleteWeek() {
         weeks.removeView(weeks.getChildAt(weeks.getChildCount() - 1));
         weekCounter--;
+        if(weekCounter>0) {
+            Button saveButton=(Button)findViewById(R.id.saveButton);
+            saveButton.setEnabled(false);
+        }
     }
 
     private ArrayList<Day> addDay() {
