@@ -25,12 +25,19 @@ import java.util.List;
 import static cs321.customstrength.LoadExerciseData.loadPreloadedData;
 
 public class PreloadedFragment extends Fragment {
+
     private View view;
+    private static String fragTitleArgText = "FRAGMENT_TITLE";
 
     private String title;//String for tab title
     private static RecyclerView recyclerView;
 
     public PreloadedFragment() {
+        /*
+        Bundle fragInfo = new Bundle();
+        fragInfo.putString(fragTitleArgText, title);
+        setArguments(fragInfo);
+        */
     }
 
     public PreloadedFragment(String title) {

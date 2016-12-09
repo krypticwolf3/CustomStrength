@@ -17,15 +17,15 @@ public class addProgram extends AppCompatActivity {
     LinearLayout mainLayout;
 
     LinearLayout weeks;//this is the container for all weeks in the program
-    int weekCounter=0;
-    int dayCounter=0;
-    ArrayList<ArrayList<Integer>> dayIds=new ArrayList<>();
-    ArrayList<Integer> weekIds=new ArrayList<>();
+    int weekCounter = 0;
+    int dayCounter = 0;
+    ArrayList<ArrayList<Integer>> dayIds = new ArrayList<>();
+    ArrayList<Integer> weekIds = new ArrayList<>();
 
-    ArrayList<Week> weeksArray=new ArrayList<Week>();
+    ArrayList<Week> weeksArray = new ArrayList<Week>();
     Exercise exercise;
-    ArrayList<EditText> weekNames=new ArrayList<>();
-    ArrayList<ArrayList<EditText>> dayNames=new ArrayList<>();
+    ArrayList<EditText> weekNames = new ArrayList<>();
+    ArrayList<ArrayList<EditText>> dayNames = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,13 +76,14 @@ public class addProgram extends AppCompatActivity {
         currentWeek.setOrientation(LinearLayout.VERTICAL);
 
         //Add the name input for the week
-        EditText nameInput = new EditText(this);
-        nameInput.setInputType(1);
-        nameInput.setHint("Name of Week");
-        nameInput.setHintTextColor(Color.BLACK);
-        nameInput.setTextColor(Color.BLACK);
-        weekNames.add(nameInput);
-        currentWeek.addView(nameInput);
+        EditText weekNameInput = new EditText(this);
+        weekNameInput.setId(EditText.generateViewId());
+        weekNameInput.setInputType(1);
+        weekNameInput.setHint("Name of Week");
+        weekNameInput.setHintTextColor(Color.BLACK);
+        weekNameInput.setTextColor(Color.BLACK);
+        weekNames.add(weekNameInput);
+        currentWeek.addView(weekNameInput);
         weeks.addView(currentWeek);
 
         //Create the set of days for the week
@@ -111,11 +112,11 @@ public class addProgram extends AppCompatActivity {
 
     private ArrayList<Day> addDay() {
         //create an array list of days to add to the week
-        ArrayList<Day> daysArrayData=new ArrayList<Day>();
+        ArrayList<Day> daysArrayData = new ArrayList<Day>();
         //create an array list of day view ids
-        ArrayList<Integer> dayIdsLocal=new ArrayList<>();
+        ArrayList<Integer> dayIdsLocal = new ArrayList<>();
         //for number of days in the week
-        ArrayList<EditText> names=new ArrayList<>();
+        ArrayList<EditText> names = new ArrayList<>();
         for (int i = 0; i < Character.getNumericValue(dayValue.getText().charAt(0)); i++) {
             //Linear layout for the day
             LinearLayout currentDay = new LinearLayout(this);
@@ -123,33 +124,35 @@ public class addProgram extends AppCompatActivity {
             dayIdsLocal.add(View.generateViewId());
             currentDay.setId(dayIdsLocal.get(i));
 
-            Day day=new Day("Day "+(i+1));
+            Day day = new Day("Day " + (i+1));
             //add the day to the array of days for the actual data
             daysArrayData.add(day);
 
             //Name of the day
-            EditText nameInput = new EditText(this);
-            nameInput.setInputType(1);
-            nameInput.setHint("Name of Day " + (i+1));
-            nameInput.setHintTextColor(Color.BLACK);
-            nameInput.setTextColor(Color.BLACK);
-            names.add(nameInput);
-            currentDay.addView(nameInput);
+            EditText dayNameInput = new EditText(this);
+            dayNameInput.setId(EditText.generateViewId());
+            dayNameInput.setInputType(1);
+            dayNameInput.setHint("Name of Day");
+            //dayNameInput.setHint("Name of Day " + (i+1));
+            dayNameInput.setHintTextColor(Color.BLACK);
+            dayNameInput.setTextColor(Color.BLACK);
+            names.add(dayNameInput);
+            currentDay.addView(dayNameInput);
 
             //Add buttons for adding exercises to each day
             Button addExercise = new Button(this);
             addExercise.setText("Add Exercise");
             addExercise.setTextColor(Color.BLACK);
-            addExercise.setTag((weekCounter*10)+i);
+            addExercise.setTag((weekCounter * 10) + i);
             currentDay.addView(addExercise);
 
             //add the day view to the week view
-            LinearLayout week=(LinearLayout)weeks.findViewById(weekIds.get(weekCounter));
+            LinearLayout week = (LinearLayout) weeks.findViewById(weekIds.get(weekCounter));
             week.addView(currentDay);
 
             addExercise.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    Button innerButton=(Button)view;
+                    Button innerButton = (Button) view;
                     //Get result from search intent
                     Intent searchIntent=new Intent(view.getContext(), selectExercise.class);
                     startActivityForResult(searchIntent, (int)innerButton.getTag());
@@ -162,7 +165,7 @@ public class addProgram extends AppCompatActivity {
         return daysArrayData;
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data!=null) {
+        if (data != null) {
             String stringToAdd = data.getStringExtra("Exercise");
             //If intensity or volume<0, there is no user inputted intensity or volume
             int[] intensity = data.getIntArrayExtra("Intensity");
@@ -183,13 +186,13 @@ public class addProgram extends AppCompatActivity {
         }
     }
     public void saveProgram(View view) {
-        Program toAdd=new Program("Figure out names later");
-        toAdd.weeks=weeksArray;
-        for (int i=0; i<weekNames.size(); i++) {
+        Program toAdd = new Program("Figure out names later");
+        toAdd.weeks = weeksArray;
+        for (int i = 0; i<weekNames.size(); i++) {
             if (!weekNames.get(i).getText().toString().isEmpty()) {
                 toAdd.weeks.get(i).name = weekNames.get(i).getText().toString();
             }
-            for (int j=0; j<dayNames.get(i).size(); j++) {
+            for (int j = 0; j < dayNames.get(i).size(); j++) {
                 if (!dayNames.get(i).get(j).getText().toString().trim().isEmpty()) {
                     toAdd.weeks.get(i).days.get(j).name = dayNames.get(i).get(j).getText().toString();
                 }
@@ -197,11 +200,11 @@ public class addProgram extends AppCompatActivity {
         }
         toAdd.name=((EditText)findViewById(R.id.programName)).getText().toString().trim();
         if (toAdd.name.isEmpty()) {
-            toAdd.name="Custom Program";
+            toAdd.name = "Custom Program";
         }
         MyPrograms.programs.add(toAdd);
         MyPrograms.expanded.add(false);
-        Intent returnIntent=new Intent(this, MyPrograms.class);
+        Intent returnIntent = new Intent(this, MyPrograms.class);
         startActivity(returnIntent);
         finish();
     }
